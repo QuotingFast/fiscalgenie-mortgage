@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get A Second Opinion on Your Mortgage Rate | FiscalGenie</title>
+  <meta name="description" content="Your lender gave you a rate. Now get the real one. 92% of buyers overpay. A 60-second check compares 50+ lenders and could save you $10,000+ over your loan.">
+  <meta property="og:title" content="Your Lender Gave You A Rate. Now Get The Real One.">
+  <meta property="og:description" content="92% of buyers accept the first rate they're offered — and overpay $10,000+. Get a free comparison in 60 seconds.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Second Opinion Page Specific ---- */
+
+    /* Confrontational badge */
+    .hero-badge-warning {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(231,76,60,0.18);
+      border: 1px solid rgba(231,76,60,0.45);
+      color: #ff7b6e;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    /* Stat callout in hero */
+    .hero-stat-callout {
+      display: inline-block;
+      background: rgba(244,185,66,0.15);
+      border-left: 3px solid var(--gold);
+      padding: 10px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      max-width: 460px;
+    }
+
+    .hero-stat-callout strong {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    /* Rate reveal urgency meter */
+    .urgency-meter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(231,76,60,0.12);
+      border: 1px solid rgba(231,76,60,0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      max-width: 460px;
+    }
+
+    .urgency-dot {
+      width: 10px;
+      height: 10px;
+      background: #E74C3C;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse-red 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(231,76,60,0.4); }
+      50% { opacity: 0.8; transform: scale(1.1); box-shadow: 0 0 0 6px rgba(231,76,60,0); }
+    }
+
+    .urgency-text {
+      font-size: 13px;
+      color: #ff9a94;
+      font-weight: 600;
+    }
+
+    /* Form card header - opinion variant */
+    .form-card-header-opinion {
+      background: linear-gradient(135deg, #E74C3C 0%, #c0392b 100%);
+      padding: 18px 28px 14px;
+      text-align: center;
+    }
+
+    .form-card-header-opinion h2 {
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .form-card-header-opinion p {
+      color: rgba(255,255,255,0.75);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: var(--navy);
+      padding: 72px 24px;
+    }
+
+    .stats-section .section-header h2 { color: var(--white); }
+    .stats-section .section-header p { color: rgba(255,255,255,0.55); }
+    .stats-section .section-label {
+      background: rgba(231,76,60,0.15);
+      color: #ff7b6e;
+    }
+
+    .stats-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244,185,66,0.3);
+    }
+
+    .stat-number {
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -2px;
+    }
+
+    .stat-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .stat-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    .stat-card-highlight {
+      border-color: rgba(231,76,60,0.4);
+      background: rgba(231,76,60,0.08);
+    }
+
+    .stat-card-highlight .stat-number { color: #ff7b6e; }
+
+    /* How it works arrows */
+    .how-section-opinion { background: var(--white); }
+
+    .steps-grid-opinion {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr 40px 1fr;
+      gap: 0;
+      align-items: start;
+    }
+
+    .step-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--gold);
+      padding-top: 26px;
+    }
+
+    .step-card-opinion {
+      text-align: center;
+      padding: 28px 20px;
+      border-radius: var(--radius-lg);
+      background: var(--gray);
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .step-card-opinion:hover {
+      border-color: var(--navy);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .step-icon-opinion {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .step-card-opinion h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .step-card-opinion p {
+      font-size: 13px;
+      color: var(--gray3);
+      line-height: 1.6;
+    }
+
+    .step-card-opinion.step-final {
+      background: rgba(39,174,96,0.08);
+      border-color: rgba(39,174,96,0.3);
+    }
+
+    .step-card-opinion.step-final h3 { color: var(--green); }
+
+    /* Quoted rate callout inside form */
+    .rate-tip {
+      background: rgba(39,174,96,0.08);
+      border: 1px solid rgba(39,174,96,0.25);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--green2);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Submit urgency copy */
+    .submit-urgency {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--gray3);
+      font-weight: 600;
+    }
+
+    .submit-urgency span { display: flex; align-items: center; gap: 4px; }
+    .submit-urgency .sep { color: var(--gray2); }
+
+    /* Trust strip - opinion */
+    .trust-strip-opinion {
+      background: var(--white);
+      border-top: 3px solid var(--gold);
+      border-bottom: 1px solid var(--gray2);
+      padding: 18px 24px;
+    }
+
+    /* Testimonial savings badge */
+    .savings-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(39,174,96,0.1);
+      border: 1px solid rgba(39,174,96,0.3);
+      color: var(--green2);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    /* CTA Band - opinion specific */
+    .cta-band-opinion {
+      background: linear-gradient(135deg, #c0392b 0%, #E74C3C 50%, var(--navy2) 100%);
+    }
+
+    /* Mobile stats */
+    @media (max-width: 860px) {
+      .stats-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+      .steps-grid-opinion { grid-template-columns: 1fr; gap: 16px; }
+      .step-arrow { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .stat-number { font-size: 42px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     STICKY HEADER
+     ============================================ -->
+<header class="site-header">
+  <a href="/" class="logo">
+    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+    <div class="logo-text">Fiscal<span>Genie</span></div>
+  </a>
+  <div class="header-cta">
+    <a href="tel:18005551234" class="header-phone"><i class="fa-solid fa-phone fa-sm"></i> (800) 555-1234</a>
+  </div>
+</header>
+
+
+<!-- ============================================
+     HERO + FORM
+     ============================================ -->
+<section class="hero hero-opinion">
+  <div class="hero-inner">
+
+    <!-- Left: Content -->
+    <div class="hero-content">
+
+      <div class="hero-badge-warning">
+        Rate Alert — You May Be Overpaying Right Now
+      </div>
+
+      <h1>Your Lender Gave You A Rate.<br><span class="highlight">Now Get The Real One.</span></h1>
+
+      <p class="hero-sub">
+        92% of buyers accept the first rate they're offered — and overpay <strong style="color:var(--gold)">$10,000+</strong> over the life of their loan. A 60-second check could save you thousands.
+      </p>
+
+      <div class="hero-stat-callout">
+        The average spread between lenders on a $350k loan is <strong>0.5%</strong> — that's <strong>$29,000</strong> in extra interest you'd pay for not comparing.
+      </div>
+
+      <div class="urgency-meter">
+        <div class="urgency-dot"></div>
+        <div class="urgency-text">Lender rates are being compared now — don't sign without checking first</div>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>No Credit Pull</span>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>60-Second Check</span>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>No Obligation</span>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>50+ Lenders Compared</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Multi-Step Form Card -->
+    <div class="form-card">
+
+      <!-- Card Header -->
+      <div class="form-card-header-opinion">
+        <h2>Get Your Free Second Opinion</h2>
+        <p>Takes 60 seconds • Zero obligation • Completely confidential</p>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar-wrap">
+        <div class="progress-steps">
+          <div class="progress-fill" style="width:0%"></div>
+
+          <div class="progress-step active">
+            <div class="step-dot">1</div>
+            <div class="step-label">Your Stage</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">2</div>
+            <div class="step-label">Loan Type</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">3</div>
+            <div class="step-label">Quoted Rate</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">4</div>
+            <div class="step-label">Property</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">5</div>
+            <div class="step-label">Contact</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Steps -->
+      <form id="lead-form" novalidate>
+        <div class="form-steps">
+
+          <!-- ---- STEP 1: Where are you in the process? ---- -->
+          <div class="form-step active">
+            <div class="step-question">Where are you in the process?</div>
+            <div class="option-group">
+              <div class="option-grid cols-1" style="gap:9px">
+                <button type="button" class="option-btn"
+                  data-field="buyer_stage" data-value="got_rate">
+                  <span class="opt-icon"><i class="fa-solid fa-file-lines"></i></span>
+                  Got a Rate — Not Sure It's Good
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="buyer_stage" data-value="working_lender">
+                  <span class="opt-icon"><i class="fa-solid fa-building-columns"></i></span>
+                  Working With a Lender
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="buyer_stage" data-value="pre_approved">
+                  <span class="opt-icon"><i class="fa-solid fa-circle-check"></i></span>
+                  Pre-Approved But Shopping
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="buyer_stage" data-value="making_offers">
+                  <span class="opt-icon"><i class="fa-solid fa-house"></i></span>
+                  Making Offers Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- STEP 2: What loan type were you offered? ---- -->
+          <div class="form-step">
+            <button type="button" class="btn-back">← Back</button>
+            <div class="step-question">What loan type were you offered?</div>
+            <div class="option-group">
+              <div class="option-grid">
+                <button type="button" class="option-btn"
+                  data-field="loan_type" data-value="conventional">
+                  <span class="opt-icon"><i class="fa-solid fa-building-columns"></i></span>
+                  Conventional
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="loan_type" data-value="fha">
+                  <span class="opt-icon"><i class="fa-solid fa-building"></i></span>
+                  FHA
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="loan_type" data-value="va">
+                  <span class="opt-icon"><i class="fa-solid fa-medal"></i></span>
+                  VA
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="loan_type" data-value="usda">
+                  <span class="opt-icon"><i class="fa-solid fa-seedling"></i></span>
+                  USDA
+                </button>
+                <button type="button" class="option-btn" style="grid-column: span 2"
+                  data-field="loan_type" data-value="not_sure">
+                  <span class="opt-icon"><i class="fa-solid fa-circle-question"></i></span>
+                  Not Sure
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- STEP 3: What rate were you quoted? ---- -->
+          <div class="form-step">
+            <button type="button" class="btn-back">← Back</button>
+            <div class="step-question">What rate were you quoted?</div>
+            <div class="rate-tip">
+              Even 0.25% higher than market = thousands extra over 30 years
+            </div>
+            <div class="option-group">
+              <div class="option-grid">
+                <button type="button" class="option-btn"
+                  data-field="quoted_rate" data-value="below_6">
+                  Below 6%
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="quoted_rate" data-value="6_6p5">
+                  6% – 6.5%
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="quoted_rate" data-value="6p5_7">
+                  6.5% – 7%
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="quoted_rate" data-value="7_7p5">
+                  7% – 7.5%
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="quoted_rate" data-value="above_7p5">
+                  Above 7.5%
+                </button>
+                <button type="button" class="option-btn"
+                  data-field="quoted_rate" data-value="not_told">
+                  Not Told Yet
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- STEP 4: Property details ---- -->
+          <div class="form-step">
+            <button type="button" class="btn-back">← Back</button>
+            <div class="step-question">Tell us about the home</div>
+            <div class="form-group">
+              <label class="form-label" for="purchase_price">Home Purchase Price</label>
+              <select class="form-select" id="purchase_price" name="purchase_price" required>
+                <option value="">Select price range…</option>
+                <option value="under_150k">Under $150,000</option>
+                <option value="150k_250k">$150,000 – $250,000</option>
+                <option value="250k_350k">$250,000 – $350,000</option>
+                <option value="350k_500k">$350,000 – $500,000</option>
+                <option value="500k_750k">$500,000 – $750,000</option>
+                <option value="750k_1m">$750,000 – $1,000,000</option>
+                <option value="over_1m">Over $1,000,000</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="credit_score">Est. Credit Score</label>
+                <select class="form-select" id="credit_score" name="credit_score" required>
+                  <option value="">Select…</option>
+                  <option value="760_plus">760+ (Excellent)</option>
+                  <option value="720_759">720–759 (Very Good)</option>
+                  <option value="680_719">680–719 (Good)</option>
+                  <option value="640_679">640–679 (Fair)</option>
+                  <option value="600_639">600–639 (Poor)</option>
+                  <option value="below_600">Below 600</option>
+                  <option value="unknown">Not Sure</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="state">State</label>
+                <select class="form-select" id="state" name="state" required>
+                  <option value="">Select…</option>
+                  <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+                  <option>Arkansas</option><option>California</option><option>Colorado</option>
+                  <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+                  <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                  <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+                  <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+                  <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+                  <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                  <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+                  <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+                  <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+                  <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                  <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+                  <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+                  <option>Texas</option><option>Utah</option><option>Vermont</option>
+                  <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                  <option>Wisconsin</option><option>Wyoming</option>
+                </select>
+              </div>
+            </div>
+            <button type="button" class="btn-next">Check My Rate →</button>
+          </div>
+
+          <!-- ---- STEP 5: Contact Info ---- -->
+          <div class="form-step">
+            <button type="button" class="btn-back">← Back</button>
+            <div class="step-question">Where should we send your comparison?</div>
+            <div class="form-group">
+              <label class="form-label" for="name">Full Name</label>
+              <input type="text" class="form-input" id="name" name="name"
+                placeholder="Your full name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Cell Phone</label>
+              <input type="tel" class="form-input" id="phone" name="phone"
+                placeholder="(555) 000-0000" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input type="email" class="form-input" id="email" name="email"
+                placeholder="you@email.com" required autocomplete="email">
+            </div>
+            <button type="submit" class="btn-submit">Get My Free Second Opinion →
+            </button>
+            <div class="submit-urgency">
+              <span>60 seconds</span>
+              <span class="sep">•</span>
+              <span>No credit check</span>
+              <span class="sep">•</span>
+              <span>No obligation</span>
+            </div>
+            <p class="form-disclaimer" style="margin-top:10px">
+              By submitting, you consent to receive calls and texts from FiscalGenie and our lending partners at the number provided. Msg &amp; data rates may apply. This is not a credit application.
+            </p>
+          </div>
+
+          <!-- ---- THANK YOU ---- -->
+          <div id="thank-you-step" class="thank-you-step hidden">
+            <div class="ty-icon"><i class="fa-solid fa-circle-check" style="color:#27AE60;font-size:52px;"></i></div>
+            <h3>A Specialist Is Reviewing Your Rate!</h3>
+            <p>We're comparing your quoted rate against <strong>50+ lenders</strong> right now.<br>Expect a call within minutes with your results.</p>
+            <div style="margin-top:20px; padding:16px; background:rgba(39,174,96,0.08); border-radius:10px; border:1px solid rgba(39,174,96,0.25)">
+              <div style="font-size:13px; font-weight:700; color:var(--green); margin-bottom:4px">What happens next:</div>
+              <div style="font-size:13px; color:var(--gray3); line-height:1.7">
+                A licensed mortgage advisor will call you with a side-by-side comparison. If we can't beat your current rate, we'll tell you — honestly.
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.form-steps -->
+      </form>
+    </div><!-- /.form-card -->
+
+  </div><!-- /.hero-inner -->
+</section>
+
+
+<!-- ============================================
+     TRUST STRIP
+     ============================================ -->
+<div class="trust-strip trust-strip-opinion">
+  <div class="trust-strip-inner">
+    <div class="trust-badge">
+      <i class="fa-solid fa-shield-halved tb-icon"></i>
+      <span>No Credit Pull Required</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fa-solid fa-star tb-icon"></i>
+      <span>Avg. Customer Saves $187/mo</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fa-solid fa-lock tb-icon"></i>
+      <span>Confidential Comparison</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fa-solid fa-bolt tb-icon"></i>
+      <span>60-Second Process</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================
+     WHY GET A SECOND OPINION — STATS
+     ============================================ -->
+<section class="stats-section">
+  <div class="section-header">
+    <div class="section-label">The Hard Truth</div>
+    <h2>Why You Should Never Take The First Rate</h2>
+    <p style="color:rgba(255,255,255,0.55)">These aren't opinions. They're numbers — and they add up fast.</p>
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="stat-card stat-card-highlight">
+      <div class="stat-number">92%</div>
+      <div class="stat-label">Never Compare Rates</div>
+      <div class="stat-desc">
+        Most buyers take the first offer their bank or real estate agent recommends — often the highest rate in the room.
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">0.5%</div>
+      <div class="stat-label">Avg. Rate Difference Between Lenders</div>
+      <div class="stat-desc">
+        Half a percent sounds small. On a $350,000 loan at 30 years, it's the difference of over $29,000 in interest paid.
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number" style="font-size:40px">$29K+</div>
+      <div class="stat-label">Avg. Overpayment on a $350k Loan</div>
+      <div class="stat-desc">
+        Buyers who got a second opinion saved an average of $187/month. That's a car payment — every month for 30 years.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================
+     HOW IT WORKS
+     ============================================ -->
+<section class="how-section how-section-opinion" style="padding:72px 24px">
+  <div class="section-header">
+    <div class="section-label">The Process</div>
+    <h2>How We Fight For Your Rate</h2>
+    <p>We're on your side — not the lender's. Here's how it works.</p>
+  </div>
+
+  <div class="steps-grid-opinion">
+
+    <div class="step-card-opinion">
+      <div class="step-icon-opinion"><i class="fa-solid fa-file-lines"></i></div>
+      <h3>Share Your Current Offer</h3>
+      <p>Tell us where you're at in 60 seconds. Your quoted rate, loan type, and basic property info.</p>
+    </div>
+
+    <div class="step-arrow">→</div>
+
+    <div class="step-card-opinion">
+      <div class="step-icon-opinion"></div>
+      <h3>We Compare 50+ Lenders</h3>
+      <p>Our specialists run your profile against our full lender network — banks, credit unions, and wholesale lenders your agent can't access.</p>
+    </div>
+
+    <div class="step-arrow">→</div>
+
+    <div class="step-card-opinion step-final">
+      <div class="step-icon-opinion"></div>
+      <h3>You Choose the Best Deal</h3>
+      <p>You get the results. You decide. If we can beat your rate, great. If not, you keep yours — with zero pressure.</p>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:40px">
+    <a href="#lead-form" class="btn-cta" onclick="document.querySelector('.form-card').scrollIntoView({behavior:'smooth'}); return false;">Get My Second Opinion Now
+    </a>
+    <div style="margin-top:12px; font-size:13px; color:var(--gray3)">Takes 60 seconds • No credit check • Call within minutes</div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     TESTIMONIALS
+     ============================================ -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <div class="section-label">Real Buyers, Real Savings</div>
+    <h2>They Almost Accepted That First Rate</h2>
+    <p>These buyers almost left thousands on the table. They're glad they didn't.</p>
+  </div>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="savings-badge">Saved $214/month</div>
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">
+        "Our realtor's lender quoted us 7.25%. I almost signed the pre-approval right there. FiscalGenie found us 6.625% in 20 minutes. That's $214 less per month — every month for 30 years. I'm furious I almost missed it."
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">MR</div>
+        <div>
+          <div class="author-name">Marcus R.</div>
+          <div class="author-loc">Austin, TX — Closed March 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="savings-badge">Saved $177/month</div>
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">
+        "I was already under contract and three weeks from closing when I did this. I thought it was too late. It wasn't. They found a lender that matched everything and came in a half-point lower. My attorney helped me switch. Best decision I made."
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">SL</div>
+        <div>
+          <div class="author-name">Stephanie L.</div>
+          <div class="author-loc">Charlotte, NC — Closed January 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="savings-badge">Saved $312/month</div>
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">
+        "Used my credit union because I thought loyalty would get me a good deal. It didn't. FiscalGenie found a wholesale lender I'd never heard of with a rate 0.75% lower. On a $485k home that's $312/month. My credit union was embarrassed when I told them."
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">DJ</div>
+        <div>
+          <div class="author-name">David J.</div>
+          <div class="author-loc">Phoenix, AZ — Closed February 2025</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================
+     FAQ
+     ============================================ -->
+<section class="faq-section">
+  <div class="section-header">
+    <div class="section-label">Questions</div>
+    <h2>Everything You're Wondering About</h2>
+    <p>We know you have concerns. Here's the honest truth.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q">
+        Will getting a second opinion hurt my credit score?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Absolutely not. Our initial comparison process does not require a credit pull. We use the credit score range you tell us to match you with lenders. Only if you decide to formally apply with a lender will a hard inquiry happen — and that's entirely your choice, completely separate from this process.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        How long does the comparison actually take?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        The form takes about 60 seconds. A licensed mortgage advisor will call you within minutes of receiving your submission. The full comparison against our lender network typically takes under 15 minutes. You'll have real numbers — not estimates — before the end of the call.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        Am I obligated to use FiscalGenie or switch lenders?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Zero obligation. Period. We exist to arm you with information, not to pressure you into anything. If we can't beat your current rate or terms, we'll tell you and you'll hang up with more confidence in your existing deal. If we can beat it, the choice is 100% yours. No hard sells, no badgering follow-ups.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        Is it too late to switch lenders if I'm already under contract?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        It's rarely too late — and more often possible than people realize. Many buyers successfully switch lenders after going under contract, especially in the early stages of the loan process. Your purchase agreement is with the seller, not your lender. As long as your closing timeline isn't extremely tight, switching is often straightforward. Our advisors will tell you honestly whether it makes sense for your situation.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================
+     BOTTOM CTA BAND
+     ============================================ -->
+<section class="cta-band cta-band-opinion">
+  <h2>Don't Sign Until You've Compared.</h2>
+  <p>Your lender is counting on you not to check. Prove them wrong — it takes 60 seconds.</p>
+  <a href="#" class="btn-cta"
+    onclick="document.querySelector('.form-card').scrollIntoView({behavior:'smooth'}); return false;">Get My Free Second Opinion Now
+  </a>
+  <div style="margin-top:14px; font-size:13px; color:rgba(255,255,255,0.5)">
+    No credit check • No obligation • 50+ lenders compared
+  </div>
+</section>
+
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon" style="width:28px;height:28px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+          <div class="logo-text" style="font-size:18px">Fiscal<span>Genie</span></div>
+        </div>
+        <p>Helping home buyers get honest mortgage rates since 2019. We compare — you decide.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="#">Purchase Loans</a>
+          <a href="#">Refinance</a>
+          <a href="#">VA Loans</a>
+          <a href="#">FHA Loans</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">How It Works</a>
+          <a href="#">Reviews</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">NMLS Consumer Access</a>
+          <a href="#">Licenses</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-legal">
+      <p>
+        <strong style="color:rgba(255,255,255,0.4)">TCPA Consent Disclosure:</strong> By submitting the form above, you expressly consent to receive telephone calls and/or text messages from FiscalGenie, its lending partners, and affiliated companies at the telephone number you provided, including wireless numbers. Calls may be made using an automatic telephone dialing system (ATDS) or artificial/prerecorded voice. Your consent is not required as a condition of purchasing any goods or services. Message and data rates may apply. Reply STOP to opt out of text messages.
+      </p>
+      <p style="margin-top:10px">
+        FiscalGenie is not a lender. We are a licensed mortgage comparison service that connects consumers with licensed mortgage professionals. NMLS #XXXXXXX. © 2025 FiscalGenie LLC. All rights reserved. Equal Housing Opportunity. Rates shown are for informational purposes only and are subject to change without notice. Not all applicants will qualify. Loan approval subject to underwriting guidelines. Savings figures are representative examples based on average customer outcomes and may vary based on loan amount, term, credit profile, and market conditions.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/form.js"></script>
+</body>
+</html>

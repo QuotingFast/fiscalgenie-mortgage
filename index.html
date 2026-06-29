@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FiscalGenie — Find the best mortgage rates for VA loans, home purchases, first-time buyers, and refinancing. Compare 50+ lenders in 60 seconds.">
+  <title>FiscalGenie.com — Smart Mortgage Rates | VA, Purchase &amp; Refinance</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Hub-specific styles ---- */
+    .hub-hero {
+      background: linear-gradient(135deg, #0A1628 0%, #162440 55%, #1a3550 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hub-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hub-hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+
+    .hub-hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+
+    .hub-hero h1 span { color: #F4B942; }
+
+    .hub-hero p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 48px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Shopper cards */
+    .shoppers-section {
+      background: #F4F6FA;
+      padding: 72px 24px;
+    }
+
+    .shoppers-grid {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .shopper-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(10,22,40,0.10);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .shopper-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(10,22,40,0.16);
+    }
+
+    .card-banner {
+      height: 10px;
+    }
+
+    .card-banner.va     { background: linear-gradient(90deg, #1a3a7a, #2e6fbf); }
+    .card-banner.buyer  { background: linear-gradient(90deg, #1a7a40, #27AE60); }
+    .card-banner.refi   { background: linear-gradient(90deg, #7a1a6a, #b42fc7); }
+    .card-banner.opinion{ background: linear-gradient(90deg, #7a4a1a, #e5832a); }
+
+    .card-body { padding: 32px 32px 28px; flex: 1; display: flex; flex-direction: column; }
+
+    .card-icon {
+      font-size: 44px;
+      margin-bottom: 16px;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .card-tag.va      { background: rgba(26,58,122,0.1);  color: #1a3a7a; }
+    .card-tag.buyer   { background: rgba(39,174,96,0.1);  color: #27AE60; }
+    .card-tag.refi    { background: rgba(180,47,199,0.1); color: #8a1a9a; }
+    .card-tag.opinion { background: rgba(229,131,42,0.1); color: #b85a10; }
+
+    .shopper-card h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0A1628;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .shopper-card p {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .card-benefits {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .card-benefits li {
+      font-size: 14px;
+      color: #334155;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    .card-benefits li::before { content: '✓'; color: #27AE60; font-weight: 700; font-size: 15px; }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .card-cta.va      { background: #1a3a7a; color: #fff; }
+    .card-cta.buyer   { background: #27AE60; color: #fff; }
+    .card-cta.refi    { background: #8a1a9a; color: #fff; }
+    .card-cta.opinion { background: #b85a10; color: #fff; }
+
+    .shopper-card:hover .card-cta { filter: brightness(1.15); }
+
+    /* Stats bar */
+    .stats-bar {
+      background: #0A1628;
+      padding: 40px 24px;
+    }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stat-item {}
+    .stat-num {
+      font-size: 36px;
+      font-weight: 900;
+      color: #F4B942;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    .divider { width: 1px; background: rgba(255,255,255,0.1); }
+
+    @media (max-width: 760px) {
+      .shoppers-grid { grid-template-columns: 1fr; max-width: 520px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 460px) {
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="/" class="logo">
+    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+    <span class="logo-text">Fiscal<span>Genie</span></span>
+  </a>
+  <div class="header-cta">
+    <a href="tel:18005551234" class="header-phone"><i class="fa-solid fa-phone fa-sm"></i> (800) 555-1234</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hub-hero">
+  <div class="hub-hero-content">
+    <span class="hero-badge">Trusted by 340,000+ Homeowners</span>
+    <h1>Smart Mortgage Rates.<br><span>Zero Guesswork.</span></h1>
+    <p>Tell us what you need and we'll match you with the best lenders in 60 seconds. VA loans, purchases, refinancing — we've got you covered.</p>
+    <div class="hero-trust">
+      <div class="trust-item"><i class="fa-solid fa-check trust-check"></i> 4.9/5 from 21,000+ reviews</div>
+      <div class="trust-item"><i class="fa-solid fa-check trust-check"></i> SSL Secured & Private</div>
+      <div class="trust-item"><i class="fa-solid fa-check trust-check"></i> 50+ Competing Lenders</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">340K+</div>
+      <div class="stat-label">Homeowners Helped</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$247</div>
+      <div class="stat-label">Avg. Monthly Savings</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Competing Lenders</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">60s</div>
+      <div class="stat-label">To Get Your Rates</div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOPPER CARDS -->
+<section class="shoppers-section">
+  <div class="section-header">
+    <span class="section-label">Choose Your Path</span>
+    <h2>What Type of Borrower Are You?</h2>
+    <p>Select your situation and we'll connect you with lenders who specialize in exactly what you need.</p>
+  </div>
+
+  <div class="shoppers-grid">
+
+    <!-- VA Loan -->
+    <a href="va-loan.html" class="shopper-card">
+      <div class="card-banner va"></div>
+      <div class="card-body">
+        <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
+        <span class="card-tag va">For Veterans & Military</span>
+        <h3>VA Home Loan</h3>
+        <p>You earned this benefit. Use it. VA loans offer no down payment, no PMI, and some of the lowest rates available — exclusively for those who served.</p>
+        <ul class="card-benefits">
+          <li>$0 Down Payment Required</li>
+          <li>No Private Mortgage Insurance (PMI)</li>
+          <li>Competitive Low Rates</li>
+          <li>Available for Active, Veterans & Surviving Spouses</li>
+        </ul>
+        <span class="card-cta va">Check My VA Rate →</span>
+      </div>
+    </a>
+
+    <!-- First-Time Buyer -->
+    <a href="first-time-buyer.html" class="shopper-card">
+      <div class="card-banner buyer"></div>
+      <div class="card-body">
+        <div class="card-icon"><i class="fa-solid fa-house"></i></div>
+        <span class="card-tag buyer">For Renters & First-Time Buyers</span>
+        <h3>Purchase — First-Time Buyer</h3>
+        <p>Stop building your landlord's equity. Millions of renters qualify to buy right now and don't know it. Find out what home you can afford.</p>
+        <ul class="card-benefits">
+          <li>Down Payment Programs From 3%</li>
+          <li>FHA, USDA & Conventional Options</li>
+          <li>First-Time Buyer Grants Available</li>
+          <li>No Impact to Credit to Check Rates</li>
+        </ul>
+        <span class="card-cta buyer">See What I Can Afford →</span>
+      </div>
+    </a>
+
+    <!-- Second Opinion -->
+    <a href="second-opinion.html" class="shopper-card">
+      <div class="card-banner opinion"></div>
+      <div class="card-body">
+        <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <span class="card-tag opinion">Already Shopping?</span>
+        <h3>Purchase — Get a Second Opinion</h3>
+        <p>Already working with a lender? 92% of buyers accept the first rate — and overpay thousands. A 60-second check could save you $10,000+.</p>
+        <ul class="card-benefits">
+          <li>No Credit Pull Required</li>
+          <li>Compare Your Rate Instantly</li>
+          <li>Even Works If You're Under Contract</li>
+          <li>Avg. Savings: $187/month vs. first offer</li>
+        </ul>
+        <span class="card-cta opinion">Get My Second Opinion →</span>
+      </div>
+    </a>
+
+    <!-- Refinance -->
+    <a href="refinance.html" class="shopper-card">
+      <div class="card-banner refi"></div>
+      <div class="card-body">
+        <div class="card-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+        <span class="card-tag refi">For Homeowners</span>
+        <h3>Refinance — Lower Rate or Cash Out</h3>
+        <p>Your home is sitting on hidden money. Refinancing could slash your monthly payment or unlock tens of thousands in equity — tax-free.</p>
+        <ul class="card-benefits">
+          <li>Lower Your Monthly Payment</li>
+          <li>Access Your Equity as Cash</li>
+          <li>No Obligation to Switch Lenders</li>
+          <li>Takes 60 Seconds to Compare</li>
+        </ul>
+        <span class="card-cta refi">See My Refi Savings →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-badge"><i class="fa-solid fa-building-columns tb-icon"></i> NMLS Verified Lenders</div>
+    <div class="trust-badge"><i class="fa-solid fa-star tb-icon"></i> 4.9/5 — 21,400 Reviews</div>
+    <div class="trust-badge"><i class="fa-solid fa-lock tb-icon"></i> 256-bit SSL Encrypted</div>
+    <div class="trust-badge"><i class="fa-solid fa-shield-halved tb-icon"></i> Equal Housing Lender</div>
+    <div class="trust-badge"><i class="fa-solid fa-circle-check tb-icon"></i> No Obligation</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-header">
+    <span class="section-label">How It Works</span>
+    <h2>Get Your Best Rate in 3 Simple Steps</h2>
+    <p>No long applications. No credit pulls. Just your best options, fast.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Tell Us Your Situation</h3>
+      <p>Answer a few simple questions about your loan type, home value, and credit score. Takes 60 seconds.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Compare Competing Lenders</h3>
+      <p>We match you with 50+ lenders who compete for your business — giving you real rates, not estimates.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Choose Your Best Deal</h3>
+      <p>Pick the lender and rate that works for you. No pressure, no obligation. Save thousands.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <span class="section-label">Real Reviews</span>
+    <h2>What Our Customers Say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I was ready to just go with my bank until FiscalGenie showed me a rate that was 0.75% lower. That's $312 a month I almost threw away. Took less than a minute to find it."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JM</div>
+        <div>
+          <div class="author-name">James M.</div>
+          <div class="author-loc">Austin, TX — Refinance</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"As a veteran I had no idea I could use my VA benefit with zero down. FiscalGenie connected me with a VA specialist and I closed 30 days later. Wish I'd done this years ago."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">DS</div>
+        <div>
+          <div class="author-name">Damon S.</div>
+          <div class="author-loc">Jacksonville, FL — VA Loan</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Was paying $1,850/mo in rent and figured I'd never afford to buy. FiscalGenie found me an FHA loan at $1,620/mo for a house I love. Less than rent. Seriously."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AP</div>
+        <div>
+          <div class="author-name">Alicia P.</div>
+          <div class="author-loc">Columbus, OH — First-Time Buyer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>Ready to Find Your Best Rate?</h2>
+  <p>Join 340,000+ homeowners who found smarter mortgage solutions.</p>
+  <a href="va-loan.html" class="btn-cta">Get Started — It's Free →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <div class="logo-icon" style="width:28px;height:28px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+          <span class="logo-text" style="font-size:18px;">Fiscal<span>Genie</span></span>
+        </a>
+        <p>Smart mortgage tools for smarter homeowners. Compare rates from 50+ lenders in 60 seconds.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="va-loan.html">VA Loans</a>
+          <a href="first-time-buyer.html">First-Time Buyer</a>
+          <a href="second-opinion.html">Second Opinion</a>
+          <a href="refinance.html">Refinance</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about.html">About Us</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Mortgage Calculator</a>
+          <a href="#">Rate Alerts</a>
+          <a href="#">Learning Center</a>
+          <a href="#">NMLS Disclosure</a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-legal">
+      <p>© 2026 FiscalGenie.com — All Rights Reserved. FiscalGenie is not a lender. We connect consumers with licensed mortgage professionals. Rates and terms vary by lender, credit score, and location. This is not a commitment to lend. Equal Housing Opportunity. NMLS Consumer Access: nmls.consumeraccess.org</p>
+      <br>
+      <p>By submitting a form on this website, you authorize FiscalGenie.com and its lending partners to contact you at the number provided, including by autodialer and/or prerecorded messages, regarding your mortgage inquiry. You are not required to consent to be contacted as a condition of receiving any services. Msg & data rates may apply. You may opt out at any time by replying STOP. See our <a href="/privacy.html" style="color:rgba(255,255,255,0.5)">Privacy Policy</a> and <a href="/terms.html" style="color:rgba(255,255,255,0.5)">Terms of Service</a>.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

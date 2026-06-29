@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find out if you qualify to stop renting and start owning. Match with first-time buyer programs, FHA loans, and down payment assistance in 60 seconds.">
+  <meta name="robots" content="index, follow">
+  <title>Stop Paying Your Landlord's Mortgage | FiscalGenie First-Time Buyer Programs</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Stop Paying Your Landlord's Mortgage. Start Building Your Own.">
+  <meta property="og:description" content="Millions of renters qualify to buy right now and don't know it. Find out what you qualify for in 60 seconds.">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ---- PAGE-SPECIFIC: Rent vs Own Section ---- */
+    .rent-own-section {
+      background: var(--white);
+      padding: 80px 24px;
+    }
+
+    .rent-own-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .rent-own-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: stretch;
+      margin-top: 48px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .comparison-col {
+      padding: 40px 36px;
+    }
+
+    .comparison-col.rent-col {
+      background: #FFF5F5;
+      border: 2px solid #FED7D7;
+      border-right: none;
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+
+    .comparison-col.own-col {
+      background: #F0FFF4;
+      border: 2px solid #C6F6D5;
+      border-left: none;
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+
+    .comparison-vs {
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .comparison-col-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .rent-col .comparison-col-label { color: #C53030; }
+    .own-col .comparison-col-label { color: var(--green); }
+
+    .comparison-amount {
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      letter-spacing: -1px;
+    }
+
+    .rent-col .comparison-amount { color: #C53030; }
+    .own-col .comparison-amount { color: var(--navy); }
+
+    .comparison-period {
+      font-size: 14px;
+      color: var(--gray3);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .equity-bar-wrap {
+      margin-bottom: 20px;
+    }
+
+    .equity-bar-label {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .rent-col .equity-bar-label { color: #C53030; }
+    .own-col .equity-bar-label { color: var(--navy); }
+
+    .equity-bar {
+      height: 14px;
+      border-radius: 100px;
+      background: var(--gray2);
+      overflow: hidden;
+    }
+
+    .equity-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 1.2s ease;
+    }
+
+    .rent-col .equity-bar-fill {
+      width: 0%;
+      background: #FC8181;
+    }
+
+    .own-col .equity-bar-fill {
+      width: 72%;
+      background: var(--green);
+    }
+
+    .comparison-list {
+      list-style: none;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .comparison-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .comparison-list li .ci {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    .rent-col .comparison-list li { color: #742A2A; }
+    .own-col .comparison-list li { color: #22543D; }
+
+    .comparison-bottom-label {
+      margin-top: 28px;
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .rent-col .comparison-bottom-label {
+      color: #C53030;
+    }
+
+    .own-col .comparison-bottom-label {
+      color: var(--green2);
+    }
+
+    .comparison-bottom-sub {
+      font-size: 13px;
+      color: var(--gray3);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* 5-year equity timeline */
+    .equity-timeline {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 32px 40px;
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-label {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .timeline-label strong {
+      color: var(--gold);
+      font-size: 22px;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .timeline-arrow {
+      color: var(--gold);
+      font-size: 28px;
+    }
+
+    /* ---- RENT CALCULATOR TEASER ---- */
+    .calc-callout {
+      background: linear-gradient(135deg, rgba(244,185,66,0.12) 0%, rgba(39,174,96,0.08) 100%);
+      border: 1px solid rgba(244,185,66,0.3);
+      border-radius: var(--radius-lg);
+      padding: 28px 36px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .calc-callout-text h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .calc-callout-text p {
+      font-size: 14px;
+      color: var(--gray3);
+    }
+
+    .calc-callout .btn-cta {
+      white-space: nowrap;
+    }
+
+    /* ---- HERO BADGE VARIANTS ---- */
+    .hero-purchase .hero-badge {
+      background: rgba(244,185,66,0.18);
+      border-color: rgba(244,185,66,0.4);
+    }
+
+    /* ---- URGENCY STRIP ---- */
+    .urgency-strip {
+      background: var(--green);
+      padding: 12px 24px;
+      text-align: center;
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .urgency-strip a {
+      color: var(--white);
+      text-decoration: underline;
+      font-weight: 800;
+    }
+
+    /* ---- STAT TICKER IN HERO ---- */
+    .hero-stat-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: left;
+    }
+
+    .hero-stat-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 860px) {
+      .rent-own-grid {
+        grid-template-columns: 1fr;
+      }
+      .comparison-col.rent-col {
+        border: 2px solid #FED7D7;
+        border-bottom: none;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+      .comparison-col.own-col {
+        border: 2px solid #C6F6D5;
+        border-top: none;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      }
+      .comparison-vs {
+        padding: 16px;
+        font-size: 15px;
+      }
+      .equity-timeline {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 24px;
+      }
+      .timeline-arrow { transform: rotate(90deg); }
+      .calc-callout { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .comparison-col { padding: 28px 20px; }
+      .comparison-amount { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     URGENCY STRIP
+════════════════════════════════════ -->
+<div class="urgency-strip">
+  <i class="fa-solid fa-house" style="margin-right:6px;"></i> Rates just updated — <a href="#lead-form">See what you qualify for before they change again →</a>
+</div>
+
+<!-- ════════════════════════════════════
+     HEADER
+════════════════════════════════════ -->
+<header class="site-header">
+  <a href="/" class="logo">
+    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+    <span class="logo-text">Fiscal<span>Genie</span></span>
+  </a>
+  <div class="header-cta">
+    <a href="tel:18005551234" class="header-phone"><i class="fa-solid fa-phone fa-sm"></i> (800) 555-1234</a>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="hero hero-purchase">
+  <div class="hero-inner">
+
+    <!-- LEFT: Content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        First-Time Buyer Programs Available Now
+      </div>
+
+      <h1>
+        Stop Paying Your<br>
+        Landlord's Mortgage.<br>
+        <span class="highlight">Start Building Your Own.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Millions of renters qualify to buy right now — and don't even know it.
+        In 60 seconds, find out what programs you qualify for and how little
+        you actually need to get started.
+      </p>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>No Credit Impact</span>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>Results in 60 Seconds</span>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>3% Down Programs</span>
+        </div>
+      </div>
+
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="hero-stat-num">8,200+</div>
+          <div class="hero-stat-label">New Homeowners Helped</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">$0</div>
+          <div class="hero-stat-label">Cost to Apply</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3.5%</div>
+          <div class="hero-stat-label">Min. Down Payment (FHA)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Multi-Step Form -->
+    <div class="form-card" id="lead-form-card">
+      <div class="form-card-header">
+        <h2>Find Your Home Loan</h2>
+        <p>Free match — no credit check, no obligation</p>
+      </div>
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-bar-wrap">
+        <div class="progress-steps">
+          <div class="progress-fill" style="width:0%"></div>
+
+          <div class="progress-step active">
+            <div class="step-dot">1</div>
+            <div class="step-label">Housing</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">2</div>
+            <div class="step-label">Monthly Rent</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">3</div>
+            <div class="step-label">Credit</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">4</div>
+            <div class="step-label">Budget</div>
+          </div>
+          <div class="progress-step">
+            <div class="step-dot">5</div>
+            <div class="step-label">Contact</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form id="lead-form" action="/submit.php" method="POST" novalidate>
+
+        <!-- STEP 1: Housing Status -->
+        <div class="form-steps">
+          <div class="form-step active" data-step="1">
+            <p class="step-question">Are you currently renting?</p>
+            <div class="option-group">
+              <div class="option-grid cols-1">
+                <button type="button" class="option-btn" data-field="housing_status" data-value="renting">
+                  <span class="opt-icon"><i class="fa-solid fa-city"></i></span>
+                  Yes, I'm Renting
+                </button>
+                <button type="button" class="option-btn" data-field="housing_status" data-value="own_upgrade">
+                  <span class="opt-icon"><i class="fa-solid fa-key"></i></span>
+                  I Own but Want to Upgrade
+                </button>
+                <button type="button" class="option-btn" data-field="housing_status" data-value="family">
+                  <span class="opt-icon"><i class="fa-solid fa-people-group"></i></span>
+                  I'm Living with Family
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Monthly Rent -->
+          <div class="form-step" data-step="2">
+            <button type="button" class="btn-back">← Back</button>
+            <p class="step-question">What's your monthly rent (or what would you pay)?</p>
+            <div class="option-group">
+              <div class="option-grid cols-1">
+                <button type="button" class="option-btn" data-field="monthly_rent" data-value="under_1000">
+                  Under $1,000/mo
+                </button>
+                <button type="button" class="option-btn" data-field="monthly_rent" data-value="1000_1500">
+                  $1,000 – $1,500/mo
+                </button>
+                <button type="button" class="option-btn" data-field="monthly_rent" data-value="1500_2000">
+                  $1,500 – $2,000/mo
+                </button>
+                <button type="button" class="option-btn" data-field="monthly_rent" data-value="2000_2500">
+                  $2,000 – $2,500/mo
+                </button>
+                <button type="button" class="option-btn" data-field="monthly_rent" data-value="2500_plus">
+                  $2,500+/mo
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Credit Score -->
+          <div class="form-step" data-step="3">
+            <button type="button" class="btn-back">← Back</button>
+            <p class="step-question">What's your credit score range?</p>
+            <div class="option-group">
+              <div class="option-grid">
+                <button type="button" class="option-btn" data-field="credit_score" data-value="excellent">
+                  <span class="opt-icon"><i class="fa-solid fa-star"></i></span>
+                  Excellent<br><small style="font-weight:500;color:var(--gray3)">720+</small>
+                </button>
+                <button type="button" class="option-btn" data-field="credit_score" data-value="good">
+                  <span class="opt-icon"><i class="fa-solid fa-thumbs-up"></i></span>
+                  Good<br><small style="font-weight:500;color:var(--gray3)">680–719</small>
+                </button>
+                <button type="button" class="option-btn" data-field="credit_score" data-value="fair">
+                  <span class="opt-icon"><i class="fa-solid fa-chart-bar"></i></span>
+                  Fair<br><small style="font-weight:500;color:var(--gray3)">640–679</small>
+                </button>
+                <button type="button" class="option-btn" data-field="credit_score" data-value="needs_help">
+                  <span class="opt-icon"><i class="fa-solid fa-gears"></i></span>
+                  Need Help<br><small style="font-weight:500;color:var(--gray3)">Below 640</small>
+                </button>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--gray3);margin-top:12px;text-align:center;">
+              FHA programs start at 580 — we'll still find options for you.
+            </p>
+          </div>
+
+          <!-- STEP 4: Budget & State -->
+          <div class="form-step" data-step="4">
+            <button type="button" class="btn-back">← Back</button>
+            <p class="step-question">What's your estimated purchase budget?</p>
+
+            <div class="form-group">
+              <label class="form-label" for="purchase_budget">Estimated Home Budget</label>
+              <select class="form-select" id="purchase_budget" name="purchase_budget" required>
+                <option value="" disabled selected>Select a range...</option>
+                <option value="under_150k">Under $150,000</option>
+                <option value="150k_250k">$150,000 – $250,000</option>
+                <option value="250k_350k">$250,000 – $350,000</option>
+                <option value="350k_500k">$350,000 – $500,000</option>
+                <option value="500k_plus">$500,000+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="state">What state are you looking to buy in?</label>
+              <select class="form-select" id="state" name="state" required>
+                <option value="" disabled selected>Select a state...</option>
+                <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+                <option>Arkansas</option><option>California</option><option>Colorado</option>
+                <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+                <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+                <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+                <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+                <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+                <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+                <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+                <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+                <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+                <option>Texas</option><option>Utah</option><option>Vermont</option>
+                <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                <option>Wisconsin</option><option>Wyoming</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn-next">Next →</button>
+          </div>
+
+          <!-- STEP 5: Contact Info -->
+          <div class="form-step" data-step="5">
+            <button type="button" class="btn-back">← Back</button>
+            <p class="step-question">Almost there — where should we send your results?</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="first_name">First Name</label>
+                <input type="text" class="form-input" id="first_name" name="first_name"
+                  placeholder="Jane" required autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last_name">Last Name</label>
+                <input type="text" class="form-input" id="last_name" name="last_name"
+                  placeholder="Smith" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input type="email" class="form-input" id="email" name="email"
+                placeholder="jane@email.com" required autocomplete="email">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" class="form-input" id="phone" name="phone"
+                  placeholder="(555) 000-0000" required autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="zip">Zip Code</label>
+                <input type="text" class="form-input" id="zip" name="zip"
+                  placeholder="30301" maxlength="5" required autocomplete="postal-code">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Show Me Homes I Can Afford →
+            </button>
+
+            <p class="form-disclaimer">
+              By clicking above, you consent to receive calls and texts from FiscalGenie
+              and its lending partners at the number provided. Consent is not required to
+              purchase. Msg &amp; data rates may apply. See <a href="#" style="color:inherit">Privacy Policy</a>.
+            </p>
+          </div>
+
+          <!-- THANK YOU STEP -->
+          <div id="thank-you-step" class="thank-you-step hidden">
+            <div class="ty-icon"><i class="fa-solid fa-circle-check" style="color:#27AE60;font-size:52px;"></i></div>
+            <h3>You're One Step Closer to Homeownership!</h3>
+            <p>
+              A home loan specialist will reach out within minutes with
+              the programs you qualify for — including programs with as
+              little as <strong>3% down</strong>.
+            </p>
+            <p style="margin-top:12px;font-size:13px;">
+              Check your phone — we may text you shortly.
+            </p>
+          </div>
+
+        </div><!-- /form-steps -->
+      </form>
+    </div><!-- /form-card -->
+
+  </div><!-- /hero-inner -->
+</section>
+
+<!-- ════════════════════════════════════
+     TRUST STRIP
+════════════════════════════════════ -->
+<section class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-badge">
+      <i class="fa-solid fa-shield-halved tb-icon"></i>
+      <span>No Impact on Credit Score</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fa-solid fa-star tb-icon"></i>
+      <span>4.8/5 from 8,200+ New Homeowners</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fa-solid fa-lock tb-icon"></i>
+      <span>100% Secure &amp; Private</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fa-solid fa-dollar-sign tb-icon"></i>
+      <span>Programs Starting at 3% Down</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     RENT VS OWN COMPARISON
+════════════════════════════════════ -->
+<section class="rent-own-section">
+  <div class="rent-own-inner">
+
+    <div class="section-header">
+      <div class="section-label">The Real Cost of Renting</div>
+      <h2>Every Month You Rent, <br>Someone Else Gets Richer</h2>
+      <p>
+        Your landlord's mortgage gets paid by you. Their property gains equity.
+        You get nothing. Here's what that actually looks like.
+      </p>
+    </div>
+
+    <div class="rent-own-grid">
+
+      <!-- RENTING COLUMN -->
+      <div class="comparison-col rent-col">
+        <div class="comparison-col-label">❌ Renting</div>
+        <div class="comparison-amount">$1,500</div>
+        <div class="comparison-period">per month → gone forever</div>
+
+        <div class="equity-bar-wrap">
+          <div class="equity-bar-label">Equity you're building</div>
+          <div class="equity-bar">
+            <div class="equity-bar-fill" style="width:0%"></div>
+          </div>
+          <div style="font-size:13px;color:#C53030;font-weight:700;margin-top:6px;">$0 — Zero. Zilch. Nothing.</div>
+        </div>
+
+        <ul class="comparison-list">
+          <li><span class="ci">❌</span> $18,000/year straight to your landlord</li>
+          <li><span class="ci">❌</span> Rent increases every year — you can't control it</li>
+          <li><span class="ci">❌</span> You can be forced to move at any time</li>
+          <li><span class="ci">❌</span> No tax deductions on rent payments</li>
+          <li><span class="ci">❌</span> Building someone else's retirement, not yours</li>
+        </ul>
+
+        <div class="comparison-bottom-label">$0 Net Worth Built</div>
+        <div class="comparison-bottom-sub">After 5 years of renting</div>
+      </div>
+
+      <!-- VS -->
+      <div class="comparison-vs">VS</div>
+
+      <!-- OWNING COLUMN -->
+      <div class="comparison-col own-col">
+        <div class="comparison-col-label">Owning</div>
+        <div class="comparison-amount">$1,500</div>
+        <div class="comparison-period">per month → equity you keep</div>
+
+        <div class="equity-bar-wrap">
+          <div class="equity-bar-label">Equity you're building</div>
+          <div class="equity-bar">
+            <div class="equity-bar-fill" style="width:72%"></div>
+          </div>
+          <div style="font-size:13px;color:var(--green2);font-weight:700;margin-top:6px;">Growing every single month </div>
+        </div>
+
+        <ul class="comparison-list">
+          <li><span class="ci"></span> $1,100+/mo goes toward equity you own</li>
+          <li><span class="ci"></span> Fixed payment — same amount for 30 years</li>
+          <li><span class="ci"></span> Nobody can raise your rate or force you out</li>
+          <li><span class="ci"></span> Mortgage interest is often tax deductible</li>
+          <li><span class="ci"></span> Building generational wealth for your family</li>
+        </ul>
+
+        <div class="comparison-bottom-label">~$52,000+ Built</div>
+        <div class="comparison-bottom-sub">In equity after 5 years (est. avg. appreciation)</div>
+      </div>
+
+    </div><!-- /rent-own-grid -->
+
+    <!-- 5-Year Visual Timeline -->
+    <div class="equity-timeline">
+      <div class="timeline-label">
+        Year 1
+        <strong>You: $0 equity<br>Landlord: $18K richer</strong>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-label">
+        Year 3
+        <strong>You: $0 equity<br>Landlord: $54K richer</strong>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-label">
+        Year 5
+        <strong>You: $0 equity<br>Landlord: $90K+ richer</strong>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-label" style="color:var(--gold);">
+        When does it stop?
+        <strong style="color:#fff;">It stops when YOU buy.</strong>
+      </div>
+    </div>
+
+    <!-- Callout CTA -->
+    <div class="calc-callout">
+      <div class="calc-callout-text">
+        <h3>You may need less than you think to get started</h3>
+        <p>Many first-time buyers close with 3–5% down — some programs offer down payment assistance on top of that.</p>
+      </div>
+      <a href="#lead-form-card" class="btn-cta">See What I Qualify For →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════ -->
+<section class="how-section">
+  <div class="section-header">
+    <div class="section-label">Simple 3-Step Process</div>
+    <h2>From Renter to Homeowner<br>Faster Than You Think</h2>
+    <p>No confusing paperwork. No pushy calls. Just a clear path to your first home.</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Tell Us About Your Situation</h3>
+      <p>
+        Answer a few quick questions — your income, credit range, and what you're looking for.
+        Takes less than 60 seconds. No personal info until you're ready.
+      </p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Get Matched with Programs</h3>
+      <p>
+        Our system instantly matches you with FHA loans, down payment assistance,
+        first-time buyer grants, and low-rate conventional options based on your profile.
+      </p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Move In Sooner Than You Think</h3>
+      <p>
+        A specialist calls or texts you within minutes with real numbers — what you qualify
+        for, your estimated payment, and how to get started. No obligation, ever.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════ -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <div class="section-label">Success Stories</div>
+    <h2>Real Renters. Real Homeowners.</h2>
+    <p>These people thought they couldn't afford to buy. They were wrong.</p>
+  </div>
+
+  <div class="testimonials-grid" style="margin-top:40px;">
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        "I was paying $1,800/month in rent and just assumed I'd never qualify to buy. I was
+        completely wrong. FiscalGenie matched me with an FHA program and I closed on a
+        3-bedroom home with just $7,200 down. My mortgage is actually $200 less than my rent was!"
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MR</div>
+        <div>
+          <div class="author-name">Marcus R.</div>
+          <div class="author-loc">Columbus, OH · First-Time Buyer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        "I thought I needed at least 20% down and perfect credit. The specialist showed me
+        programs I had no idea existed — including a state grant that covered my entire
+        down payment. I'm a homeowner now at 28. I cried when I got the keys."
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">DS</div>
+        <div>
+          <div class="author-name">Destiny S.</div>
+          <div class="author-loc">Atlanta, GA · Moved in 47 Days</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        "My credit was 661 and I'd been told no by two banks already. FiscalGenie found a
+        lender who worked with my score and I got approved in 2 days. I honestly didn't
+        believe it was real until I signed at the closing table."
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JL</div>
+        <div>
+          <div class="author-name">James &amp; Linda K.</div>
+          <div class="author-loc">Phoenix, AZ · 661 Credit Score at Close</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FAQ
+════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="section-header">
+    <div class="section-label">Common Questions</div>
+    <h2>First-Time Buyer FAQs</h2>
+    <p>Honest answers to the questions everyone is afraid to ask.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q">
+        What first-time buyer programs are actually available?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        There are dozens of programs depending on your state and situation. The most common include
+        FHA loans (as low as 3.5% down with a 580+ credit score), conventional loans with 3% down
+        (Fannie Mae HomeReady, Freddie Mac Home Possible), USDA loans for rural areas (0% down),
+        and state Housing Finance Agency grants that can cover your entire down payment. Many buyers
+        qualify for multiple programs — which is why matching matters.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        How much do I actually need for a down payment?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        The old myth of "20% down" is just that — a myth. FHA loans require as little as 3.5%
+        down. Conventional programs go as low as 3%. USDA and VA loans offer 0% down for qualifying
+        buyers. On a $250,000 home, 3.5% is just $8,750 — and many state programs offer grants or
+        forgivable loans to cover even that. In many cases, buyers close with very little or no
+        out-of-pocket cash.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        What is an FHA loan and do I qualify?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        An FHA loan is a mortgage backed by the Federal Housing Administration — designed specifically
+        for first-time and low-to-moderate income buyers. You may qualify with a credit score as low
+        as 580, a debt-to-income ratio up to 50%, and a down payment as low as 3.5%. FHA loans are
+        one of the most popular options for first-time buyers because they're more flexible than
+        conventional loans and available nationwide through approved lenders.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        What if my debt-to-income ratio is too high?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Debt-to-income (DTI) ratio is the percentage of your monthly income that goes to debt payments.
+        Most conventional loans want it under 45%, but FHA allows up to 50% in many cases. If your DTI
+        is high, there are still options: some lenders specialize in high-DTI borrowers, and we can help
+        you understand what's realistic for your situation. Even if you're not ready today, a specialist
+        can give you a clear roadmap to get there — often in 6–12 months.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CTA BAND
+════════════════════════════════════ -->
+<section class="cta-band">
+  <h2>Your Landlord Is Counting On You<br>To Never Check If You Qualify</h2>
+  <p>
+    Don't let another year of rent go by. It takes 60 seconds to find out what you qualify for —
+    and it doesn't cost you a thing.
+  </p>
+  <a href="#lead-form-card" class="btn-cta">Check My Eligibility Now — Free
+  </a>
+  <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,0.45);">
+    No credit check. No obligation. No spam.
+  </p>
+</section>
+
+<!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo" style="margin-bottom:10px;display:inline-flex;">
+          <div class="logo-icon" style="width:28px;height:28px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+          <span class="logo-text" style="font-size:18px;">Fiscal<span>Genie</span></span>
+        </a>
+        <p>Connecting first-time buyers with the programs and lenders that help them succeed.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <a href="#">FHA Loans</a>
+          <a href="#">USDA Loans</a>
+          <a href="#">VA Loans</a>
+          <a href="#">Down Payment Help</a>
+          <a href="#">Conventional Loans</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">How It Works</a>
+          <a href="#">Reviews</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">TCPA Disclosure</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <p class="footer-legal">
+      <strong style="color:rgba(255,255,255,0.5);">TCPA CONSENT DISCLOSURE:</strong> By submitting your information, you expressly consent to receive
+      calls and text messages, including those made using an automatic telephone dialing system
+      or an artificial or prerecorded voice, from FiscalGenie.com and its network of licensed
+      mortgage lenders, loan officers, and financial services partners, at the telephone number
+      you have provided, including wireless numbers. Consent to receive marketing calls/texts is
+      not required as a condition of purchasing any property, goods, or services. Message and data
+      rates may apply. You may opt out at any time by replying STOP to any text message or by
+      contacting us at <a href="mailto:privacy@fiscalgenie.com" style="color:inherit;">privacy@fiscalgenie.com</a>.
+      <br><br>
+      FiscalGenie.com is a lead generation and mortgage information platform, not a lender. We
+      connect consumers with licensed mortgage lenders and loan officers. This is not a commitment
+      to lend or a guarantee of any loan product. All loans are subject to credit approval,
+      underwriting guidelines, and applicable regulations. Equal Housing Opportunity.
+      <br><br>
+      © 2024 FiscalGenie.com. All rights reserved. NMLS Consumer Access:
+      <a href="https://nmlsconsumeraccess.org" target="_blank" rel="noopener noreferrer" style="color:inherit;">nmlsconsumeraccess.org</a>
+    </p>
+
+  </div>
+</footer>
+
+<script src="js/form.js"></script>
+</body>
+</html>
