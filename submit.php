@@ -62,7 +62,7 @@ if ($fh) {
 }
 
 // ---- Email Notification ----
-$subject = '🏠 New Mortgage Lead — ' . ($clean['loan_type'] ?? $clean['_page'] ?? 'FiscalGenie');
+$subject = 'New Mortgage Lead — ' . ($clean['loan_type'] ?? $clean['_page'] ?? 'FiscalGenie');
 $name    = trim(($clean['first_name'] ?? '') . ' ' . ($clean['last_name'] ?? ''));
 $body    = "New lead from FiscalGenie.com\n\n";
 $body   .= "Name:    {$name}\n";

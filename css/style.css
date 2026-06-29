@@ -844,3 +844,276 @@ body {
 .hero-purchase { background: linear-gradient(135deg, #0A1628 0%, #162440 50%, #1a3a50 100%); }
 .hero-refi { background: linear-gradient(135deg, #0a1628 0%, #1e1440 50%, #162030 100%); }
 .hero-opinion { background: linear-gradient(135deg, #0a1628 0%, #162033 50%, #0a2020 100%); }
+
+/* ---- 2026 VISUAL REFINEMENT ---- */
+body {
+  background:
+    radial-gradient(circle at top left, rgba(244, 185, 66, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 10%, rgba(39, 174, 96, 0.07), transparent 22%),
+    linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+  color: var(--text);
+}
+
+.site-header {
+  backdrop-filter: blur(14px);
+  background: rgba(10, 22, 40, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logo-icon {
+  box-shadow: inset 0 0 0 1px rgba(10, 22, 40, 0.08), 0 8px 18px rgba(244, 185, 66, 0.15);
+}
+
+.hero,
+.hub-hero,
+.cta-band,
+.site-footer {
+  position: relative;
+}
+
+.hero::after,
+.hub-hero::after,
+.cta-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.06), transparent 18%),
+    radial-gradient(circle at 82% 8%, rgba(244, 185, 66, 0.08), transparent 16%);
+}
+
+.hero-content,
+.hub-hero-content,
+.cta-band > *,
+.site-footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+.form-card,
+.testimonial-card,
+.step-card,
+.shopper-card,
+.stat-card,
+.comparison-col,
+.savings-calculator,
+.cashout-card,
+.contact-card,
+.legal-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 50px rgba(10, 22, 40, 0.10);
+}
+
+.form-card,
+.testimonial-card,
+.step-card,
+.shopper-card,
+.stat-card,
+.comparison-col,
+.savings-calculator,
+.cashout-card,
+.contact-card,
+.legal-card {
+  background-clip: padding-box;
+}
+
+.section-header h2,
+.hero h1,
+.hub-hero h1,
+.cta-band h2,
+.legal-title,
+.contact-title {
+  letter-spacing: -0.04em;
+}
+
+.hero-sub,
+.hub-hero p,
+.section-header p,
+.step-card p,
+.testimonial-text,
+.faq-a,
+.legal-card p,
+.legal-card li,
+.contact-card p,
+.contact-card li {
+  color: #5b6678;
+}
+
+.hero-badge,
+.hero-badge-warning,
+.equity-pill,
+.section-label,
+.calc-badge,
+.legal-eyebrow,
+.contact-eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-badge,
+.hero-badge-warning,
+.equity-pill,
+.section-label,
+.calc-badge {
+  box-shadow: none;
+}
+
+.hero-trust,
+.trust-strip-inner,
+.hero-stats,
+.savings-assumptions,
+.footer-links {
+  gap: 16px 28px;
+}
+
+.trust-item,
+.trust-badge {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.option-btn,
+.btn-next,
+.btn-submit,
+.btn-cta,
+.card-cta,
+.btn-start-refi {
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.option-btn {
+  border-color: #d9e2ec;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.option-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(10, 22, 40, 0.08);
+}
+
+.btn-next,
+.btn-submit,
+.btn-cta,
+.card-cta,
+.btn-start-refi {
+  box-shadow: 0 12px 28px rgba(10, 22, 40, 0.12);
+}
+
+.btn-next:hover,
+.btn-submit:hover,
+.btn-cta:hover,
+.card-cta:hover,
+.btn-start-refi:hover {
+  transform: translateY(-2px);
+}
+
+.step-card,
+.testimonial-card,
+.shopper-card,
+.contact-card,
+.legal-card {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.section-label {
+  border: 1px solid rgba(39, 174, 96, 0.14);
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.faq-q {
+  padding: 22px 0;
+}
+
+.site-footer {
+  background: linear-gradient(180deg, #08111f 0%, #060c16 100%);
+}
+
+.footer-divider {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.footer-col a,
+.footer-legal {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.footer-col a:hover {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.trust-strip {
+  background: linear-gradient(180deg, #f5f7fb 0%, #eef2f7 100%);
+}
+
+.trust-strip-inner {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.testimonials-section,
+.faq-section,
+.how-section,
+.shoppers-section,
+.savings-section,
+.rent-own-section {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.92)),
+    linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+}
+
+.hero::before,
+.hub-hero::before {
+  opacity: 0.5;
+}
+
+.stars {
+  color: #f4b942;
+  text-shadow: 0 1px 0 rgba(10, 22, 40, 0.08);
+}
+
+.comparison-vs {
+  letter-spacing: 0.16em;
+}
+
+.comparison-col {
+  backdrop-filter: blur(6px);
+}
+
+.comparison-col.rent-col {
+  background: linear-gradient(180deg, #fff8f8 0%, #fff 100%);
+}
+
+.comparison-col.own-col {
+  background: linear-gradient(180deg, #f7fff9 0%, #fff 100%);
+}
+
+.hero-stat-callout,
+.urgency-meter,
+.rate-tip,
+.savings-badge,
+.savings-badge-big .save-label,
+.savings-calc-header .calc-badge {
+  border-radius: 999px;
+}
+
+.ty-note {
+  background: linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%);
+  border: 1px solid rgba(39, 174, 96, 0.12);
+}
+
+.legal-card h2,
+.contact-card h2 {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  padding-bottom: 8px;
+}
+
+@media (max-width: 860px) {
+  .hero::after,
+  .hub-hero::after,
+  .cta-band::after {
+    background: none;
+  }
+}
