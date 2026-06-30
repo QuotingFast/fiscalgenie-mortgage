@@ -1,50 +1,55 @@
 /* =============================================================
-   FiscalGenie — Premium Design System
-   Palette: Navy #1B3A6B | Gold #E8A020 | Green #16A34A | Soft #F8FAFC
+   FiscalGenie v2 — Navy / Teal / Amber Design System
+   Palette: Navy #0F2547 | Teal #0E7490 | Amber #D97706
+   Zero red. Maximum contrast.
    ============================================================= */
 
-/* ---- Google Fonts ---- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 /* ---- Design Tokens ---- */
 :root {
-  --navy:      #1B3A6B;
-  --navy2:     #142d56;
-  --navy3:     #0f2040;
-  --gold:      #E8A020;
-  --gold2:     #d4911a;
-  --gold-light:#fef3c7;
-  --green:     #16A34A;
-  --green2:    #15803d;
-  --green-light:#dcfce7;
-  --red:       #dc2626;
-  --white:     #ffffff;
-  --bg:        #F8FAFC;
-  --bg2:       #f1f5f9;
-  --gray1:     #e2e8f0;
-  --gray2:     #cbd5e1;
-  --gray3:     #64748b;
-  --text:      #0f172a;
-  --text2:     #334155;
+  --navy:        #0F2547;
+  --navy2:       #1a3a6b;
+  --teal:        #0E7490;
+  --teal2:       #0891b2;
+  --amber:       #D97706;
+  --amber2:      #B45309;
+  --green:       #15803D;
+  --green2:      #166534;
+  --green-light: #dcfce7;
+  --white:       #FFFFFF;
+  --offwhite:    #F8FAFC;
+  --gray-100:    #F1F5F9;
+  --gray-200:    #E2E8F0;
+  --gray-500:    #64748B;
+  --gray-700:    #334155;
+  --text:        #0F172A;
+  --text2:       #1E293B;
+  --text3:       #475569;
 
-  --radius:    12px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
+  /* Compatibility aliases */
+  --bg:          #F8FAFC;
+  --bg2:         #F1F5F9;
+  --gray1:       #E2E8F0;
+  --gray2:       #CBD5E1;
+  --gray3:       #64748B;
 
-  --shadow-sm: 0 1px 4px rgba(15,23,42,0.08);
-  --shadow:    0 4px 16px rgba(15,23,42,0.10);
-  --shadow-lg: 0 8px 40px rgba(15,23,42,0.14);
-  --shadow-xl: 0 20px 60px rgba(15,23,42,0.20);
+  --radius:      12px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
 
-  --header-h: 68px;
-  --hero-overlay: linear-gradient(135deg, rgba(27,58,107,0.88) 0%, rgba(27,58,107,0.60) 100%);
+  --shadow-sm:   0 1px 4px rgba(15,23,42,0.08);
+  --shadow:      0 4px 16px rgba(15,23,42,0.10);
+  --shadow-lg:   0 8px 40px rgba(15,23,42,0.14);
+  --shadow-xl:   0 20px 60px rgba(15,23,42,0.20);
+
+  --header-h:    68px;
+  --hero-overlay: linear-gradient(to right, rgba(15,37,71,0.94) 0%, rgba(15,37,71,0.75) 60%, rgba(15,37,71,0.40) 100%);
 }
 
 /* ---- Reset & Base ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; font-size: 16px; }
-
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--white);
@@ -52,7 +57,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
 ul, ol { list-style: none; }
@@ -72,7 +76,7 @@ input, select, textarea { font-family: inherit; }
   z-index: 1000;
   height: var(--header-h);
   background: var(--white);
-  border-bottom: 1px solid var(--gray1);
+  border-bottom: 1px solid var(--gray-200);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -90,7 +94,7 @@ input, select, textarea { font-family: inherit; }
 .logo-icon {
   width: 36px;
   height: 36px;
-  background: var(--gold);
+  background: var(--teal);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -98,7 +102,7 @@ input, select, textarea { font-family: inherit; }
   flex-shrink: 0;
 }
 
-.logo-icon svg { fill: var(--navy); }
+.logo-icon svg { fill: var(--white); }
 
 .logo-text {
   font-size: 22px;
@@ -107,7 +111,8 @@ input, select, textarea { font-family: inherit; }
   letter-spacing: -0.5px;
 }
 
-.logo-text span { color: var(--gold); }
+/* "Genie" in teal */
+.logo-text span { color: var(--teal); }
 
 .header-cta {
   display: flex;
@@ -126,37 +131,38 @@ input, select, textarea { font-family: inherit; }
   transition: color 0.2s;
 }
 
-.header-phone:hover { color: var(--gold); }
-.header-phone i { color: var(--gold); }
+.header-phone:hover { color: var(--teal); }
+.header-phone i { color: var(--teal); }
 
+/* Nav CTA — teal bg, white text */
 .btn-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--teal);
+  color: var(--white);
   font-size: 14px;
   font-weight: 800;
   padding: 11px 22px;
   border-radius: 100px;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(232,160,32,0.35);
+  box-shadow: 0 2px 8px rgba(14,116,144,0.35);
 }
 
 .btn-cta:hover {
-  background: var(--gold2);
-  color: var(--navy);
+  background: var(--teal2);
+  color: var(--white);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(232,160,32,0.45);
+  box-shadow: 0 4px 16px rgba(14,116,144,0.45);
 }
 
 /* ============================================================
-   HERO — Full-Width Photo + Overlay
+   HERO — Full-Width Photo + Directional Overlay
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 580px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -186,23 +192,23 @@ input, select, textarea { font-family: inherit; }
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 24px 80px;
+  padding: 80px 24px 60px;
   display: grid;
   grid-template-columns: 1fr 460px;
   gap: 64px;
   align-items: center;
 }
 
-/* Hero Content */
+/* Hero Content — always white on dark overlay */
 .hero-content { color: var(--white); }
 
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(232,160,32,0.18);
-  border: 1px solid rgba(232,160,32,0.40);
-  color: var(--gold);
+  background: rgba(217,119,6,0.18);
+  border: 1px solid rgba(217,119,6,0.45);
+  color: var(--amber);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -215,7 +221,7 @@ input, select, textarea { font-family: inherit; }
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--amber);
   animation: blink 2s infinite;
 }
 
@@ -224,8 +230,9 @@ input, select, textarea { font-family: inherit; }
   50% { opacity: 0.3; }
 }
 
+/* Hero H1 — clamp 36→62px, weight 900, always white */
 .hero h1 {
-  font-size: clamp(36px, 5vw, 60px);
+  font-size: clamp(36px, 5vw, 62px);
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: -1.5px;
@@ -233,11 +240,12 @@ input, select, textarea { font-family: inherit; }
   color: var(--white);
 }
 
-.hero h1 .highlight { color: var(--gold); }
+.hero h1 .highlight { color: var(--amber); }
 
+/* Hero sub — rgba(255,255,255,0.90) */
 .hero-sub {
   font-size: 18px;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255,255,255,0.90);
   line-height: 1.65;
   margin-bottom: 32px;
   max-width: 520px;
@@ -256,24 +264,22 @@ input, select, textarea { font-family: inherit; }
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.90);
 }
 
 .trust-check {
-  color: var(--gold);
+  color: var(--amber);
   font-size: 12px;
 }
 
-/* ============================================================
-   HERO BADGE (legacy class for page-specific overrides)
-   ============================================================ */
+/* Hero badge (legacy class) */
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(232,160,32,0.18);
-  border: 1px solid rgba(232,160,32,0.40);
-  color: var(--gold);
+  background: rgba(217,119,6,0.18);
+  border: 1px solid rgba(217,119,6,0.45);
+  color: var(--amber);
   font-size: 13px;
   font-weight: 700;
   padding: 7px 16px;
@@ -307,15 +313,15 @@ input, select, textarea { font-family: inherit; }
 
 .form-card-header p {
   font-size: 13px;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255,255,255,0.70);
   font-weight: 500;
 }
 
 /* Progress Bar */
 .progress-bar-wrap {
   padding: 16px 28px 0;
-  background: #f8fafc;
-  border-bottom: 1px solid var(--gray1);
+  background: var(--offwhite);
+  border-bottom: 1px solid var(--gray-200);
 }
 
 .progress-steps {
@@ -331,7 +337,7 @@ input, select, textarea { font-family: inherit; }
   top: 14px;
   left: 0;
   height: 3px;
-  background: var(--gold);
+  background: var(--teal);
   border-radius: 100px;
   transition: width 0.4s ease;
   z-index: 0;
@@ -350,15 +356,15 @@ input, select, textarea { font-family: inherit; }
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--gray1);
-  color: var(--gray3);
+  background: var(--gray-200);
+  color: var(--gray-500);
   font-size: 12px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s;
-  border: 2px solid var(--gray2);
+  border: 2px solid var(--gray-200);
 }
 
 .progress-step.active .step-dot {
@@ -367,6 +373,7 @@ input, select, textarea { font-family: inherit; }
   border-color: var(--navy);
 }
 
+.progress-step.done .step-dot,
 .progress-step.completed .step-dot {
   background: var(--green);
   color: var(--white);
@@ -376,20 +383,16 @@ input, select, textarea { font-family: inherit; }
 .step-label {
   font-size: 10px;
   font-weight: 600;
-  color: var(--gray3);
+  color: var(--gray-500);
   white-space: nowrap;
 }
 
 .progress-step.active .step-label { color: var(--navy); font-weight: 700; }
 
 /* Form Steps */
-.form-steps {
-  padding: 24px 28px;
-}
+.form-steps { padding: 24px 28px; }
 
-.form-step {
-  display: none;
-}
+.form-step { display: none; }
 
 .form-step.active {
   display: block;
@@ -425,7 +428,7 @@ input, select, textarea { font-family: inherit; }
   align-items: center;
   gap: 10px;
   padding: 13px 16px;
-  border: 2px solid var(--gray1);
+  border: 2px solid var(--gray-200);
   border-radius: var(--radius);
   font-size: 14px;
   font-weight: 600;
@@ -438,28 +441,28 @@ input, select, textarea { font-family: inherit; }
 }
 
 .option-btn:hover {
-  border-color: var(--navy);
-  background: rgba(27,58,107,0.04);
-  color: var(--navy);
+  border-color: var(--teal);
+  background: rgba(14,116,144,0.05);
+  color: var(--teal);
 }
 
 .option-btn.selected {
-  border-color: var(--navy);
-  background: rgba(27,58,107,0.06);
-  color: var(--navy);
+  border-color: var(--teal);
+  background: rgba(14,116,144,0.08);
+  color: var(--teal);
 }
 
 .opt-icon {
   width: 32px;
   height: 32px;
-  background: var(--bg);
+  background: var(--gray-100);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   flex-shrink: 0;
-  color: var(--navy);
+  color: var(--teal);
 }
 
 /* Form Fields */
@@ -485,7 +488,7 @@ input, select, textarea { font-family: inherit; }
 .form-select {
   width: 100%;
   padding: 12px 14px;
-  border: 2px solid var(--gray1);
+  border: 2px solid var(--gray-200);
   border-radius: var(--radius);
   font-size: 15px;
   color: var(--text);
@@ -496,35 +499,39 @@ input, select, textarea { font-family: inherit; }
 
 .form-input:focus,
 .form-select:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 3px rgba(27,58,107,0.12);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14,116,144,0.12);
 }
 
+/* Error state — AMBER, never red */
 .form-input.error,
-.form-select.error { border-color: var(--red); }
+.form-select.error {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.12);
+}
 
-/* Buttons within form */
+/* Form Buttons — Amber bg, white text */
 .btn-next,
 .btn-submit {
   width: 100%;
   padding: 16px;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--amber);
+  color: var(--white);
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
   border-radius: 100px;
   border: none;
   cursor: pointer;
   margin-top: 12px;
   transition: all 0.2s;
-  box-shadow: 0 4px 16px rgba(232,160,32,0.35);
+  box-shadow: 0 4px 16px rgba(217,119,6,0.30);
 }
 
 .btn-next:hover,
 .btn-submit:hover {
-  background: var(--gold2);
+  background: var(--amber2);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(232,160,32,0.45);
+  box-shadow: 0 6px 20px rgba(217,119,6,0.40);
 }
 
 .btn-back {
@@ -532,7 +539,7 @@ input, select, textarea { font-family: inherit; }
   border: none;
   font-size: 13px;
   font-weight: 600;
-  color: var(--gray3);
+  color: var(--gray-500);
   cursor: pointer;
   padding: 0;
   margin-bottom: 14px;
@@ -546,7 +553,7 @@ input, select, textarea { font-family: inherit; }
 
 .form-disclaimer {
   font-size: 11px;
-  color: var(--gray3);
+  color: var(--gray-500);
   line-height: 1.55;
   margin-top: 12px;
   text-align: center;
@@ -571,7 +578,7 @@ input, select, textarea { font-family: inherit; }
 
 .thank-you-step p {
   font-size: 15px;
-  color: var(--gray3);
+  color: var(--gray-700);
   line-height: 1.65;
 }
 
@@ -579,7 +586,7 @@ input, select, textarea { font-family: inherit; }
    TRUST STRIP
    ============================================================ */
 .trust-strip {
-  background: var(--navy3);
+  background: var(--navy);
   padding: 20px 24px;
   overflow: hidden;
 }
@@ -600,11 +607,11 @@ input, select, textarea { font-family: inherit; }
   gap: 8px;
   font-size: 13px;
   font-weight: 700;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255,255,255,0.90);
   white-space: nowrap;
 }
 
-.tb-icon { color: var(--gold); font-size: 15px; }
+.tb-icon { color: var(--amber); font-size: 15px; }
 
 /* ============================================================
    STATS BAR
@@ -623,19 +630,17 @@ input, select, textarea { font-family: inherit; }
   text-align: center;
 }
 
-.stat-item {}
-
 .stat-num {
   font-size: 40px;
   font-weight: 900;
-  color: var(--gold);
+  color: var(--amber);
   letter-spacing: -1.5px;
   line-height: 1;
 }
 
 .stat-label {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.70);
   margin-top: 6px;
   font-weight: 500;
 }
@@ -655,19 +660,21 @@ input, select, textarea { font-family: inherit; }
   margin: 0 auto 48px;
 }
 
+/* Section label — teal, uppercase, 11px, weight 800 */
 .section-label {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--gold);
+  color: var(--teal);
   margin-bottom: 12px;
 }
 
+/* Section H2 — clamp 26→40px, weight 800, navy */
 .section-header h2 {
-  font-size: clamp(28px, 3.5vw, 42px);
-  font-weight: 900;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
   color: var(--navy);
   letter-spacing: -1px;
   line-height: 1.12;
@@ -676,7 +683,7 @@ input, select, textarea { font-family: inherit; }
 
 .section-header p {
   font-size: 17px;
-  color: var(--gray3);
+  color: var(--gray-700);
   line-height: 1.7;
 }
 
@@ -685,7 +692,7 @@ input, select, textarea { font-family: inherit; }
    ============================================================ */
 .how-section {
   padding: 96px 24px;
-  background: var(--bg);
+  background: var(--white);
 }
 
 .steps-grid {
@@ -703,8 +710,10 @@ input, select, textarea { font-family: inherit; }
   box-shadow: var(--shadow);
   text-align: center;
   position: relative;
-  border-top: 4px solid var(--gold);
+  border-top: 4px solid var(--teal);
   transition: transform 0.25s, box-shadow 0.25s;
+  border: 1px solid var(--gray-200);
+  border-top: 4px solid var(--teal);
 }
 
 .step-card:hover {
@@ -712,11 +721,12 @@ input, select, textarea { font-family: inherit; }
   box-shadow: var(--shadow-lg);
 }
 
+/* Step numbers in teal circles */
 .step-num {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--navy);
+  background: var(--teal);
   color: var(--white);
   font-size: 18px;
   font-weight: 900;
@@ -736,7 +746,7 @@ input, select, textarea { font-family: inherit; }
 
 .step-card p {
   font-size: 15px;
-  color: var(--gray3);
+  color: var(--gray-700);
   line-height: 1.65;
 }
 
@@ -757,10 +767,10 @@ input, select, textarea { font-family: inherit; }
 }
 
 .testimonial-card {
-  background: var(--bg);
+  background: var(--white);
   border-radius: var(--radius-lg);
   padding: 28px;
-  border: 1px solid var(--gray1);
+  border: 1px solid var(--gray-200);
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
@@ -771,7 +781,7 @@ input, select, textarea { font-family: inherit; }
 
 .stars {
   font-size: 18px;
-  color: var(--gold);
+  color: var(--teal);
   margin-bottom: 12px;
   letter-spacing: 2px;
 }
@@ -812,7 +822,7 @@ input, select, textarea { font-family: inherit; }
 
 .author-loc {
   font-size: 13px;
-  color: var(--gray3);
+  color: var(--gray-500);
   margin-top: 2px;
 }
 
@@ -821,7 +831,7 @@ input, select, textarea { font-family: inherit; }
    ============================================================ */
 .faq-section {
   padding: 96px 24px;
-  background: var(--bg);
+  background: var(--offwhite);
 }
 
 .faq-list {
@@ -835,7 +845,7 @@ input, select, textarea { font-family: inherit; }
 .faq-item {
   background: var(--white);
   border-radius: var(--radius);
-  border: 1px solid var(--gray1);
+  border: 1px solid var(--gray-200);
   overflow: hidden;
   transition: box-shadow 0.2s;
 }
@@ -860,12 +870,12 @@ input, select, textarea { font-family: inherit; }
   transition: background 0.2s;
 }
 
-.faq-q:hover { background: var(--bg); }
+.faq-q:hover { background: var(--offwhite); }
 
 .faq-icon {
   font-size: 22px;
   font-weight: 300;
-  color: var(--gold);
+  color: var(--teal);
   flex-shrink: 0;
   transition: transform 0.25s;
   line-height: 1;
@@ -875,12 +885,11 @@ input, select, textarea { font-family: inherit; }
 
 .faq-a {
   display: none;
-  padding: 0 22px 18px;
+  padding: 14px 22px 18px;
   font-size: 15px;
-  color: var(--text2);
+  color: var(--gray-700);
   line-height: 1.75;
-  border-top: 1px solid var(--gray1);
-  padding-top: 14px;
+  border-top: 1px solid var(--gray-200);
 }
 
 .faq-item.open .faq-a { display: block; animation: fadeIn 0.25s ease; }
@@ -900,7 +909,7 @@ input, select, textarea { font-family: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 60% 50%, rgba(232,160,32,0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 60% 50%, rgba(217,119,6,0.10) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -916,7 +925,7 @@ input, select, textarea { font-family: inherit; }
 
 .cta-band p {
   font-size: 18px;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.80);
   margin-bottom: 36px;
   max-width: 520px;
   margin-left: auto;
@@ -924,21 +933,36 @@ input, select, textarea { font-family: inherit; }
   position: relative;
 }
 
-.cta-band .btn-cta {
+/* CTA band button — amber bg, white text */
+.cta-band .btn-amber,
+.cta-band .btn-cta-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--amber);
+  color: var(--white);
   font-size: 17px;
+  font-weight: 700;
   padding: 16px 36px;
   border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(217,119,6,0.35);
   position: relative;
+}
+
+.cta-band .btn-amber:hover,
+.cta-band .btn-cta-amber:hover {
+  background: var(--amber2);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(217,119,6,0.45);
 }
 
 /* ============================================================
    SPLIT SECTIONS (image + text side by side)
    ============================================================ */
-.split-section {
-  padding: 96px 24px;
-}
-
-.split-section.bg-soft { background: var(--bg); }
+.split-section { padding: 96px 24px; }
+.split-section.bg-soft { background: var(--offwhite); }
 .split-section.bg-white { background: var(--white); }
 
 .split-inner {
@@ -969,9 +993,11 @@ input, select, textarea { font-family: inherit; }
 
 .split-image:hover img { transform: scale(1.04); }
 
+.split-content .section-label { display: block; margin-bottom: 10px; }
+
 .split-content h2 {
   font-size: clamp(26px, 3vw, 36px);
-  font-weight: 900;
+  font-weight: 800;
   color: var(--navy);
   letter-spacing: -0.7px;
   line-height: 1.15;
@@ -979,11 +1005,12 @@ input, select, textarea { font-family: inherit; }
 }
 
 .split-content .highlight { color: var(--green); }
-.split-content .gold { color: var(--gold); }
+.split-content .amber-text { color: var(--amber); }
 
+/* Body paragraphs on white/light bg — gray-700 */
 .split-content p {
   font-size: 16px;
-  color: var(--gray3);
+  color: var(--gray-700);
   line-height: 1.75;
   margin-bottom: 20px;
 }
@@ -1012,6 +1039,7 @@ input, select, textarea { font-family: inherit; }
   margin-top: 1px;
 }
 
+/* Button variants */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -1032,25 +1060,48 @@ input, select, textarea { font-family: inherit; }
   box-shadow: var(--shadow);
 }
 
-.btn-gold {
+/* Amber CTA button (replaces btn-gold) */
+.btn-amber {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--amber);
+  color: var(--white);
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 700;
   padding: 14px 28px;
   border-radius: 100px;
   text-decoration: none;
   transition: all 0.2s;
-  box-shadow: 0 4px 16px rgba(232,160,32,0.35);
+  box-shadow: 0 4px 16px rgba(217,119,6,0.30);
+}
+
+.btn-amber:hover {
+  background: var(--amber2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217,119,6,0.40);
+}
+
+/* Legacy alias — btn-gold now maps to amber */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(217,119,6,0.30);
 }
 
 .btn-gold:hover {
-  background: var(--gold2);
+  background: var(--amber2);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232,160,32,0.45);
+  box-shadow: 0 6px 20px rgba(217,119,6,0.40);
 }
 
 /* ============================================================
@@ -1058,7 +1109,7 @@ input, select, textarea { font-family: inherit; }
    ============================================================ */
 .loan-cards-section {
   padding: 96px 24px;
-  background: var(--bg);
+  background: var(--offwhite);
 }
 
 .loan-cards-grid {
@@ -1087,7 +1138,7 @@ input, select, textarea { font-family: inherit; }
 }
 
 .loan-card-photo {
-  height: 200px;
+  height: 220px;
   overflow: hidden;
   position: relative;
 }
@@ -1104,7 +1155,7 @@ input, select, textarea { font-family: inherit; }
 .loan-card-photo-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(27,58,107,0.20) 0%, rgba(27,58,107,0.65) 100%);
+  background: linear-gradient(to bottom, rgba(15,37,71,0.15) 0%, rgba(15,37,71,0.65) 100%);
   display: flex;
   align-items: flex-end;
   padding: 16px 20px;
@@ -1114,8 +1165,8 @@ input, select, textarea { font-family: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(232,160,32,0.90);
-  color: var(--navy);
+  background: rgba(217,119,6,0.90);
+  color: var(--white);
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
@@ -1142,7 +1193,7 @@ input, select, textarea { font-family: inherit; }
 
 .loan-card p {
   font-size: 15px;
-  color: var(--gray3);
+  color: var(--gray-700);
   line-height: 1.65;
   margin-bottom: 20px;
   flex: 1;
@@ -1170,12 +1221,13 @@ input, select, textarea { font-family: inherit; }
   font-size: 14px;
 }
 
+/* Card CTA — teal bg, white text */
 .loan-card-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px 20px;
-  background: var(--navy);
+  background: var(--teal);
   color: var(--white);
   border-radius: var(--radius);
   font-size: 15px;
@@ -1184,12 +1236,11 @@ input, select, textarea { font-family: inherit; }
   transition: background 0.2s;
 }
 
-.loan-card:hover .loan-card-cta { background: var(--navy2); }
-
-.loan-card-cta i { color: var(--gold); }
+.loan-card:hover .loan-card-cta { background: var(--teal2); }
+.loan-card-cta i { color: rgba(255,255,255,0.80); }
 
 /* ============================================================
-   FEATURE CARDS (3-col)
+   FEATURE CARDS (3-col dark)
    ============================================================ */
 .features-section {
   padding: 96px 24px;
@@ -1216,21 +1267,21 @@ input, select, textarea { font-family: inherit; }
 
 .feature-icon {
   font-size: 36px;
-  color: var(--gold);
+  color: var(--amber);
   margin-bottom: 16px;
 }
 
 .feature-card h3 {
   font-size: 20px;
   font-weight: 800;
-  color: var(--gold);
+  color: var(--white);
   margin-bottom: 10px;
   letter-spacing: -0.3px;
 }
 
 .feature-card p {
   font-size: 14px;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.80);
   line-height: 1.65;
 }
 
@@ -1240,7 +1291,7 @@ input, select, textarea { font-family: inherit; }
 .comparison-table {
   max-width: 720px;
   margin: 48px auto 0;
-  background: var(--bg);
+  background: var(--offwhite);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -1261,7 +1312,7 @@ input, select, textarea { font-family: inherit; }
   grid-template-columns: 2fr 1fr 1fr;
   padding: 14px 24px;
   align-items: center;
-  border-bottom: 1px solid var(--gray1);
+  border-bottom: 1px solid var(--gray-200);
 }
 
 .comp-row:last-child { border-bottom: none; }
@@ -1282,15 +1333,15 @@ input, select, textarea { font-family: inherit; }
 
 .comp-no {
   text-align: center;
-  color: var(--gray3);
+  color: var(--gray-500);
   font-size: 13px;
 }
 
 /* ============================================================
-   URGENCY STRIP (top bar)
+   URGENCY STRIP
    ============================================================ */
 .urgency-strip {
-  background: var(--green);
+  background: var(--teal);
   padding: 11px 24px;
   text-align: center;
   font-size: 14px;
@@ -1305,11 +1356,80 @@ input, select, textarea { font-family: inherit; }
 }
 
 /* ============================================================
+   HUB HERO (index-specific — centered, no form card)
+   ============================================================ */
+.hub-hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hub-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(15,37,71,0.88), rgba(15,37,71,0.78));
+}
+
+.hub-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 100px 24px 80px;
+}
+
+.hub-hero h1 {
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -2px;
+  line-height: 1.06;
+  margin-bottom: 18px;
+}
+
+.hub-hero h1 .amber-text { color: var(--amber); }
+
+.hub-hero p {
+  font-size: 19px;
+  color: rgba(255,255,255,0.90);
+  max-width: 580px;
+  margin: 0 auto 40px;
+  line-height: 1.65;
+}
+
+.hub-hero .hero-trust {
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.hub-hero .hero-eyebrow { display: inline-flex; }
+
+/* Hero stat rows (used on form pages) */
+.hero-stat-row { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+.hero-stat-item { display: flex; flex-direction: column; gap: 2px; }
+.hero-stat-val { font-size: 28px; font-weight: 900; color: var(--white); line-height: 1; }
+.hero-stat-val em,
+.hero-stat-val span { color: var(--amber); font-style: normal; }
+.hero-stat-lbl { font-size: 12px; color: rgba(255,255,255,0.70); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.6px; }
+.hero-stat-div,
+.hero-stat-divider { width: 1px; background: rgba(255,255,255,0.20); align-self: stretch; }
+
+/* Hero stats (refi-specific) */
+.hero-stats { display: flex; gap: 28px; margin: 28px 0; flex-wrap: wrap; }
+.hero-stat { display: flex; flex-direction: column; gap: 2px; }
+.hero-stat-val2 { font-size: 28px; font-weight: 900; color: var(--white); line-height: 1; }
+.hero-stat-val2 span { color: var(--amber); }
+.hero-stat-lbl2 { font-size: 12px; color: rgba(255,255,255,0.70); text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600; }
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .site-footer {
-  background: var(--navy3);
-  color: rgba(255,255,255,0.70);
+  background: var(--navy);
+  color: rgba(255,255,255,0.80);
 }
 
 .footer-inner {
@@ -1330,11 +1450,11 @@ input, select, textarea { font-family: inherit; }
   line-height: 1.65;
   max-width: 280px;
   margin-top: 12px;
-  color: rgba(255,255,255,0.50);
+  color: rgba(255,255,255,0.60);
 }
 
 .footer-brand .logo-text { color: var(--white); }
-.footer-brand .logo-text span { color: var(--gold); }
+.footer-brand .logo-text span { color: var(--teal); }
 
 .footer-links {
   display: grid;
@@ -1347,85 +1467,47 @@ input, select, textarea { font-family: inherit; }
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(255,255,255,0.40);
+  color: rgba(255,255,255,0.50);
   margin-bottom: 16px;
 }
 
 .footer-col a {
   display: block;
   font-size: 14px;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.70);
   margin-bottom: 10px;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.footer-col a:hover { color: var(--gold); }
+.footer-col a:hover { color: var(--amber); }
 
 .footer-divider {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.10);
   margin: 0 0 24px;
 }
 
 .footer-legal {
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.45);
   line-height: 1.65;
 }
 
-.footer-legal a { color: rgba(255,255,255,0.50); }
-.footer-legal a:hover { color: var(--gold); }
+.footer-legal a { color: rgba(255,255,255,0.60); text-decoration: underline; }
+.footer-legal a:hover { color: var(--amber); }
 
 /* ============================================================
-   HUB HERO (index-specific)
+   MISC UTILITY
    ============================================================ */
-.hub-hero {
-  position: relative;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hub-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 720px;
-  padding: 100px 24px;
-}
-
-.hub-hero h1 {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 900;
-  color: var(--white);
-  letter-spacing: -2px;
-  line-height: 1.06;
-  margin-bottom: 18px;
-}
-
-.hub-hero h1 .gold { color: var(--gold); }
-
-.hub-hero p {
-  font-size: 19px;
-  color: rgba(255,255,255,0.75);
-  max-width: 560px;
-  margin: 0 auto 40px;
-  line-height: 1.65;
-}
-
-/* ============================================================
-   MISC UTILITY CLASSES
-   ============================================================ */
-.text-gold { color: var(--gold); }
+.text-amber { color: var(--amber); }
+.text-teal  { color: var(--teal); }
 .text-green { color: var(--green); }
-.text-navy { color: var(--navy); }
+.text-navy  { color: var(--navy); }
 .text-white { color: var(--white); }
 
-.bg-navy { background: var(--navy); }
-.bg-soft { background: var(--bg); }
+.bg-navy   { background: var(--navy); }
+.bg-soft   { background: var(--offwhite); }
 
 .pill {
   display: inline-flex;
@@ -1443,8 +1525,23 @@ input, select, textarea { font-family: inherit; }
 }
 
 .pill-navy {
-  background: rgba(27,58,107,0.10);
+  background: rgba(15,37,71,0.10);
   color: var(--navy);
+}
+
+/* Savings tag (refi page) */
+.savings-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-light);
+  border: 1px solid rgba(21,128,61,0.30);
+  color: var(--green2);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 12px;
 }
 
 /* ============================================================
@@ -1456,59 +1553,34 @@ input, select, textarea { font-family: inherit; }
     max-width: 700px;
     text-align: center;
   }
-
   .hero-trust { justify-content: center; }
-
+  .hero-stat-row { justify-content: center; }
+  .hero-stats { justify-content: center; }
   .loan-cards-grid { gap: 20px; }
 }
 
 @media (max-width: 860px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    padding: 80px 24px 60px;
-  }
-
-  .loan-cards-grid {
-    grid-template-columns: 1fr;
-    max-width: 520px;
-  }
-
+  .hero-inner { grid-template-columns: 1fr; padding: 80px 24px 60px; }
+  .loan-cards-grid { grid-template-columns: 1fr; max-width: 520px; }
   .steps-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-
   .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-
   .features-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-
-  .split-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
+  .split-inner { grid-template-columns: 1fr; gap: 40px; }
   .split-inner.reverse { direction: ltr; }
-
   .stats-inner { grid-template-columns: repeat(2, 1fr); }
-
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
   .footer-links { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
   .site-header { padding: 0 16px; }
-
   .logo-text { font-size: 19px; }
-
   .header-phone { display: none; }
-
   .option-grid { grid-template-columns: 1fr; }
-
   .form-row { grid-template-columns: 1fr; }
-
   .stats-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
-
   .trust-strip-inner { gap: 12px 20px; }
-
   .footer-links { grid-template-columns: 1fr; }
-
   .hub-hero h1 { letter-spacing: -1px; }
 }
 

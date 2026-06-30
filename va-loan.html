@@ -10,21 +10,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ---- VA-specific hero stats ---- */
-    .hero-stat-row { display:flex; gap:28px; margin:28px 0; flex-wrap:wrap; }
-    .hero-stat-item { display:flex; flex-direction:column; gap:2px; }
-    .hero-stat-val { font-size:28px; font-weight:900; color:var(--white); line-height:1; }
-    .hero-stat-val em { color:var(--gold); font-style:normal; }
-    .hero-stat-lbl { font-size:12px; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.6px; font-weight:600; }
-    .hero-stat-div { width:1px; background:rgba(255,255,255,0.15); align-self:stretch; }
-
-    /* ---- VA Benefit feature cards ---- */
+    /* ---- VA Benefits section ---- */
     .va-benefits-section { padding:80px 24px; background:var(--white); }
     .va-benefits-inner { max-width:960px; margin:0 auto; }
 
-    /* ---- Military trust banner ---- */
+    /* Military trust banner */
     .military-banner {
-      background: linear-gradient(135deg, var(--navy3) 0%, var(--navy2) 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
       border-radius: var(--radius-xl);
       padding: 40px 48px;
       margin-top: 40px;
@@ -33,10 +25,15 @@
       gap: 40px;
       flex-wrap: wrap;
     }
-    .military-banner-icon { font-size: 56px; color: var(--gold); flex-shrink: 0; }
+    .military-banner-icon { font-size: 56px; color: var(--amber); flex-shrink: 0; }
     .military-banner-content h3 { font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: -0.5px; }
-    .military-banner-content p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.65; }
-    .military-banner .btn-gold { white-space: nowrap; margin-left: auto; flex-shrink: 0; }
+    .military-banner-content p { font-size: 15px; color: rgba(255,255,255,0.80); line-height: 1.65; }
+    .military-banner .btn-amber { white-space: nowrap; margin-left: auto; flex-shrink: 0; }
+
+    @media (max-width:860px) {
+      .military-banner { padding:28px 24px; gap:24px; }
+      .military-banner .btn-amber { margin-left:0; }
+    }
   </style>
 </head>
 <body>
@@ -47,7 +44,7 @@
 <header class="site-header">
   <a href="index.html" class="logo">
     <div class="logo-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#1B3A6B" xmlns="http://www.w3.org/2000/svg">
+      <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
       </svg>
     </div>
@@ -63,18 +60,18 @@
 <!-- ============================================================
      HERO — Veteran photo
      ============================================================ -->
-<section class="hero" id="hero" style="min-height: 100vh;">
+<section class="hero" id="hero" style="min-height:580px;">
   <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1508108712903-49b7ef9b1df8?w=1600&q=80&auto=format&fit=crop');"></div>
-  <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(15,32,64,0.92) 0%, rgba(27,58,107,0.70) 100%);"></div>
+  <div class="hero-overlay"></div>
 
   <div class="hero-inner">
-    <!-- LEFT: Content -->
+    <!-- LEFT: Content — white text always readable on dark left overlay -->
     <div class="hero-content">
       <div class="hero-badge">
         <i class="fa-solid fa-medal"></i> For Veterans, Active Military &amp; Surviving Spouses
       </div>
 
-      <h1>You Earned This<br>Benefit. Don't Leave<br>It on the <span class="highlight">Table.</span></h1>
+      <h1>You Earned This<br>Benefit. <span class="highlight">Use It.</span></h1>
 
       <p class="hero-sub">
         VA loans offer $0 down, no PMI, and rates consistently lower than conventional loans — exclusively for those who served. See your rate in 60 seconds.
@@ -198,16 +195,16 @@
             <div class="option-group">
               <div class="option-grid">
                 <button type="button" class="option-btn" data-field="credit_score" data-value="Excellent (720+)">
-                  <span class="opt-icon"><i class="fa-solid fa-trophy"></i></span><span>Excellent<br><small style="font-weight:500;color:var(--gray3)">720+</small></span>
+                  <span class="opt-icon"><i class="fa-solid fa-trophy"></i></span><span>Excellent<br><small style="font-weight:500;color:var(--gray-500)">720+</small></span>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="Good (680-719)">
-                  <span class="opt-icon"><i class="fa-solid fa-thumbs-up"></i></span><span>Good<br><small style="font-weight:500;color:var(--gray3)">680–719</small></span>
+                  <span class="opt-icon"><i class="fa-solid fa-thumbs-up"></i></span><span>Good<br><small style="font-weight:500;color:var(--gray-500)">680–719</small></span>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="Fair (640-679)">
-                  <span class="opt-icon"><i class="fa-solid fa-chart-bar"></i></span><span>Fair<br><small style="font-weight:500;color:var(--gray3)">640–679</small></span>
+                  <span class="opt-icon"><i class="fa-solid fa-chart-bar"></i></span><span>Fair<br><small style="font-weight:500;color:var(--gray-500)">640–679</small></span>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="Below 640">
-                  <span class="opt-icon"><i class="fa-solid fa-gears"></i></span><span>Rebuilding<br><small style="font-weight:500;color:var(--gray3)">Below 640</small></span>
+                  <span class="opt-icon"><i class="fa-solid fa-gears"></i></span><span>Rebuilding<br><small style="font-weight:500;color:var(--gray-500)">Below 640</small></span>
                 </button>
               </div>
             </div>
@@ -312,7 +309,7 @@
         <h3>Your benefit doesn't expire. Don't let it go unused.</h3>
         <p>Over 21 million veterans are eligible for VA loans — and millions have never used this benefit. Whether this is your first home or your fifth, your VA entitlement is there for you.</p>
       </div>
-      <a href="#hero" class="btn-gold">Check My VA Rate <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#hero" class="btn-amber">Check My VA Rate <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -331,9 +328,9 @@
 
     <div class="comparison-table">
       <div class="comp-header">
-        <span style="color:rgba(255,255,255,0.5);font-size:12px;font-weight:700;text-align:left;">Feature</span>
-        <span style="color:var(--gold);font-size:14px;font-weight:700;">VA Loan ✓</span>
-        <span style="color:rgba(255,255,255,0.5);font-size:12px;font-weight:700;">Conventional</span>
+        <span style="color:rgba(255,255,255,0.60);font-size:12px;font-weight:700;text-align:left;">Feature</span>
+        <span style="color:var(--amber);font-size:14px;font-weight:700;">VA Loan ✓</span>
+        <span style="color:rgba(255,255,255,0.60);font-size:12px;font-weight:700;">Conventional</span>
       </div>
       <div class="comp-row">
         <span class="comp-label">Down Payment</span>
@@ -366,7 +363,7 @@
 
 
 <!-- ============================================================
-     SPLIT SECTION — Aerial neighborhood
+     SPLIT SECTION — Suburban home photo
      ============================================================ -->
 <section class="split-section bg-white">
   <div class="split-inner">
@@ -385,7 +382,7 @@
         <li>Pick the best offer and close in as little as 21 days</li>
         <li>VA specialists available to answer any questions along the way</li>
       </ul>
-      <a href="#hero" class="btn-gold">Check My VA Rate Now <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#hero" class="btn-amber">Check My VA Rate Now <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -394,7 +391,7 @@
 <!-- ============================================================
      HOW IT WORKS
      ============================================================ -->
-<section style="padding:80px 24px; background:var(--bg);">
+<section style="padding:80px 24px;background:var(--offwhite);">
   <div class="section-header">
     <span class="section-label">How It Works</span>
     <h2>Get Your VA Rate in 3 Steps</h2>
@@ -434,7 +431,7 @@
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"I had no idea my VA benefit could be used for a second home. FiscalGenie connected me with a VA specialist who explained everything in 10 minutes. Closed with $0 down. Couldn't believe it."</p>
       <div class="testimonial-author">
-        <div class="author-avatar" style="background:var(--navy);">DS</div>
+        <div class="author-avatar">DS</div>
         <div>
           <div class="author-name">Damon S. — Army Veteran</div>
           <div class="author-loc">Jacksonville, FL — VA Purchase</div>
@@ -445,7 +442,7 @@
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"After 22 years in the Navy I finally used my VA loan. FiscalGenie found me a rate 0.6% lower than what my bank offered. On my $385k home, that's $189/month I keep. For life."</p>
       <div class="testimonial-author">
-        <div class="author-avatar" style="background:var(--navy);">MR</div>
+        <div class="author-avatar">MR</div>
         <div>
           <div class="author-name">Marcus R. — Navy Veteran</div>
           <div class="author-loc">Virginia Beach, VA — VA Purchase</div>
@@ -456,7 +453,7 @@
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"My husband passed serving overseas and I didn't know surviving spouses qualified for VA loans. FiscalGenie was compassionate, professional, and got me into a home with zero down. Forever grateful."</p>
       <div class="testimonial-author">
-        <div class="author-avatar" style="background:var(--navy);">LT</div>
+        <div class="author-avatar">LT</div>
         <div>
           <div class="author-name">Linda T. — Gold Star Spouse</div>
           <div class="author-loc">San Antonio, TX — VA Purchase</div>
@@ -503,8 +500,10 @@
 <section class="cta-band">
   <h2>Your VA Benefit Is Waiting.<br>Use It Today.</h2>
   <p>Join 340,000+ veterans who found their best rate through FiscalGenie.</p>
-  <a href="#hero" class="btn-cta" style="font-size:17px; padding:16px 36px;">Check My VA Rate — Free <i class="fa-solid fa-arrow-right fa-sm"></i></a>
-  <div style="margin-top:20px; color:rgba(255,255,255,0.40); font-size:13px;">
+  <a href="#hero" class="btn-amber" style="font-size:17px;padding:16px 36px;">
+    Check My VA Rate — Free <i class="fa-solid fa-arrow-right fa-sm"></i>
+  </a>
+  <div style="margin-top:20px;color:rgba(255,255,255,0.50);font-size:13px;">
     No SSN required &bull; No obligation &bull; Results in 60 seconds
   </div>
 </section>
@@ -519,7 +518,7 @@
       <div class="footer-brand">
         <a href="index.html" class="logo">
           <div class="logo-icon" style="width:32px;height:32px;">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="#1B3A6B" xmlns="http://www.w3.org/2000/svg">
+            <svg width="17" height="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
             </svg>
           </div>

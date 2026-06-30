@@ -11,13 +11,13 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* ---- Refi-specific overrides ---- */
+    /* ---- Refi page-specific ---- */
     .equity-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(22,163,74,0.15);
-      border: 1px solid rgba(22,163,74,0.40);
+      background: rgba(21,128,61,0.15);
+      border: 1px solid rgba(21,128,61,0.40);
       border-radius: 100px;
       padding: 8px 18px;
       margin-bottom: 24px;
@@ -36,45 +36,46 @@
     }
 
     /* Hero stat row */
-    .hero-stats { display:flex; gap:28px; margin:28px 0; flex-wrap:wrap; }
-    .hero-stat { display:flex; flex-direction:column; gap:2px; }
-    .hero-stat-val { font-size:28px; font-weight:900; color:var(--white); line-height:1; }
-    .hero-stat-val span { color:var(--gold); }
-    .hero-stat-lbl { font-size:12px; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.6px; font-weight:600; }
-    .hero-stat-divider { width:1px; background:rgba(255,255,255,0.15); align-self:stretch; }
+    .hero-stat-val span { color: var(--amber); }
+    .hero-stat-lbl { font-size:12px; color:rgba(255,255,255,0.70); text-transform:uppercase; letter-spacing:0.6px; font-weight:600; margin-top:4px; }
+    .hero-stat-divider { width:1px; background:rgba(255,255,255,0.20); align-self:stretch; }
 
     /* Savings Calculator */
-    .savings-section { padding:80px 24px; background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%); border-top:1px solid var(--gray1); }
+    .savings-section { padding:80px 24px; background:linear-gradient(180deg,var(--offwhite) 0%,var(--gray-100) 100%); border-top:1px solid var(--gray-200); }
     .savings-inner { max-width:900px; margin:0 auto; }
     .savings-calculator { background:var(--white); border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); overflow:hidden; margin-top:40px; }
     .savings-calc-header { background:var(--navy); padding:20px 32px; display:flex; align-items:center; gap:12px; }
     .savings-calc-header h3 { color:var(--white); font-size:18px; font-weight:700; }
-    .calc-badge { background:rgba(232,160,32,0.2); border:1px solid rgba(232,160,32,0.4); color:var(--gold); font-size:12px; font-weight:700; padding:3px 10px; border-radius:100px; }
+    .calc-badge { background:rgba(217,119,6,0.2); border:1px solid rgba(217,119,6,0.4); color:var(--amber); font-size:12px; font-weight:700; padding:3px 10px; border-radius:100px; }
     .savings-calc-body { padding:32px; display:grid; grid-template-columns:1fr auto 1fr; gap:24px; align-items:center; }
+
+    /* Old rate block — amber tones, NO red */
     .rate-block { text-align:center; padding:24px; border-radius:var(--radius); }
-    .rate-block.old { background:#fff5f5; border:2px solid #fca5a5; }
-    .rate-block.new { background:var(--green-light); border:2px solid rgba(22,163,74,0.35); }
+    .rate-block.old { background:#FFFBEB; border:2px solid #FDE68A; }
+    .rate-block.new { background:var(--green-light); border:2px solid rgba(21,128,61,0.35); }
     .rate-block-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; }
-    .rate-block.old .rate-block-label { color:var(--red); }
+    .rate-block.old .rate-block-label { color:var(--amber2); }
     .rate-block.new .rate-block-label { color:var(--green); }
     .rate-block-rate { font-size:36px; font-weight:900; line-height:1; margin-bottom:4px; }
-    .rate-block.old .rate-block-rate { color:var(--red); }
+    .rate-block.old .rate-block-rate { color:var(--amber); }
     .rate-block.new .rate-block-rate { color:var(--green); }
-    .rate-block-payment { font-size:14px; color:var(--gray3); margin-top:8px; }
+    .rate-block-payment { font-size:14px; color:var(--gray-700); margin-top:8px; }
     .rate-block-payment strong { display:block; font-size:22px; font-weight:800; color:var(--text); margin-top:2px; }
+
     .savings-arrow { display:flex; flex-direction:column; align-items:center; gap:8px; }
-    .savings-arrow-icon { font-size:28px; animation:arrowBounce 1.4s ease-in-out infinite; }
+    .savings-arrow-icon { font-size:28px; animation:arrowBounce 1.4s ease-in-out infinite; color:var(--teal); }
     @keyframes arrowBounce { 0%,100%{transform:translateX(0)} 50%{transform:translateX(6px)} }
     .savings-badge-big { display:flex; flex-direction:column; align-items:center; gap:2px; }
     .savings-badge-big .save-label { font-size:11px; text-transform:uppercase; letter-spacing:0.8px; font-weight:700; color:var(--green); }
     .savings-badge-big .save-val { font-size:30px; font-weight:900; color:var(--green); }
-    .savings-badge-big .save-sub { font-size:12px; color:var(--gray3); }
+    .savings-badge-big .save-sub { font-size:12px; color:var(--gray-500); }
+
     .savings-calc-footer { padding:16px 32px 24px; text-align:center; }
-    .savings-disclaimer { font-size:12px; color:var(--gray3); margin-bottom:16px; }
-    .savings-assumptions { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; font-size:13px; color:var(--gray3); margin-bottom:20px; }
+    .savings-disclaimer { font-size:12px; color:var(--gray-500); margin-bottom:16px; }
+    .savings-assumptions { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; font-size:13px; color:var(--gray-500); margin-bottom:20px; }
     .savings-assumptions span { display:flex; align-items:center; gap:6px; }
-    .savings-cta-link { display:inline-flex; align-items:center; gap:6px; background:var(--green); color:var(--white); padding:14px 32px; border-radius:100px; font-size:16px; font-weight:700; text-decoration:none; transition:all 0.2s; }
-    .savings-cta-link:hover { background:var(--green2); transform:translateY(-1px); }
+    .savings-cta-link { display:inline-flex; align-items:center; gap:6px; background:var(--amber); color:var(--white); padding:14px 32px; border-radius:100px; font-size:16px; font-weight:700; text-decoration:none; transition:all 0.2s; }
+    .savings-cta-link:hover { background:var(--amber2); transform:translateY(-1px); }
 
     /* Cash-out section */
     .cashout-section { padding:80px 24px; background:var(--white); }
@@ -82,22 +83,18 @@
     .cashout-image { border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-xl); aspect-ratio:4/3; }
     .cashout-image img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
     .cashout-image:hover img { transform:scale(1.04); }
-    .cashout-content h2 { font-size:clamp(26px,3.2vw,36px); font-weight:900; color:var(--navy); letter-spacing:-0.5px; line-height:1.15; margin-bottom:16px; }
+    .cashout-content h2 { font-size:clamp(26px,3.2vw,36px); font-weight:800; color:var(--navy); letter-spacing:-0.5px; line-height:1.15; margin-bottom:16px; }
     .cashout-content h2 .co-highlight { color:var(--green); }
-    .cashout-content p { color:var(--gray3); font-size:16px; line-height:1.7; margin-bottom:20px; }
+    .cashout-content p { color:var(--gray-700); font-size:16px; line-height:1.7; margin-bottom:20px; }
     .cashout-points { list-style:none; margin-bottom:28px; }
-    .cashout-points li { display:flex; align-items:flex-start; gap:10px; font-size:15px; color:var(--text); margin-bottom:12px; font-weight:500; }
+    .cashout-points li { display:flex; align-items:flex-start; gap:10px; font-size:15px; color:var(--text2); margin-bottom:12px; font-weight:500; }
     .cashout-points li::before { content:'✓'; color:var(--green); font-weight:700; font-size:16px; flex-shrink:0; margin-top:1px; }
-
-    /* Savings tag in testimonials */
-    .savings-tag { display:inline-flex; align-items:center; gap:6px; background:var(--green-light); border:1px solid rgba(22,163,74,0.3); color:var(--green2); font-size:13px; font-weight:700; padding:4px 12px; border-radius:100px; margin-bottom:12px; }
 
     @media (max-width:860px) {
       .savings-calc-body { grid-template-columns:1fr; gap:16px; }
       .savings-arrow { flex-direction:row; }
       .savings-arrow-icon { transform:rotate(90deg); }
       .cashout-inner { grid-template-columns:1fr; }
-      .hero-stats { gap:18px; }
     }
     @media (max-width:480px) {
       .savings-calc-body { padding:20px; }
@@ -114,7 +111,7 @@
 <header class="site-header">
   <a href="/" class="logo">
     <div class="logo-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#1B3A6B" xmlns="http://www.w3.org/2000/svg">
+      <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
       </svg>
     </div>
@@ -128,14 +125,14 @@
 
 
 <!-- ============================================================
-     HERO — Refinance with happy homeowner photo
+     HERO — Refinance
      ============================================================ -->
-<section class="hero" style="min-height: 100vh;">
-  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1600&q=80&auto=format&fit=crop');"></div>
+<section class="hero" style="min-height:580px;">
+  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80&auto=format&fit=crop');"></div>
   <div class="hero-overlay"></div>
 
   <div class="hero-inner">
-    <!-- Left: Content -->
+    <!-- Left: Content — white on dark overlay -->
     <div class="hero-content">
       <div class="equity-pill">
         <span class="ep-dot"></span>
@@ -148,18 +145,18 @@
         Rates have changed. Your equity has grown. Refinancing today could lower your payment — or put <strong style="color:#fff;">tens of thousands in your pocket.</strong>
       </p>
 
-      <div class="hero-stats">
-        <div class="hero-stat">
+      <div class="hero-stat-row">
+        <div class="hero-stat-item">
           <div class="hero-stat-val"><span>$247</span>/mo</div>
           <div class="hero-stat-lbl">Avg. Monthly Savings</div>
         </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat-item">
           <div class="hero-stat-val"><span>50+</span></div>
           <div class="hero-stat-lbl">Lenders Compared</div>
         </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat-item">
           <div class="hero-stat-val"><span>60s</span></div>
           <div class="hero-stat-lbl">To See Your Rates</div>
         </div>
@@ -286,16 +283,16 @@
             <div class="option-group">
               <div class="option-grid">
                 <button type="button" class="option-btn" data-field="credit_score" data-value="excellent_760plus">
-                  <span class="opt-icon"><i class="fa-solid fa-star"></i></span> Excellent<br><small style="font-weight:500;color:var(--gray3);">760+</small>
+                  <span class="opt-icon"><i class="fa-solid fa-star"></i></span> Excellent<br><small style="font-weight:500;color:var(--gray-500);">760+</small>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="good_700_759">
-                  <span class="opt-icon"><i class="fa-solid fa-thumbs-up"></i></span> Good<br><small style="font-weight:500;color:var(--gray3);">700–759</small>
+                  <span class="opt-icon"><i class="fa-solid fa-thumbs-up"></i></span> Good<br><small style="font-weight:500;color:var(--gray-500);">700–759</small>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="fair_640_699">
-                  <span class="opt-icon"><i class="fa-solid fa-circle-check"></i></span> Fair<br><small style="font-weight:500;color:var(--gray3);">640–699</small>
+                  <span class="opt-icon"><i class="fa-solid fa-circle-check"></i></span> Fair<br><small style="font-weight:500;color:var(--gray-500);">640–699</small>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="poor_below_640">
-                  <span class="opt-icon"><i class="fa-solid fa-chart-line"></i></span> Building<br><small style="font-weight:500;color:var(--gray3);">Below 640</small>
+                  <span class="opt-icon"><i class="fa-solid fa-chart-line"></i></span> Building<br><small style="font-weight:500;color:var(--gray-500);">Below 640</small>
                 </button>
               </div>
             </div>
@@ -360,7 +357,7 @@
         <!-- Thank You Step -->
         <div id="thank-you-step" class="hidden" style="padding:24px 28px 20px;">
           <div class="thank-you-step">
-            <div class="ty-icon" style="font-size:56px; margin-bottom:16px;">🎉</div>
+            <div class="ty-icon" style="font-size:56px;margin-bottom:16px;">🎉</div>
             <h3>Great News — Lenders Are Ready!</h3>
             <p>A refinance specialist will contact you shortly with your best available rates. Expect a call within <strong style="color:var(--navy);">15 minutes</strong> during business hours.</p>
           </div>
@@ -408,7 +405,7 @@
         <li>Single monthly payment — simplify your finances</li>
         <li>No restrictions on how you use the cash</li>
       </ul>
-      <a href="#lead-form-card" class="btn-gold">
+      <a href="#lead-form-card" class="btn-amber">
         Calculate My Cash-Out Amount <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
@@ -437,9 +434,9 @@
         <div class="rate-block old">
           <div class="rate-block-label">Your Current Rate</div>
           <div class="rate-block-rate">7.5%</div>
-          <div style="font-size:12px;color:var(--red);font-weight:600;margin-top:4px;">30-Year Fixed</div>
+          <div style="font-size:12px;color:var(--amber2);font-weight:600;margin-top:4px;">30-Year Fixed</div>
           <div class="rate-block-payment">Monthly Payment:<br><strong>$2,098/mo</strong></div>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid #fca5a5;font-size:12px;color:var(--red);">
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid #FDE68A;font-size:12px;color:var(--amber2);">
             Over 30 years: <strong>$755,280</strong> total paid
           </div>
         </div>
@@ -458,7 +455,7 @@
           <div class="rate-block-rate">6.25%</div>
           <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px;">30-Year Fixed</div>
           <div class="rate-block-payment">Monthly Payment:<br><strong>$1,786/mo</strong></div>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(22,163,74,0.3);font-size:12px;color:var(--green);">
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(21,128,61,0.3);font-size:12px;color:var(--green);">
             Saving over 30 years: <strong>$642,960</strong> total paid
           </div>
         </div>
@@ -485,7 +482,7 @@
 
 
 <!-- ============================================================
-     SPLIT SECTION — Refinance cash photo
+     SPLIT SECTION — How it works
      ============================================================ -->
 <section class="split-section bg-white">
   <div class="split-inner">
@@ -600,8 +597,10 @@
 <section class="cta-band">
   <h2>Every Day You Wait Is Money Left Behind</h2>
   <p>Rates can move fast. Lock in your savings before they do.</p>
-  <a href="#lead-form-card" class="btn-cta" style="font-size:17px; padding:16px 36px;">See My Refinance Rates — Free &amp; Instant <i class="fa-solid fa-arrow-right fa-sm"></i></a>
-  <div style="margin-top:20px; color:rgba(255,255,255,0.40); font-size:13px;">
+  <a href="#lead-form-card" class="btn-amber" style="font-size:17px;padding:16px 36px;">
+    See My Refinance Rates — Free &amp; Instant <i class="fa-solid fa-arrow-right fa-sm"></i>
+  </a>
+  <div style="margin-top:20px;color:rgba(255,255,255,0.50);font-size:13px;">
     No SSN required &bull; No obligation &bull; Results in 60 seconds
   </div>
 </section>
@@ -616,7 +615,7 @@
       <div class="footer-brand">
         <a href="/" class="logo">
           <div class="logo-icon" style="width:32px;height:32px;">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="#1B3A6B" xmlns="http://www.w3.org/2000/svg">
+            <svg width="17" height="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
             </svg>
           </div>
@@ -650,7 +649,7 @@
     </div>
     <hr class="footer-divider">
     <p class="footer-legal">
-      <strong style="color:rgba(255,255,255,0.5);">TCPA Disclosure:</strong> By submitting your information, you provide your express written consent to FiscalGenie.com, its affiliates, agents, and up to four (4) mortgage lenders or brokers in our network to contact you at the telephone number(s) you provided, including wireless phone numbers, via live calls, prerecorded messages, and/or automatic telephone dialing systems ("ATDS"). You are not required to provide this consent as a condition of purchasing any goods or services. You may revoke your consent at any time by contacting us at privacy@fiscalgenie.com.
+      <strong style="color:rgba(255,255,255,0.60);">TCPA Disclosure:</strong> By submitting your information, you provide your express written consent to FiscalGenie.com, its affiliates, agents, and up to four (4) mortgage lenders or brokers in our network to contact you at the telephone number(s) you provided, including wireless phone numbers, via live calls, prerecorded messages, and/or automatic telephone dialing systems ("ATDS"). You are not required to provide this consent as a condition of purchasing any goods or services. You may revoke your consent at any time by contacting us at privacy@fiscalgenie.com.
     </p>
     <p class="footer-legal" style="margin-top:10px;">
       FiscalGenie.com is not a government agency, is not affiliated with any lender, and does not make mortgage loans. Equal Housing Lender. © 2026 FiscalGenie.com. All rights reserved.
