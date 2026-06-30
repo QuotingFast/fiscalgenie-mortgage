@@ -4,425 +4,137 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Compare refinance rates from 50+ lenders in 60 seconds. Lower your payment or access cash from your equity. Free, no-obligation rate check.">
-  <title>FiscalGenie — Mortgage Refinance | Your Home Is Sitting On Hidden Money</title>
-  
+  <title>FiscalGenie — Mortgage Refinance | Stop Overpaying on Your Mortgage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Page-specific overrides for Refinance page -->
   <style>
-    /* ---- Refi Hero accent ---- */
-    .hero-refi .hero-badge { background: rgba(39,174,96,0.15); border-color: rgba(39,174,96,0.4); color: #4ade80; }
-    .hero-refi .highlight { color: var(--gold); }
-
-    /* ---- Equity callout pill in hero ---- */
+    /* ---- Refi-specific overrides ---- */
     .equity-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, rgba(244,185,66,0.18) 0%, rgba(39,174,96,0.12) 100%);
-      border: 1px solid rgba(244,185,66,0.4);
+      background: rgba(22,163,74,0.15);
+      border: 1px solid rgba(22,163,74,0.40);
       border-radius: 100px;
       padding: 8px 18px;
       margin-bottom: 24px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--gold);
+      color: #4ade80;
     }
     .equity-pill .ep-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 3px rgba(244,185,66,0.25);
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4ade80;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(244,185,66,0.25); }
-      50%       { box-shadow: 0 0 0 7px rgba(244,185,66,0.08); }
+      0%, 100% { box-shadow: 0 0 0 3px rgba(74,222,128,0.25); }
+      50%       { box-shadow: 0 0 0 7px rgba(74,222,128,0.06); }
     }
 
-    /* ---- Stats row in hero ---- */
-    .hero-stats {
-      display: flex;
-      gap: 28px;
-      margin: 28px 0;
-      flex-wrap: wrap;
-    }
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .hero-stat-val {
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1;
-    }
-    .hero-stat-val span { color: var(--gold); }
-    .hero-stat-lbl {
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      font-weight: 600;
-    }
-    .hero-stat-divider {
-      width: 1px;
-      background: rgba(255,255,255,0.15);
-      align-self: stretch;
-    }
+    /* Hero stat row */
+    .hero-stats { display:flex; gap:28px; margin:28px 0; flex-wrap:wrap; }
+    .hero-stat { display:flex; flex-direction:column; gap:2px; }
+    .hero-stat-val { font-size:28px; font-weight:900; color:var(--white); line-height:1; }
+    .hero-stat-val span { color:var(--gold); }
+    .hero-stat-lbl { font-size:12px; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.6px; font-weight:600; }
+    .hero-stat-divider { width:1px; background:rgba(255,255,255,0.15); align-self:stretch; }
 
-    /* ---- Savings Calculator Section ---- */
-    .savings-section {
-      padding: 72px 24px;
-      background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-      border-top: 1px solid var(--gray2);
-      border-bottom: 1px solid var(--gray2);
-    }
+    /* Savings Calculator */
+    .savings-section { padding:80px 24px; background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%); border-top:1px solid var(--gray1); }
+    .savings-inner { max-width:900px; margin:0 auto; }
+    .savings-calculator { background:var(--white); border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); overflow:hidden; margin-top:40px; }
+    .savings-calc-header { background:var(--navy); padding:20px 32px; display:flex; align-items:center; gap:12px; }
+    .savings-calc-header h3 { color:var(--white); font-size:18px; font-weight:700; }
+    .calc-badge { background:rgba(232,160,32,0.2); border:1px solid rgba(232,160,32,0.4); color:var(--gold); font-size:12px; font-weight:700; padding:3px 10px; border-radius:100px; }
+    .savings-calc-body { padding:32px; display:grid; grid-template-columns:1fr auto 1fr; gap:24px; align-items:center; }
+    .rate-block { text-align:center; padding:24px; border-radius:var(--radius); }
+    .rate-block.old { background:#fff5f5; border:2px solid #fca5a5; }
+    .rate-block.new { background:var(--green-light); border:2px solid rgba(22,163,74,0.35); }
+    .rate-block-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; }
+    .rate-block.old .rate-block-label { color:var(--red); }
+    .rate-block.new .rate-block-label { color:var(--green); }
+    .rate-block-rate { font-size:36px; font-weight:900; line-height:1; margin-bottom:4px; }
+    .rate-block.old .rate-block-rate { color:var(--red); }
+    .rate-block.new .rate-block-rate { color:var(--green); }
+    .rate-block-payment { font-size:14px; color:var(--gray3); margin-top:8px; }
+    .rate-block-payment strong { display:block; font-size:22px; font-weight:800; color:var(--text); margin-top:2px; }
+    .savings-arrow { display:flex; flex-direction:column; align-items:center; gap:8px; }
+    .savings-arrow-icon { font-size:28px; animation:arrowBounce 1.4s ease-in-out infinite; }
+    @keyframes arrowBounce { 0%,100%{transform:translateX(0)} 50%{transform:translateX(6px)} }
+    .savings-badge-big { display:flex; flex-direction:column; align-items:center; gap:2px; }
+    .savings-badge-big .save-label { font-size:11px; text-transform:uppercase; letter-spacing:0.8px; font-weight:700; color:var(--green); }
+    .savings-badge-big .save-val { font-size:30px; font-weight:900; color:var(--green); }
+    .savings-badge-big .save-sub { font-size:12px; color:var(--gray3); }
+    .savings-calc-footer { padding:16px 32px 24px; text-align:center; }
+    .savings-disclaimer { font-size:12px; color:var(--gray3); margin-bottom:16px; }
+    .savings-assumptions { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; font-size:13px; color:var(--gray3); margin-bottom:20px; }
+    .savings-assumptions span { display:flex; align-items:center; gap:6px; }
+    .savings-cta-link { display:inline-flex; align-items:center; gap:6px; background:var(--green); color:var(--white); padding:14px 32px; border-radius:100px; font-size:16px; font-weight:700; text-decoration:none; transition:all 0.2s; }
+    .savings-cta-link:hover { background:var(--green2); transform:translateY(-1px); }
 
-    .savings-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    /* Cash-out section */
+    .cashout-section { padding:80px 24px; background:var(--white); }
+    .cashout-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .cashout-image { border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-xl); aspect-ratio:4/3; }
+    .cashout-image img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+    .cashout-image:hover img { transform:scale(1.04); }
+    .cashout-content h2 { font-size:clamp(26px,3.2vw,36px); font-weight:900; color:var(--navy); letter-spacing:-0.5px; line-height:1.15; margin-bottom:16px; }
+    .cashout-content h2 .co-highlight { color:var(--green); }
+    .cashout-content p { color:var(--gray3); font-size:16px; line-height:1.7; margin-bottom:20px; }
+    .cashout-points { list-style:none; margin-bottom:28px; }
+    .cashout-points li { display:flex; align-items:flex-start; gap:10px; font-size:15px; color:var(--text); margin-bottom:12px; font-weight:500; }
+    .cashout-points li::before { content:'✓'; color:var(--green); font-weight:700; font-size:16px; flex-shrink:0; margin-top:1px; }
 
-    .savings-calculator {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      margin-top: 40px;
-    }
+    /* Savings tag in testimonials */
+    .savings-tag { display:inline-flex; align-items:center; gap:6px; background:var(--green-light); border:1px solid rgba(22,163,74,0.3); color:var(--green2); font-size:13px; font-weight:700; padding:4px 12px; border-radius:100px; margin-bottom:12px; }
 
-    .savings-calc-header {
-      background: var(--navy);
-      padding: 20px 32px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    @media (max-width:860px) {
+      .savings-calc-body { grid-template-columns:1fr; gap:16px; }
+      .savings-arrow { flex-direction:row; }
+      .savings-arrow-icon { transform:rotate(90deg); }
+      .cashout-inner { grid-template-columns:1fr; }
+      .hero-stats { gap:18px; }
     }
-    .savings-calc-header h3 {
-      color: var(--white);
-      font-size: 18px;
-      font-weight: 700;
-    }
-    .savings-calc-header .calc-badge {
-      background: rgba(244,185,66,0.2);
-      border: 1px solid rgba(244,185,66,0.4);
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 100px;
-    }
-
-    .savings-calc-body {
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .rate-block {
-      text-align: center;
-      padding: 24px;
-      border-radius: var(--radius);
-    }
-    .rate-block.old {
-      background: #fff5f5;
-      border: 2px solid #fca5a5;
-    }
-    .rate-block.new {
-      background: rgba(39,174,96,0.06);
-      border: 2px solid rgba(39,174,96,0.35);
-    }
-    .rate-block-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 8px;
-    }
-    .rate-block.old .rate-block-label { color: #dc2626; }
-    .rate-block.new .rate-block-label { color: var(--green); }
-
-    .rate-block-rate {
-      font-size: 36px;
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .rate-block.old .rate-block-rate { color: #dc2626; }
-    .rate-block.new .rate-block-rate { color: var(--green); }
-
-    .rate-block-payment {
-      font-size: 14px;
-      color: var(--gray3);
-      margin-top: 8px;
-    }
-    .rate-block-payment strong {
-      display: block;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text);
-      margin-top: 2px;
-    }
-
-    .savings-arrow {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .savings-arrow-icon {
-      font-size: 28px;
-      animation: arrowBounce 1.4s ease-in-out infinite;
-    }
-    @keyframes arrowBounce {
-      0%, 100% { transform: translateX(0); }
-      50%       { transform: translateX(6px); }
-    }
-
-    .savings-badge-big {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-    .savings-badge-big .save-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; color: var(--green); }
-    .savings-badge-big .save-val { font-size: 30px; font-weight: 900; color: var(--green); }
-    .savings-badge-big .save-sub { font-size: 12px; color: var(--gray3); }
-
-    .savings-calc-footer {
-      padding: 16px 32px 24px;
-      text-align: center;
-    }
-    .savings-disclaimer {
-      font-size: 12px;
-      color: var(--gray3);
-      margin-bottom: 16px;
-    }
-    .savings-assumptions {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--gray3);
-      margin-bottom: 20px;
-    }
-    .savings-assumptions span { display: flex; align-items: center; gap: 6px; }
-    .savings-cta-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--green);
-      color: var(--white);
-      padding: 14px 32px;
-      border-radius: 100px;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .savings-cta-link:hover { background: var(--green2); transform: translateY(-1px); }
-
-    /* ---- Cash-Out Spotlight ---- */
-    .cashout-section {
-      padding: 72px 24px;
-      background: var(--white);
-    }
-    .cashout-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .cashout-visual {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-      border-radius: var(--radius-lg);
-      padding: 40px 36px;
-      position: relative;
-      overflow: hidden;
-    }
-    .cashout-visual::before {
-      content: '';
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 200px;
-      height: 200px;
-      background: rgba(244,185,66,0.07);
-      border-radius: 50%;
-    }
-    .cashout-visual h3 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-    .cashout-number {
-      font-size: 56px;
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .cashout-number span { color: var(--gold); }
-    .cashout-sublabel {
-      color: rgba(255,255,255,0.5);
-      font-size: 14px;
-      margin-bottom: 32px;
-    }
-    .cashout-bar-wrap { margin-bottom: 28px; }
-    .cashout-bar-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 6px;
-    }
-    .cashout-bar {
-      height: 10px;
-      background: rgba(255,255,255,0.12);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .cashout-bar-fill {
-      height: 100%;
-      border-radius: 100px;
-    }
-    .cashout-bar-fill.equity { background: var(--gold); width: 62%; }
-    .cashout-bar-fill.loan   { background: rgba(255,255,255,0.35); width: 38%; }
-
-    .cashout-uses {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .cashout-use-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.65);
-    }
-    .cashout-use-item .use-icon { font-size: 18px; flex-shrink: 0; }
-
-    .cashout-content h2 {
-      font-size: clamp(26px, 3.2vw, 36px);
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: -0.5px;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .cashout-content h2 .co-highlight { color: var(--green); }
-    .cashout-content p {
-      color: var(--gray3);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .cashout-points {
-      list-style: none;
-      margin-bottom: 28px;
-    }
-    .cashout-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 15px;
-      color: var(--text);
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-    .cashout-points li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
-      font-size: 16px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .btn-start-refi {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--navy);
-      color: var(--white);
-      padding: 16px 32px;
-      border-radius: 100px;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-start-refi:hover { background: var(--navy2); transform: translateY(-2px); }
-
-    /* ---- Testimonial savings badge ---- */
-    .savings-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(39,174,96,0.1);
-      border: 1px solid rgba(39,174,96,0.3);
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 100px;
-      margin-bottom: 12px;
-    }
-
-    /* ---- Refi-specific How It Works card icons ---- */
-    .step-card .step-icon { font-size: 28px; margin-bottom: 12px; }
-
-    /* ---- Responsive additions ---- */
-    @media (max-width: 860px) {
-      .savings-calc-body { grid-template-columns: 1fr; gap: 16px; }
-      .savings-arrow { flex-direction: row; }
-      .savings-arrow-icon { transform: rotate(90deg); }
-      .cashout-inner { grid-template-columns: 1fr; }
-      .hero-stats { gap: 18px; }
-    }
-    @media (max-width: 480px) {
-      .savings-calc-body { padding: 20px; }
-      .savings-calc-footer { padding: 12px 20px 20px; }
-      .savings-assumptions { flex-direction: column; align-items: center; gap: 8px; }
+    @media (max-width:480px) {
+      .savings-calc-body { padding:20px; }
+      .savings-calc-footer { padding:12px 20px 20px; }
+      .savings-assumptions { flex-direction:column; align-items:center; gap:8px; }
     }
   </style>
 </head>
 <body>
 
 <!-- ============================================================
-     STICKY HEADER
+     HEADER
      ============================================================ -->
 <header class="site-header">
   <a href="/" class="logo">
-    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+    <div class="logo-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#1B3A6B" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+    </div>
     <span class="logo-text">Fiscal<span>Genie</span></span>
   </a>
   <div class="header-cta">
-    <a href="tel:18005550199" class="header-phone"><i class="fa-solid fa-phone fa-sm"></i> (800) 555-0199</a>
-    <a href="#lead-form" class="btn-cta" style="padding:10px 22px; font-size:14px; border-radius:100px; background:var(--gold); color:var(--navy); font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
-      Get My Rate </a>
+    <a href="tel:18005550199" class="header-phone"><i class="fa-solid fa-phone"></i> (800) 555-0199</a>
+    <a href="#lead-form" class="btn-cta">Get My Rate <i class="fa-solid fa-arrow-right fa-xs"></i></a>
   </div>
 </header>
 
 
 <!-- ============================================================
-     HERO — REFI
+     HERO — Refinance with happy homeowner photo
      ============================================================ -->
-<section class="hero hero-refi">
-  <div class="hero-inner">
+<section class="hero" style="min-height: 100vh;">
+  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1600&q=80&auto=format&fit=crop');"></div>
+  <div class="hero-overlay"></div>
 
+  <div class="hero-inner">
     <!-- Left: Content -->
     <div class="hero-content">
       <div class="equity-pill">
@@ -430,13 +142,12 @@
         Homeowners Are Unlocking Equity Right Now
       </div>
 
-      <h1>Your Home Is Sitting On<br><span class="highlight">Hidden Money.</span></h1>
+      <h1>Stop Overpaying<br>on Your <span class="highlight">Mortgage.</span></h1>
 
       <p class="hero-sub">
         Rates have changed. Your equity has grown. Refinancing today could lower your payment — or put <strong style="color:#fff;">tens of thousands in your pocket.</strong>
       </p>
 
-      <!-- Live stats -->
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-val"><span>$247</span>/mo</div>
@@ -454,7 +165,6 @@
         </div>
       </div>
 
-      <!-- Trust items -->
       <div class="hero-trust">
         <div class="trust-item"><i class="fa-solid fa-check trust-check"></i> No SSN Required</div>
         <div class="trust-item"><i class="fa-solid fa-check trust-check"></i> Free Rate Check</div>
@@ -466,10 +176,9 @@
     <div class="form-card" id="lead-form-card">
       <div class="form-card-header">
         <h2>See Your Refinance Options</h2>
-        <p>Takes 60 seconds • No credit pull • 100% free</p>
+        <p>Takes 60 seconds &bull; No credit pull &bull; 100% free</p>
       </div>
 
-      <!-- Progress Bar -->
       <div class="progress-bar-wrap">
         <div class="progress-steps">
           <div class="progress-step active">
@@ -496,7 +205,6 @@
         </div>
       </div>
 
-      <!-- Form Steps -->
       <form id="lead-form" action="/submit.php" method="POST" novalidate>
         <div class="form-steps">
 
@@ -578,20 +286,19 @@
             <div class="option-group">
               <div class="option-grid">
                 <button type="button" class="option-btn" data-field="credit_score" data-value="excellent_760plus">
-                  <span class="opt-icon"><i class="fa-solid fa-star"></i></span> Excellent<br><small style="font-weight:500;color:#64748b;">760+</small>
+                  <span class="opt-icon"><i class="fa-solid fa-star"></i></span> Excellent<br><small style="font-weight:500;color:var(--gray3);">760+</small>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="good_700_759">
-                  <span class="opt-icon"><i class="fa-solid fa-thumbs-up"></i></span> Good<br><small style="font-weight:500;color:#64748b;">700–759</small>
+                  <span class="opt-icon"><i class="fa-solid fa-thumbs-up"></i></span> Good<br><small style="font-weight:500;color:var(--gray3);">700–759</small>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="fair_640_699">
-                  <span class="opt-icon"><i class="fa-solid fa-circle-check"></i></span> Fair<br><small style="font-weight:500;color:#64748b;">640–699</small>
+                  <span class="opt-icon"><i class="fa-solid fa-circle-check"></i></span> Fair<br><small style="font-weight:500;color:var(--gray3);">640–699</small>
                 </button>
                 <button type="button" class="option-btn" data-field="credit_score" data-value="poor_below_640">
-                  <span class="opt-icon"><i class="fa-solid fa-chart-line"></i></span> Building<br><small style="font-weight:500;color:#64748b;">Below 640</small>
+                  <span class="opt-icon"><i class="fa-solid fa-chart-line"></i></span> Building<br><small style="font-weight:500;color:var(--gray3);">Below 640</small>
                 </button>
               </div>
             </div>
-
             <div class="form-group" style="margin-top:16px;">
               <label class="form-label" for="state">Property State</label>
               <select id="state" name="state" class="form-select" required>
@@ -611,7 +318,6 @@
                 <option>Wisconsin</option><option>Wyoming</option>
               </select>
             </div>
-
             <button type="button" class="btn-next">Next → See Lenders</button>
           </div>
 
@@ -619,7 +325,6 @@
           <div class="form-step" data-step="5">
             <button type="button" class="btn-back">← Back</button>
             <p class="step-question">Almost done! Where should we send your rates?</p>
-
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="first_name">First Name</label>
@@ -630,62 +335,39 @@
                 <input type="text" id="last_name" name="last_name" class="form-input" placeholder="Smith" required autocomplete="family-name">
               </div>
             </div>
-
             <div class="form-group">
               <label class="form-label" for="email">Email Address</label>
               <input type="email" id="email" name="email" class="form-input" placeholder="jane@email.com" required autocomplete="email">
             </div>
-
             <div class="form-group">
               <label class="form-label" for="phone">Phone Number</label>
               <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 000-0000" required autocomplete="tel">
             </div>
-
             <div class="form-group">
               <label class="form-label" for="zip">Property Zip Code</label>
               <input type="text" id="zip" name="zip" class="form-input" placeholder="e.g. 33101" maxlength="5" required autocomplete="postal-code" inputmode="numeric">
             </div>
-
-            <button type="submit" class="btn-submit">See My Refinance Options →
-            </button>
-
+            <button type="submit" class="btn-submit">See My Refinance Options →</button>
             <p class="form-disclaimer">
               By submitting, you authorize FiscalGenie and its partner lenders to contact you with rate information
-              via email, phone, or text (including auto-dialed calls/SMS). Consent not required to purchase.
-              <a href="#tcpa" style="color:inherit;">Full TCPA disclosure below.</a>
+              via email, phone, or text. Consent not required to purchase.
+              <a href="#tcpa">Full TCPA disclosure below.</a>
             </p>
           </div>
 
         </div><!-- /form-steps -->
 
-        <!-- Thank You Step (hidden until submit) -->
+        <!-- Thank You Step -->
         <div id="thank-you-step" class="hidden" style="padding:24px 28px 20px;">
-          <div class="thank-you-step" style="text-align:center; padding:24px 0 16px;">
-            <div class="ty-icon" style="font-size:56px; margin-bottom:16px;"></div>
-            <h3 style="font-size:22px; font-weight:800; color:var(--navy); margin-bottom:10px;">
-              Great News — Lenders Are Ready!
-            </h3>
-            <p style="color:var(--gray3); font-size:15px; line-height:1.65; margin-bottom:20px;">
-              A refinance specialist will contact you shortly with your best available rates.
-              Expect a call within <strong style="color:var(--navy);">15 minutes</strong> during business hours.
-            </p>
-            <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
-              <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:var(--green); font-weight:600;">
-                Application Received
-              </div>
-              <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:var(--green); font-weight:600;">
-                Matching You to Lenders
-              </div>
-              <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:var(--gray3); font-weight:600;">
-                Specialist will call you soon
-              </div>
-            </div>
+          <div class="thank-you-step">
+            <div class="ty-icon" style="font-size:56px; margin-bottom:16px;">🎉</div>
+            <h3>Great News — Lenders Are Ready!</h3>
+            <p>A refinance specialist will contact you shortly with your best available rates. Expect a call within <strong style="color:var(--navy);">15 minutes</strong> during business hours.</p>
           </div>
         </div>
 
-      </form><!-- /lead-form -->
+      </form>
     </div><!-- /form-card -->
-
   </div><!-- /hero-inner -->
 </section>
 
@@ -695,8 +377,8 @@
      ============================================================ -->
 <section class="trust-strip">
   <div class="trust-strip-inner">
-    <div class="trust-badge"><i class="fa-solid fa-shield-halved tb-icon"></i> Compare 50+ lenders</div>
-    <div class="trust-badge"><i class="fa-solid fa-star tb-icon"></i> Avg. savings of $247/mo</div>
+    <div class="trust-badge"><i class="fa-solid fa-shield-halved tb-icon"></i> Compare 50+ Lenders</div>
+    <div class="trust-badge"><i class="fa-solid fa-star tb-icon"></i> Avg. Savings of $247/mo</div>
     <div class="trust-badge"><i class="fa-solid fa-lock tb-icon"></i> Secure &amp; Private</div>
     <div class="trust-badge"><i class="fa-solid fa-bolt tb-icon"></i> Results in 60 Seconds</div>
     <div class="trust-badge"><i class="fa-solid fa-circle-check tb-icon"></i> No SSN Required</div>
@@ -705,52 +387,16 @@
 
 
 <!-- ============================================================
-     CASH-OUT EQUITY SPOTLIGHT
+     CASH-OUT SECTION with interior photo
      ============================================================ -->
 <section class="cashout-section">
   <div class="cashout-inner">
-
-    <!-- Visual card -->
-    <div class="cashout-visual">
-      <h3>YOUR EQUITY SNAPSHOT</h3>
-      <div class="cashout-number"><span>$</span>186,000</div>
-      <p class="cashout-sublabel">Estimated accessible equity on a $300k home</p>
-
-      <div class="cashout-bar-wrap">
-        <div class="cashout-bar-label">
-          <span>Your Equity (62%)</span>
-          <span>$186,000</span>
-        </div>
-        <div class="cashout-bar">
-          <div class="cashout-bar-fill equity"></div>
-        </div>
-      </div>
-
-      <div class="cashout-bar-wrap">
-        <div class="cashout-bar-label">
-          <span>Remaining Loan (38%)</span>
-          <span>$114,000</span>
-        </div>
-        <div class="cashout-bar">
-          <div class="cashout-bar-fill loan"></div>
-        </div>
-      </div>
-
-      <div class="cashout-uses">
-        <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:rgba(255,255,255,0.4); font-weight:700; margin-bottom:8px;">
-          What Homeowners Do With Cash-Out:
-        </p>
-        <div class="cashout-use-item"><i class="fa-solid fa-house use-icon"></i> Home renovations &amp; additions</div>
-        <div class="cashout-use-item"><i class="fa-solid fa-credit-card use-icon"></i> Pay off high-interest debt</div>
-        <div class="cashout-use-item"><i class="fa-solid fa-graduation-cap use-icon"></i> College tuition &amp; education</div>
-        <div class="cashout-use-item"><i class="fa-solid fa-chart-line use-icon"></i> Investment &amp; retirement funding</div>
-        <div class="cashout-use-item"><i class="fa-solid fa-shield use-icon"></i> Emergency reserves</div>
-      </div>
+    <div class="cashout-image">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=80&auto=format&fit=crop"
+           alt="Modern home interior" loading="lazy">
     </div>
-
-    <!-- Copy -->
     <div class="cashout-content">
-      <div class="section-label">Cash-Out Refinance</div>
+      <span class="section-label">Cash-Out Refinance</span>
       <h2>Stop Leaving Your<br><span class="co-highlight">Equity on the Table</span></h2>
       <p>
         Every month you don't refinance, that money sits locked in your walls earning nothing. A cash-out refinance lets you access up to <strong>80% of your home's value</strong> — often at a rate far lower than personal loans or credit cards.
@@ -762,11 +408,10 @@
         <li>Single monthly payment — simplify your finances</li>
         <li>No restrictions on how you use the cash</li>
       </ul>
-      <a href="#lead-form-card" class="btn-start-refi">
-        Calculate My Cash-Out Amount →
+      <a href="#lead-form-card" class="btn-gold">
+        Calculate My Cash-Out Amount <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
-
   </div>
 </section>
 
@@ -789,22 +434,16 @@
       </div>
 
       <div class="savings-calc-body">
-
-        <!-- Old rate -->
         <div class="rate-block old">
           <div class="rate-block-label">Your Current Rate</div>
           <div class="rate-block-rate">7.5%</div>
-          <div style="font-size:12px;color:#dc2626;font-weight:600;margin-top:4px;">30-Year Fixed</div>
-          <div class="rate-block-payment">
-            Monthly Payment:<br>
-            <strong>$2,098/mo</strong>
-          </div>
-          <div style="margin-top:16px; padding-top:16px; border-top:1px solid #fca5a5; font-size:12px; color:#dc2626;">
+          <div style="font-size:12px;color:var(--red);font-weight:600;margin-top:4px;">30-Year Fixed</div>
+          <div class="rate-block-payment">Monthly Payment:<br><strong>$2,098/mo</strong></div>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid #fca5a5;font-size:12px;color:var(--red);">
             Over 30 years: <strong>$755,280</strong> total paid
           </div>
         </div>
 
-        <!-- Arrow -->
         <div class="savings-arrow">
           <div class="savings-arrow-icon">→</div>
           <div class="savings-badge-big">
@@ -814,21 +453,16 @@
           </div>
         </div>
 
-        <!-- New rate -->
         <div class="rate-block new">
           <div class="rate-block-label">Today's Rate</div>
           <div class="rate-block-rate">6.25%</div>
           <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px;">30-Year Fixed</div>
-          <div class="rate-block-payment">
-            Monthly Payment:<br>
-            <strong>$1,786/mo</strong>
-          </div>
-          <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(39,174,96,0.3); font-size:12px; color:var(--green);">
+          <div class="rate-block-payment">Monthly Payment:<br><strong>$1,786/mo</strong></div>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(22,163,74,0.3);font-size:12px;color:var(--green);">
             Saving over 30 years: <strong>$642,960</strong> total paid
           </div>
         </div>
-
-      </div><!-- /calc-body -->
+      </div>
 
       <div class="savings-calc-footer">
         <div class="savings-assumptions">
@@ -845,39 +479,32 @@
           Get My Actual Rate — It's Free
         </a>
       </div>
-    </div><!-- /savings-calculator -->
+    </div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     HOW IT WORKS
+     SPLIT SECTION — Refinance cash photo
      ============================================================ -->
-<section class="how-section">
-  <div class="section-header">
-    <span class="section-label">Simple Process</span>
-    <h2>Get Your Best Rate in 3 Easy Steps</h2>
-    <p>No paperwork. No credit pull. No obligation. Just your best rates — instantly.</p>
-  </div>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <div class="step-icon"><i class="fa-solid fa-file-lines"></i></div>
-      <h3>Answer 5 Quick Questions</h3>
-      <p>Tell us about your home, your goals, and your credit. Takes under 60 seconds — no SSN, no hard pull.</p>
+<section class="split-section bg-white">
+  <div class="split-inner">
+    <div class="split-image">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80&auto=format&fit=crop"
+           alt="Cash out refinance" loading="lazy">
     </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div class="step-icon"></div>
-      <h3>We Match You to 50+ Lenders</h3>
-      <p>Our network of vetted lenders competes for your business. More competition = lower rates for you.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div class="step-icon"></div>
-      <h3>Choose Your Best Offer</h3>
-      <p>Compare real offers side-by-side. No pressure. Pick the rate that works best for your situation.</p>
+    <div class="split-content">
+      <span class="section-label">Simple Process</span>
+      <h2>Get Your Best Refi Rate<br><span class="highlight">in 3 Easy Steps</span></h2>
+      <p>No paperwork. No credit pull. No obligation. Just your best rates — instantly compared.</p>
+      <ul class="check-list">
+        <li>Answer 5 quick questions in under 60 seconds</li>
+        <li>Our network of 50+ vetted lenders competes for your business</li>
+        <li>Compare real offers side-by-side with full APR transparency</li>
+        <li>No pressure — pick the rate that works best for you</li>
+        <li>Close in as little as 21 days with most lenders</li>
+      </ul>
+      <a href="#lead-form-card" class="btn-primary">Start My Rate Check <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -894,52 +521,44 @@
   </div>
 
   <div class="testimonials-grid" style="margin-top:40px;">
-
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <div class="savings-tag">Saving $312/month</div>
-      <p class="testimonial-text">
-        "I kept putting it off — thought refinancing would be a nightmare of paperwork. FiscalGenie matched me with a lender in 10 minutes and I closed in 3 weeks. My payment went from $2,098 to $1,786. That's almost $4,000 back in my pocket every year."
-      </p>
+      <div class="savings-tag"><i class="fa-solid fa-circle-check"></i> Saving $312/month</div>
+      <p class="testimonial-text">"I kept putting it off — thought refinancing would be a nightmare of paperwork. FiscalGenie matched me with a lender in 10 minutes and I closed in 3 weeks. My payment went from $2,098 to $1,786. That's almost $4,000 back in my pocket every year."</p>
       <div class="testimonial-author">
         <div class="author-avatar">MR</div>
         <div>
           <div class="author-name">Marcus R.</div>
-          <div class="author-loc">Atlanta, GA • Refinanced 6 mos ago</div>
+          <div class="author-loc">Atlanta, GA &bull; Refinanced 6 mos ago</div>
         </div>
       </div>
     </div>
 
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <div class="savings-tag">$47,000 cash out</div>
-      <p class="testimonial-text">
-        "We needed to renovate our kitchen and didn't want to touch our savings. Went cash-out refi and pulled $47k from our equity at 6.4% — way better than the home equity loan the bank offered. Kitchen is done and our payment only went up $140/mo."
-      </p>
+      <div class="savings-tag"><i class="fa-solid fa-circle-check"></i> $47,000 cash out</div>
+      <p class="testimonial-text">"We needed to renovate our kitchen and didn't want to touch our savings. Went cash-out refi and pulled $47k from our equity at 6.4% — way better than the home equity loan the bank offered. Kitchen is done and our payment only went up $140/mo."</p>
       <div class="testimonial-author">
         <div class="author-avatar">SL</div>
         <div>
           <div class="author-name">Sandra &amp; Leo K.</div>
-          <div class="author-loc">Phoenix, AZ • Closed 4 mos ago</div>
+          <div class="author-loc">Phoenix, AZ &bull; Closed 4 mos ago</div>
         </div>
       </div>
     </div>
 
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <div class="savings-tag">7 years off loan term</div>
-      <p class="testimonial-text">
-        "We switched from a 30-year to a 20-year and our payment only went up $88/month. But we'll own the house FREE AND CLEAR 7 years earlier and save over $93,000 in interest. FiscalGenie showed me options I never even knew existed."
-      </p>
+      <div class="savings-tag"><i class="fa-solid fa-circle-check"></i> 7 years off loan term</div>
+      <p class="testimonial-text">"We switched from a 30-year to a 20-year and our payment only went up $88/month. But we'll own the house FREE AND CLEAR 7 years earlier and save over $93,000 in interest. FiscalGenie showed me options I never knew existed."</p>
       <div class="testimonial-author">
         <div class="author-avatar">DT</div>
         <div>
           <div class="author-name">Denise T.</div>
-          <div class="author-loc">Nashville, TN • Closed 2 mos ago</div>
+          <div class="author-loc">Nashville, TN &bull; Closed 2 mos ago</div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -955,47 +574,22 @@
   </div>
 
   <div class="faq-list">
-
     <div class="faq-item">
-      <button class="faq-q">
-        How do I know if now is the right time to refinance?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        The classic rule of thumb is to refinance if you can lower your rate by at least 0.75% — but the real answer depends on your situation. If your current rate is above 7%, you've built significant equity, or you need access to cash, today's market could make refinancing well worth it. The break-even point (how long until savings exceed closing costs) is typically 18–36 months. Our form shows you real offers in under 60 seconds — with no credit pull — so you can make an informed decision.
-      </div>
+      <button class="faq-q">How do I know if now is the right time to refinance? <span class="faq-icon">+</span></button>
+      <div class="faq-a">The classic rule of thumb is to refinance if you can lower your rate by at least 0.75% — but the real answer depends on your situation. If your current rate is above 7%, you've built significant equity, or you need access to cash, today's market could make refinancing well worth it. The break-even point (how long until savings exceed closing costs) is typically 18–36 months.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        How much do closing costs run on a refinance?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        Refinance closing costs typically range from 2%–5% of the loan amount, or roughly $6,000–$15,000 on a $300k loan. Many lenders offer "no-closing-cost" options where costs are rolled into a slightly higher rate. Some offer lender credits to offset closing costs entirely. When you compare offers through FiscalGenie, each lender will show you the full cost breakdown — including APR — so you can compare apples to apples and find the option that makes the most financial sense.
-      </div>
+      <button class="faq-q">How much do closing costs run on a refinance? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Refinance closing costs typically range from 2%–5% of the loan amount, or roughly $6,000–$15,000 on a $300k loan. Many lenders offer "no-closing-cost" options where costs are rolled into a slightly higher rate. When you compare offers through FiscalGenie, each lender shows you the full cost breakdown — including APR.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        How does a cash-out refinance work — and how much can I get?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        A cash-out refinance replaces your existing mortgage with a larger loan. The difference between your new loan and your current balance is paid to you in cash at closing. Most lenders will let you borrow up to 80% of your home's appraised value. For example: home worth $400k × 80% = $320k max loan. If you owe $200k, you could access up to $120k in cash. The funds are unrestricted — use them for renovations, debt consolidation, investments, education, or anything else.
-      </div>
+      <button class="faq-q">How does a cash-out refinance work — and how much can I get? <span class="faq-icon">+</span></button>
+      <div class="faq-a">A cash-out refinance replaces your existing mortgage with a larger loan. The difference between your new loan and your current balance is paid to you in cash at closing. Most lenders will let you borrow up to 80% of your home's appraised value. The funds are unrestricted — use them for renovations, debt consolidation, investments, education, or anything else.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Will checking my rate hurt my credit score?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        Checking your rate through FiscalGenie does <strong>not</strong> affect your credit score. We use a soft credit inquiry at the matching stage, which is invisible to other lenders and has zero impact on your score. Only when you formally apply with a specific lender will a hard inquiry occur — and even then, multiple mortgage inquiries within a 45-day window count as just one inquiry under FICO scoring rules. Don't let fear of a credit hit stop you from seeing what you qualify for.
-      </div>
+      <button class="faq-q">Will checking my rate hurt my credit score? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Checking your rate through FiscalGenie does <strong>not</strong> affect your credit score. We use a soft credit inquiry at the matching stage. Only when you formally apply with a specific lender will a hard inquiry occur — and even then, multiple mortgage inquiries within a 45-day window count as just one inquiry under FICO scoring rules.</div>
     </div>
-
   </div>
 </section>
 
@@ -1006,10 +600,9 @@
 <section class="cta-band">
   <h2>Every Day You Wait Is Money Left Behind</h2>
   <p>Rates can move fast. Lock in your savings before they do.</p>
-  <a href="#lead-form-card" class="btn-cta">See My Refinance Rates — Free &amp; Instant
-  </a>
-  <div style="margin-top:20px; color:rgba(255,255,255,0.45); font-size:13px;">
-    No SSN required • No obligation • Results in 60 seconds
+  <a href="#lead-form-card" class="btn-cta" style="font-size:17px; padding:16px 36px;">See My Refinance Rates — Free &amp; Instant <i class="fa-solid fa-arrow-right fa-sm"></i></a>
+  <div style="margin-top:20px; color:rgba(255,255,255,0.40); font-size:13px;">
+    No SSN required &bull; No obligation &bull; Results in 60 seconds
   </div>
 </section>
 
@@ -1021,91 +614,66 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="logo" style="margin-bottom:12px;display:inline-flex;">
-          <div class="logo-icon" style="width:28px;height:28px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#0A1628" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
-          <span class="logo-text" style="font-size:18px;margin-left:8px;">Fiscal<span>Genie</span></span>
+        <a href="/" class="logo">
+          <div class="logo-icon" style="width:32px;height:32px;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#1B3A6B" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size:20px;">Fiscal<span>Genie</span></span>
         </a>
         <p>FiscalGenie connects homeowners with lenders. We are not a lender, bank, or mortgage broker. Rates shown are for illustrative purposes only.</p>
       </div>
-
       <div class="footer-links">
         <div class="footer-col">
           <h4>Products</h4>
-          <a href="#">Purchase Loans</a>
+          <a href="index.html">All Loan Types</a>
           <a href="refinance.html">Refinance</a>
-          <a href="#">VA Loans</a>
-          <a href="#">Cash-Out Refi</a>
+          <a href="va-loan.html">VA Loans</a>
+          <a href="first-time-buyer.html">First-Time Buyer</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
-          <a href="#">About Us</a>
-          <a href="#">How It Works</a>
-          <a href="#">Lender Network</a>
-          <a href="#">Contact</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="terms.html#disclosures">NMLS Disclosure</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">NMLS Disclosure</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
           <a href="#">Do Not Sell My Info</a>
+          <a href="#">Accessibility</a>
         </div>
       </div>
     </div>
-
     <hr class="footer-divider">
-
     <p class="footer-legal">
-      <strong style="color:rgba(255,255,255,0.5);">TCPA Disclosure:</strong> By submitting your information, you provide your express written consent to FiscalGenie.com, its affiliates, agents, and up to four (4) mortgage lenders or brokers in our network to contact you at the telephone number(s) you provided, including wireless phone numbers, via live calls, prerecorded messages, and/or automatic telephone dialing systems ("ATDS"). You also consent to receive SMS/text messages. You are not required to provide this consent as a condition of purchasing any goods or services from us or our partner lenders. You may revoke your consent at any time by contacting us at privacy@fiscalgenie.com.
+      <strong style="color:rgba(255,255,255,0.5);">TCPA Disclosure:</strong> By submitting your information, you provide your express written consent to FiscalGenie.com, its affiliates, agents, and up to four (4) mortgage lenders or brokers in our network to contact you at the telephone number(s) you provided, including wireless phone numbers, via live calls, prerecorded messages, and/or automatic telephone dialing systems ("ATDS"). You are not required to provide this consent as a condition of purchasing any goods or services. You may revoke your consent at any time by contacting us at privacy@fiscalgenie.com.
     </p>
     <p class="footer-legal" style="margin-top:10px;">
-      FiscalGenie.com is not a government agency, is not affiliated with any lender, and does not make mortgage loans. Loan programs, rates, and terms are subject to credit approval, geographic restrictions, and may change without notice. Participating lenders are independently owned and operated. NMLS Consumer Access: www.nmlsconsumeraccess.org. Equal Housing Lender. © 2025 FiscalGenie.com. All rights reserved.
-    </p>
-    <p class="footer-legal" style="margin-top:8px;">
-      <strong style="color:rgba(255,255,255,0.4);">Savings Disclaimer:</strong> Monthly savings figures shown are for illustrative purposes based on a $300,000 loan at 7.5% vs. 6.25% on a 30-year fixed mortgage. Actual rates and savings will vary based on creditworthiness, loan-to-value ratio, loan amount, property type, and other factors. Past rates are not indicative of future rates.
+      FiscalGenie.com is not a government agency, is not affiliated with any lender, and does not make mortgage loans. Equal Housing Lender. © 2026 FiscalGenie.com. All rights reserved.
     </p>
   </div>
 </footer>
 
-
-<!-- ============================================================
-     SCRIPTS
-     ============================================================ -->
-<!-- Thank-you step inline fix (normalizes the ID vs class pattern) -->
 <script>
-  // Make the thank-you-step div work with form.js's showThankYou()
-  // The shared JS looks for id="thank-you-step" and toggles display
-  const tyEl = document.getElementById('thank-you-step');
-  if (tyEl) {
-    // Ensure it starts hidden
-    tyEl.style.display = 'none';
-    // Patch: override showThankYou to reveal this wrapper
-    const origShowTY = window._fgShowTY;
-  }
-</script>
-<script src="js/form.js"></script>
-
-<!-- Smooth scroll override for anchor links -->
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     });
   });
-
-  // Zip code validation (numbers only)
   const zipInput = document.getElementById('zip');
   if (zipInput) {
     zipInput.addEventListener('input', function() {
       this.value = this.value.replace(/\D/g, '').slice(0, 5);
-      this.classList.remove('error');
     });
   }
 </script>
-
+<script src="js/form.js"></script>
 </body>
 </html>
