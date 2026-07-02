@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Home Improvement Loans — Unlock Your Home's Equity | FiscalGenie</title>
+<meta name="description" content="Use your home's equity to fund a pool, kitchen remodel, room addition and more. Check your rate in 2 minutes — no impact to your credit score.">
+<link rel="canonical" href="https://fiscalgenie.com/homeimprovementloans">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2547; --navy2:#1a3a6b; --teal:#0E7490; --teal2:#0891b2;
+  --amber:#D97706; --amber2:#f59e0b; --green:#15803D;
+  --ink:#0F172A; --text3:#475569; --muted:#64748B;
+  --line:#E2E8F0; --bg:#F8FAFC; --white:#fff;
+  --ring:rgba(217,119,6,.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;}
+
+/* ═══ NAV ═══ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px clamp(16px,4vw,40px);
+  background:rgba(15,37,71,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  transition:background .3s;
+}
+.nav.solid{background:rgba(15,37,71,.96);}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.brand-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;}
+.brand-icon svg{fill:#fff;}
+.brand-name{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.3px;}
+.brand-name span{color:var(--amber2);}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.nav-phone{color:#cfe0f5;font-size:13.5px;font-weight:600;text-decoration:none;white-space:nowrap;}
+.nav-phone:hover{color:#fff;}
+.nav-cta{
+  background:linear-gradient(92deg,var(--amber),var(--amber2));color:#fff;
+  font-size:14px;font-weight:800;padding:11px 20px;border-radius:10px;border:none;cursor:pointer;
+  box-shadow:0 8px 20px rgba(217,119,6,.35);transition:transform .15s,box-shadow .15s;white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(217,119,6,.5);}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--navy);}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(15,37,71,.93) 0%,rgba(15,37,71,.78) 45%,rgba(15,37,71,.35) 100%);}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:120px clamp(18px,4vw,40px) 90px;width:100%;display:flex;align-items:center;gap:48px;flex-wrap:wrap;}
+.hero-copy{flex:1.2;min-width:300px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(14,116,144,.25);border:1px solid rgba(8,145,178,.5);color:#7dd8ef;font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:99px;margin-bottom:22px;}
+.hero-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#22d3ee;animation:hpulse 1.8s ease-in-out infinite;}
+@keyframes hpulse{0%,100%{box-shadow:0 0 0 0 rgba(34,211,238,.5);}50%{box-shadow:0 0 0 8px rgba(34,211,238,0);}}
+.hero-h1{font-size:clamp(34px,5.6vw,60px);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:#fff;margin-bottom:20px;}
+.hero-h1 .w{display:inline-block;opacity:0;transform:translateY(26px);animation:wordUp .65s cubic-bezier(.2,.9,.3,1) forwards;}
+@keyframes wordUp{to{opacity:1;transform:translateY(0);}}
+.hero-h1 .glow{background:linear-gradient(92deg,#fbbf24,#f59e0b,#fb923c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:#c9d6ea;line-height:1.6;max-width:520px;margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .55s forwards;}
+.hero-sub b{color:#fff;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease .75s forwards;}
+.btn-hero{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(92deg,var(--amber),var(--amber2));color:#fff;
+  font-size:17px;font-weight:800;padding:17px 30px;border-radius:13px;border:none;cursor:pointer;
+  box-shadow:0 14px 34px rgba(217,119,6,.45);transition:transform .16s,box-shadow .16s;
+}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(217,119,6,.6);}
+.btn-hero::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);animation:sheen 3.4s ease-in-out infinite;}
+@keyframes sheen{0%,55%{left:-80%;}100%{left:130%;}}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);color:#fff;
+  font-size:15.5px;font-weight:700;padding:17px 26px;border-radius:13px;border:1px solid rgba(255,255,255,.25);
+  cursor:pointer;text-decoration:none;transition:background .16s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.18);}
+.hero-trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;opacity:0;animation:fadeUp .7s ease .95s forwards;}
+.hero-trust span{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#b7c6de;}
+.hero-trust svg{flex-shrink:0;}
+
+/* Floating equity card */
+.hero-card{
+  flex:.8;min-width:290px;max-width:380px;
+  background:rgba(255,255,255,.97);border-radius:22px;padding:28px 26px;
+  box-shadow:0 40px 90px rgba(0,0,0,.45);
+  opacity:0;animation:cardIn .8s cubic-bezier(.2,.9,.3,1) .9s forwards;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(40px) rotate(1.5deg);}to{opacity:1;transform:translateY(0) rotate(0);}}
+.hc-label{font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.hc-amount{font-size:44px;font-weight:900;letter-spacing:-1.5px;color:var(--navy);margin-bottom:2px;}
+.hc-note{font-size:12.5px;color:var(--muted);margin-bottom:18px;}
+.hc-bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:8px;}
+.hc-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--teal),#22d3ee);transition:width 1.6s cubic-bezier(.3,.8,.3,1);}
+.hc-scale{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--muted);margin-bottom:18px;}
+.hc-rows{border-top:1px solid var(--line);padding-top:16px;display:grid;gap:11px;}
+.hc-row{display:flex;justify-content:space-between;font-size:13.5px;}
+.hc-row span{color:var(--text3);font-weight:500;}
+.hc-row b{color:var(--ink);font-weight:800;}
+.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;color:#9db1cf;animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,9px);}}
+
+/* ═══ TICKER ═══ */
+.ticker{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);padding:13px 0;overflow:hidden;position:relative;}
+.ticker-track{display:flex;gap:44px;width:max-content;animation:scrollX 38s linear infinite;}
+@keyframes scrollX{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.tick{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:#b7c6de;white-space:nowrap;}
+.tick b{color:#fbbf24;}
+.tick .tdot{width:6px;height:6px;border-radius:50%;background:var(--teal2);}
+
+/* ═══ SECTIONS ═══ */
+section{padding:clamp(60px,9vw,100px) clamp(18px,4vw,40px);}
+.wrap{max-width:1180px;margin:0 auto;}
+.sec-eyebrow{font-size:12px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;text-align:center;}
+.sec-h2{font-size:clamp(26px,4.4vw,40px);font-weight:900;letter-spacing:-1px;line-height:1.15;text-align:center;color:var(--navy);margin-bottom:14px;}
+.sec-sub{font-size:16px;color:var(--text3);text-align:center;max-width:620px;margin:0 auto 48px;line-height:1.6;}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.3,1);}
+.rv.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}.hero-h1 .w,.hero-sub,.hero-ctas,.hero-trust,.hero-card{opacity:1;animation:none;}}
+
+/* ═══ CALCULATOR ═══ */
+.calc{background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:0 30px 70px rgba(15,37,71,.10);padding:clamp(28px,5vw,52px);display:flex;gap:clamp(28px,5vw,60px);flex-wrap:wrap;align-items:center;}
+.calc-controls{flex:1.1;min-width:290px;}
+.calc-result{flex:.9;min-width:280px;text-align:center;background:linear-gradient(160deg,var(--navy),var(--navy2));border-radius:20px;padding:38px 30px;color:#fff;}
+.sl-group{margin-bottom:34px;}
+.sl-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;}
+.sl-label{font-size:14.5px;font-weight:700;color:var(--ink);}
+.sl-val{font-size:21px;font-weight:900;color:var(--teal);letter-spacing:-.5px;}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:99px;background:linear-gradient(90deg,var(--teal) var(--p,50%),var(--line) var(--p,50%));outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:4px solid var(--teal);box-shadow:0 4px 14px rgba(14,116,144,.4);transition:transform .12s;}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12);}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:4px solid var(--teal);box-shadow:0 4px 14px rgba(14,116,144,.4);}
+.cr-label{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#8fb8d8;margin-bottom:10px;}
+.cr-amount{font-size:clamp(40px,6vw,58px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:8px;background:linear-gradient(92deg,#fbbf24,#fb923c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.cr-note{font-size:12.5px;color:#9db1cf;margin-bottom:22px;line-height:1.5;}
+.btn-unlock{
+  position:relative;overflow:hidden;width:100%;
+  background:linear-gradient(92deg,var(--amber),var(--amber2));color:#fff;border:none;border-radius:13px;
+  font-size:16.5px;font-weight:800;padding:16px 20px;cursor:pointer;
+  box-shadow:0 12px 30px rgba(217,119,6,.4);transition:transform .15s;
+}
+.btn-unlock:hover{transform:translateY(-2px);}
+.btn-unlock::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);animation:sheen 3.6s ease-in-out infinite;}
+
+/* ═══ PROJECTS ═══ */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.proj{
+  position:relative;border-radius:20px;overflow:hidden;cursor:pointer;height:340px;
+  box-shadow:0 14px 36px rgba(15,37,71,.14);transition:transform .3s cubic-bezier(.2,.9,.3,1),box-shadow .3s;
+  background:var(--navy);
+}
+.proj:hover{transform:translateY(-8px);box-shadow:0 26px 54px rgba(15,37,71,.24);}
+.proj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.3,1);}
+.proj:hover img{transform:scale(1.08);}
+.proj::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,22,44,.92) 100%);}
+.proj-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px;}
+.proj-tag{display:inline-block;background:rgba(251,191,36,.95);color:#4a2b00;font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-bottom:10px;}
+.proj-name{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.4px;margin-bottom:5px;}
+.proj-meta{font-size:12.5px;color:#c2d1e8;font-weight:500;}
+.proj-arrow{position:absolute;top:18px;right:18px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .3s;}
+.proj:hover .proj-arrow{background:var(--amber);transform:rotate(45deg);}
+
+/* ═══ BEFORE/AFTER ═══ */
+.ba-wrap{max-width:900px;margin:0 auto;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(15,37,71,.2);position:relative;user-select:none;}
+.ba{position:relative;aspect-ratio:16/9;overflow:hidden;touch-action:none;}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+.ba-after{clip-path:inset(0 0 0 50%);}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:4px;background:#fff;z-index:5;cursor:ew-resize;box-shadow:0 0 20px rgba(0,0,0,.4);}
+.ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;gap:3px;box-shadow:0 8px 24px rgba(0,0,0,.35);}
+.ba-knob svg{flex-shrink:0;}
+.ba-tag{position:absolute;top:18px;z-index:4;background:rgba(10,22,44,.75);backdrop-filter:blur(6px);color:#fff;font-size:12px;font-weight:800;letter-spacing:1.4px;padding:8px 16px;border-radius:99px;}
+.ba-tag.before{left:18px;}
+.ba-tag.after{right:18px;background:rgba(217,119,6,.9);}
+
+/* ═══ STEPS ═══ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;}
+.step-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;position:relative;transition:transform .25s,box-shadow .25s;}
+.step-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(15,37,71,.12);}
+.step-num{
+  width:58px;height:58px;border-radius:50%;margin:0 auto 18px;
+  background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;
+  font-size:23px;font-weight:900;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(14,116,144,.35);
+}
+.step-h{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:9px;}
+.step-p{font-size:14px;color:var(--text3);line-height:1.6;}
+
+/* ═══ STATS ═══ */
+.stats{background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 100%);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center;}
+.stat-n{font-size:clamp(30px,4.4vw,46px);font-weight:900;letter-spacing:-1.5px;color:#fff;}
+.stat-n em{font-style:normal;color:#fbbf24;}
+.stat-l{font-size:13px;color:#9db1cf;font-weight:600;margin-top:6px;}
+
+/* ═══ TESTIMONIALS ═══ */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.quote{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 26px;transition:transform .25s,box-shadow .25s;}
+.quote:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(15,37,71,.12);}
+.stars{color:#f59e0b;font-size:15px;letter-spacing:2px;margin-bottom:13px;}
+.quote-t{font-size:14.5px;color:var(--text3);line-height:1.65;margin-bottom:18px;}
+.quote-who{display:flex;align-items:center;gap:12px;}
+.quote-av{width:42px;height:42px;border-radius:50%;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;}
+.quote-name{font-size:14px;font-weight:800;color:var(--ink);}
+.quote-loc{font-size:12px;color:var(--muted);}
+
+/* ═══ FAQ ═══ */
+.faq{max-width:760px;margin:0 auto;}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:15px;margin-bottom:13px;overflow:hidden;}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:19px 22px;background:none;border:none;font-size:15.5px;font-weight:700;color:var(--navy);cursor:pointer;text-align:left;}
+.faq-q .chev{transition:transform .3s;flex-shrink:0;}
+.faq-item.open .chev{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-a p{padding:0 22px 20px;font-size:14px;color:var(--text3);line-height:1.65;}
+
+/* ═══ FINAL CTA ═══ */
+.final{background:linear-gradient(140deg,var(--teal) 0%,var(--navy) 80%);text-align:center;border-radius:0;}
+.final .sec-h2,.final .sec-sub{color:#fff;}
+.final .sec-sub{color:#c9e6f0;}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--navy);color:#8fa4c4;padding:44px clamp(18px,4vw,40px) 90px;font-size:12px;line-height:1.8;}
+.foot-inner{max-width:1180px;margin:0 auto;}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:18px;}
+.foot-links a{color:#c2d1e8;text-decoration:none;font-weight:600;font-size:13px;}
+.foot-links a:hover{color:#fff;}
+
+/* ═══ MOBILE STICKY CTA ═══ */
+.mob-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.9,.3,1);
+}
+.mob-cta.show{transform:translateY(0);}
+.mob-cta button{width:100%;background:linear-gradient(92deg,var(--amber),var(--amber2));color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:800;padding:15px;cursor:pointer;box-shadow:0 8px 22px rgba(217,119,6,.4);}
+
+/* ═══ MODAL FORM ═══ */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;background:rgba(10,20,40,.66);backdrop-filter:blur(8px);padding:4vh 16px 6vh;}
+.modal.on{display:flex;}
+.form-card{
+  position:relative;background:#fff;border-radius:24px;width:100%;max-width:560px;
+  padding:30px 28px 28px;box-shadow:0 40px 100px rgba(0,0,0,.4);
+  animation:mIn .45s cubic-bezier(.2,1.1,.3,1);
+}
+@keyframes mIn{from{opacity:0;transform:translateY(44px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+.m-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);cursor:pointer;font-size:17px;color:var(--muted);display:flex;align-items:center;justify-content:center;}
+.m-close:hover{color:var(--ink);}
+.m-prog{height:7px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:8px;}
+.m-fill{height:100%;width:8%;border-radius:99px;background:linear-gradient(90deg,var(--teal),#22d3ee);transition:width .45s cubic-bezier(.4,0,.2,1);}
+.m-meta{display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:20px;}
+.fstep{display:none;animation:stepIn .4s cubic-bezier(.25,1,.4,1);}
+.fstep.on{display:block;}
+@keyframes stepIn{from{opacity:0;transform:translateX(38px);}to{opacity:1;transform:translateX(0);}}
+.f-eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.f-title{font-size:clamp(20px,3.4vw,25px);font-weight:900;letter-spacing:-.5px;color:var(--navy);margin-bottom:6px;line-height:1.25;}
+.f-sub{font-size:13.5px;color:var(--text3);margin-bottom:20px;line-height:1.5;}
+.f-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;}
+.f-opts.c3{grid-template-columns:repeat(3,1fr);}
+.f-opt{
+  position:relative;background:#fff;border:2px solid var(--line);border-radius:13px;
+  padding:16px 12px;font-size:14.5px;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;
+  transition:border-color .15s,transform .15s,box-shadow .15s;min-height:54px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  -webkit-tap-highlight-color:transparent;
+}
+.f-opt:hover{border-color:#f0c184;transform:translateY(-2px);}
+.f-opt:active{transform:scale(.97);}
+.f-opt.picked{border-color:var(--amber);box-shadow:0 0 0 4px var(--ring);}
+.f-opt .fo-ico{font-size:24px;line-height:1;}
+.f-input{
+  width:100%;background:#fff;border:2px solid var(--line);border-radius:13px;
+  padding:15px 16px;font-size:16px;font-weight:600;color:var(--ink);font-family:inherit;outline:none;
+  transition:border-color .15s,box-shadow .15s;
+}
+.f-input:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(14,116,144,.15);}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.f-err{color:#dc2626;font-size:12.5px;font-weight:700;min-height:17px;margin-top:8px;}
+.f-next{
+  position:relative;overflow:hidden;width:100%;margin-top:16px;
+  background:linear-gradient(92deg,var(--amber),var(--amber2));color:#fff;border:none;border-radius:13px;
+  font-size:16px;font-weight:800;padding:16px;cursor:pointer;box-shadow:0 10px 26px rgba(217,119,6,.35);
+  transition:transform .15s;
+}
+.f-next:hover{transform:translateY(-1px);}
+.f-next:disabled{opacity:.6;cursor:wait;}
+.f-back{display:block;margin:14px auto 0;background:none;border:none;color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;padding:6px 12px;}
+.f-back:hover{color:var(--ink);}
+.equity-pop{text-align:center;padding:12px 0 4px;}
+.ep-num{font-size:clamp(38px,7vw,54px);font-weight:900;letter-spacing:-2px;background:linear-gradient(92deg,var(--teal),#22d3ee);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.ep-note{font-size:13px;color:var(--text3);margin-top:6px;margin-bottom:4px;}
+.consent{display:flex;gap:10px;align-items:flex-start;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;margin-top:16px;cursor:pointer;}
+.consent.invalid{border-color:#dc2626;background:#fef2f2;}
+.consent input{margin-top:2px;width:17px;height:17px;flex-shrink:0;accent-color:var(--teal);cursor:pointer;}
+.consent span{font-size:10.5px;color:var(--muted);line-height:1.55;}
+.consent a{color:var(--teal);}
+.ty-wrap{text-align:center;padding:16px 0 8px;}
+.ty-ico{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;animation:pop .5s cubic-bezier(.3,1.6,.4,1);box-shadow:0 14px 34px rgba(34,197,94,.4);}
+@keyframes pop{from{transform:scale(0);}to{transform:scale(1);}}
+.confetti{position:fixed;top:-12px;z-index:300;width:9px;height:15px;border-radius:2px;pointer-events:none;animation:fall linear forwards;}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.1;}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .proj-grid{grid-template-columns:repeat(2,1fr);}
+  .steps{grid-template-columns:1fr;}
+  .quotes{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:34px 20px;}
+}
+@media(max-width:640px){
+  .nav-phone{display:none;}
+  .proj-grid{grid-template-columns:1fr;}
+  .proj{height:280px;}
+  .hero-inner{padding-top:104px;gap:34px;}
+  .hero-card{max-width:100%;}
+  .mob-cta{display:block;}
+  .f-opts.c3{grid-template-columns:repeat(2,1fr);}
+  .f-row{grid-template-columns:1fr;}
+  .form-card{padding:24px 18px 22px;border-radius:20px;}
+  .calc{padding:24px 18px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="brand" href="/">
+    <span class="brand-icon"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+    <span class="brand-name">Fiscal<span>Genie</span></span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-phone" href="tel:18005550199">(800) 555-0199</a>
+    <button class="nav-cta" onclick="openForm()">Check My Rate</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <video autoplay muted loop playsinline poster="videos/fg-hero-poster.jpg">
+    <source src="videos/fg-hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="dot"></span> HOME IMPROVEMENT LOANS · RATES UPDATED TODAY</div>
+      <h1 class="hero-h1" id="heroH1">
+        <span class="w" style="animation-delay:.05s">Your</span>
+        <span class="w" style="animation-delay:.13s">home&rsquo;s</span>
+        <span class="w" style="animation-delay:.21s">equity</span>
+        <span class="w" style="animation-delay:.29s">can</span>
+        <span class="w" style="animation-delay:.37s">build</span>
+        <span class="w glow" style="animation-delay:.47s">your</span>
+        <span class="w glow" style="animation-delay:.57s">dream.</span>
+      </h1>
+      <p class="hero-sub">Pool. Kitchen. New primary suite. Fund it all with a low-rate loan backed by the equity you&rsquo;ve <b>already earned</b> — without touching your first mortgage rate.</p>
+      <div class="hero-ctas">
+        <button class="btn-hero" onclick="openForm()">See What I Qualify For
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn-ghost" href="#calc">Estimate My Equity</a>
+      </div>
+      <div class="hero-trust">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l5 5L20 7" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg> No impact to credit score</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l5 5L20 7" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg> 2-minute form</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l5 5L20 7" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg> $0 to check your options</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-label">Homeowners like you unlock</div>
+      <div class="hc-amount" id="heroAmt">$0</div>
+      <div class="hc-note">average tappable equity per U.S. homeowner*</div>
+      <div class="hc-bar"><div class="hc-fill" id="heroBar"></div></div>
+      <div class="hc-scale"><span>$0</span><span>$400K</span></div>
+      <div class="hc-rows">
+        <div class="hc-row"><span>Typical kitchen remodel</span><b>$28–$80K</b></div>
+        <div class="hc-row"><span>Inground pool + patio</span><b>$55–$130K</b></div>
+        <div class="hc-row"><span>Room addition</span><b>$46–$115K</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track" id="tickerTrack"></div></div>
+
+<!-- CALCULATOR -->
+<section id="calc">
+  <div class="wrap">
+    <div class="sec-eyebrow rv">Equity Calculator</div>
+    <h2 class="sec-h2 rv">How much could you unlock?</h2>
+    <p class="sec-sub rv">Drag the sliders. Most lenders let you borrow up to 80% of your home&rsquo;s value, minus what you still owe.</p>
+    <div class="calc rv">
+      <div class="calc-controls">
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-label">Your home&rsquo;s value</span><span class="sl-val" id="hvVal">$450,000</span></div>
+          <input type="range" id="hv" min="100000" max="2000000" step="10000" value="450000">
+        </div>
+        <div class="sl-group" style="margin-bottom:6px;">
+          <div class="sl-head"><span class="sl-label">Remaining mortgage balance</span><span class="sl-val" id="mbVal">$210,000</span></div>
+          <input type="range" id="mb" min="0" max="1500000" step="10000" value="210000">
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="cr-label">You may be able to unlock</div>
+        <div class="cr-amount" id="eqOut">$150,000</div>
+        <div class="cr-note">Estimate at 80% combined loan-to-value.<br>Not an offer of credit — check your real number free.</div>
+        <button class="btn-unlock" onclick="openForm()">Unlock My Equity →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-eyebrow rv">What will you build?</div>
+    <h2 class="sec-h2 rv">Fund the project you&rsquo;ve been dreaming about</h2>
+    <p class="sec-sub rv">Tap a project to see your personalized loan options.</p>
+    <div class="proj-grid">
+      <div class="proj rv" onclick="openForm('Pool & Outdoor Living')">
+        <img src="https://images.unsplash.com/photo-1601760562234-9814eea6663a?q=80&w=900&auto=format&fit=crop" alt="Backyard pool" loading="lazy">
+        <span class="proj-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="proj-body"><span class="proj-tag">Most Popular</span><div class="proj-name">Pool &amp; Outdoor Living</div><div class="proj-meta">Avg. project $55K–$130K · resort life at home</div></div>
+      </div>
+      <div class="proj rv" onclick="openForm('Kitchen Remodel')">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=900&auto=format&fit=crop" alt="Modern kitchen" loading="lazy">
+        <span class="proj-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="proj-body"><span class="proj-tag">Best ROI</span><div class="proj-name">Kitchen Remodel</div><div class="proj-meta">Avg. project $28K–$80K · recoup up to 75% at resale</div></div>
+      </div>
+      <div class="proj rv" onclick="openForm('Room Addition')">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=900&auto=format&fit=crop" alt="Room addition" loading="lazy">
+        <span class="proj-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="proj-body"><span class="proj-tag">More Space</span><div class="proj-name">Room Addition</div><div class="proj-meta">Avg. project $46K–$115K · primary suite, office, gym</div></div>
+      </div>
+      <div class="proj rv" onclick="openForm('Bathroom Renovation')">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=900&auto=format&fit=crop" alt="Spa bathroom" loading="lazy">
+        <span class="proj-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="proj-body"><span class="proj-tag">Spa Vibes</span><div class="proj-name">Bathroom Renovation</div><div class="proj-meta">Avg. project $12K–$45K · everyday luxury</div></div>
+      </div>
+      <div class="proj rv" onclick="openForm('ADU / Guest House')">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=900&auto=format&fit=crop" alt="Guest house ADU" loading="lazy">
+        <span class="proj-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="proj-body"><span class="proj-tag">Income Potential</span><div class="proj-name">ADU / Guest House</div><div class="proj-meta">Avg. project $90K–$250K · rental income ready</div></div>
+      </div>
+      <div class="proj rv" onclick="openForm('Solar & Energy')">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=900&auto=format&fit=crop" alt="Solar panels" loading="lazy">
+        <span class="proj-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="proj-body"><span class="proj-tag">Cut Bills</span><div class="proj-name">Solar &amp; Energy</div><div class="proj-meta">Avg. project $18K–$40K · slash your power bill</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow rv">See the difference</div>
+    <h2 class="sec-h2 rv">One loan. A whole new home.</h2>
+    <p class="sec-sub rv">Drag the handle to reveal what your equity can do.</p>
+    <div class="ba-wrap rv">
+      <div class="ba" id="ba">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop" alt="Before renovation">
+        <img class="ba-after" id="baAfter" src="https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?q=80&w=1200&auto=format&fit=crop" alt="After renovation">
+        <span class="ba-tag before">BEFORE</span>
+        <span class="ba-tag after">AFTER</span>
+        <div class="ba-handle" id="baHandle">
+          <div class="ba-knob">
+            <svg width="9" height="14" viewBox="0 0 10 16" fill="none"><path d="M8 2L3 8l5 6" stroke="#0F2547" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="9" height="14" viewBox="0 0 10 16" fill="none"><path d="M2 2l5 6-5 6" stroke="#0F2547" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-eyebrow rv">Simple by design</div>
+    <h2 class="sec-h2 rv">From idea to funded in 3 steps</h2>
+    <p class="sec-sub rv">No branch visits. No stacks of paperwork up front. Just answers.</p>
+    <div class="steps">
+      <div class="step-card rv"><div class="step-num">1</div><div class="step-h">Tell us about your home</div><div class="step-p">60 seconds of taps — your project, your home&rsquo;s value, and what you still owe. No credit pull to see options.</div></div>
+      <div class="step-card rv" style="transition-delay:.12s"><div class="step-num">2</div><div class="step-h">Compare real offers</div><div class="step-p">A home-equity specialist matches you with lenders competing on rate — HELOC, home-equity loan, or cash-out options.</div></div>
+      <div class="step-card rv" style="transition-delay:.24s"><div class="step-num">3</div><div class="step-h">Fund your project</div><div class="step-p">Close in as little as 2–4 weeks and get building. Draw what you need, when you need it.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="rv"><div class="stat-n">$<em data-count="34">0</em>B+</div><div class="stat-l">U.S. tappable equity right now</div></div>
+      <div class="rv" style="transition-delay:.1s"><div class="stat-n"><em data-count="12400">0</em>+</div><div class="stat-l">homeowners helped</div></div>
+      <div class="rv" style="transition-delay:.2s"><div class="stat-n"><em data-count="24">0</em>hr</div><div class="stat-l">average time to first offer</div></div>
+      <div class="rv" style="transition-delay:.3s"><div class="stat-n">4.<em data-count="9">0</em>★</div><div class="stat-l">average homeowner rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow rv">Real projects, real people</div>
+    <h2 class="sec-h2 rv">They tapped their equity. Look what happened.</h2>
+    <p class="sec-sub rv"></p>
+    <div class="quotes">
+      <div class="quote rv"><div class="stars">★★★★★</div><p class="quote-t">"We&rsquo;d been quoted 11% for a personal loan for our pool. Going through our equity got us less than half that rate — the pool paid for its own financing difference."</p><div class="quote-who"><div class="quote-av" style="background:linear-gradient(135deg,#0E7490,#22d3ee)">MR</div><div><div class="quote-name">Marcus R.</div><div class="quote-loc">Tampa, FL · Pool + patio</div></div></div></div>
+      <div class="quote rv" style="transition-delay:.12s"><div class="stars">★★★★★</div><p class="quote-t">"The kitchen hadn&rsquo;t been touched since 1996. We unlocked $68K, kept our 3.1% first mortgage untouched, and the appraisal came back $90K higher after the remodel."</p><div class="quote-who"><div class="quote-av" style="background:linear-gradient(135deg,#D97706,#fbbf24)">JT</div><div><div class="quote-name">Jenna T.</div><div class="quote-loc">Austin, TX · Kitchen remodel</div></div></div></div>
+      <div class="quote rv" style="transition-delay:.24s"><div class="stars">★★★★★</div><p class="quote-t">"Filled the form out on my phone during lunch. Had a specialist call that afternoon and three offers within two days. The ADU rents for $1,850/mo now."</p><div class="quote-who"><div class="quote-av" style="background:linear-gradient(135deg,#15803D,#4ade80)">DP</div><div><div class="quote-name">Daniel P.</div><div class="quote-loc">San Diego, CA · ADU build</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-eyebrow rv">Good to know</div>
+    <h2 class="sec-h2 rv">Questions homeowners ask us</h2>
+    <p class="sec-sub rv"></p>
+    <div class="faq">
+      <div class="faq-item rv"><button class="faq-q" onclick="faq(this)">What&rsquo;s the difference between a HELOC and a home-equity loan?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0E7490" stroke-width="2.6" stroke-linecap="round"/></svg></button><div class="faq-a"><p>A home-equity loan gives you one lump sum at a fixed rate — great when you know your project&rsquo;s exact cost. A HELOC works like a credit line you draw from as the project progresses, so you only pay interest on what you actually use. Your specialist will price both for you.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q" onclick="faq(this)">Will checking my options hurt my credit score?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0E7490" stroke-width="2.6" stroke-linecap="round"/></svg></button><div class="faq-a"><p>No. Seeing what you may qualify for uses a soft inquiry, which never affects your score. A hard pull only happens later if you choose a lender and formally apply.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q" onclick="faq(this)">Do I lose my current low mortgage rate?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0E7490" stroke-width="2.6" stroke-linecap="round"/></svg></button><div class="faq-a"><p>Not with a HELOC or second-lien home-equity loan — those sit alongside your existing mortgage, leaving its rate untouched. Cash-out refinancing replaces your first mortgage, so it usually only makes sense in specific situations. You&rsquo;ll see both paths compared.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q" onclick="faq(this)">How much can I borrow?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0E7490" stroke-width="2.6" stroke-linecap="round"/></svg></button><div class="faq-a"><p>Most lenders allow up to 80% of your home&rsquo;s value minus your current mortgage balance (some programs go higher). Use the calculator above for a quick estimate, then verify your real number in the 2-minute form.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q" onclick="faq(this)">How fast can I get funded?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0E7490" stroke-width="2.6" stroke-linecap="round"/></svg></button><div class="faq-a"><p>First offers typically arrive within 24 hours of your request. From accepted offer to funding is commonly 2–4 weeks depending on appraisal and title work — many homeowners break ground within a month.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="sec-h2 rv">Your equity is already yours.<br>Put it to work.</h2>
+    <p class="sec-sub rv">2 minutes. No credit impact. See exactly what your home can fund.</p>
+    <div class="rv" style="text-align:center;">
+      <button class="btn-hero" onclick="openForm()">Check My Rate — Free
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-links">
+      <a href="/">Home</a><a href="refinance.html">Refinance</a><a href="va-loan.html">VA Loans</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a>
+    </div>
+    <p>© 2026 FiscalGenie · FiscalGenie is a marketing lead-generation service, not a lender, broker, or financial advisor. FiscalGenie does not make credit decisions or issue loans. By submitting your information you may be matched with third-party lenders and home-equity partners who can discuss loan products with you. Loan approval, rates, and terms are determined solely by the lender based on your creditworthiness and property. Equity estimates shown are illustrations only and not offers of credit. *Average tappable equity figure based on publicly reported U.S. mortgage-market data.</p>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mob-cta" id="mobCta"><button onclick="openForm()">See What I Qualify For →</button></div>
+
+<!-- ═══ LEAD FORM MODAL ═══ -->
+<div class="modal" id="modal">
+  <div class="form-card">
+    <button class="m-close" onclick="closeForm()" aria-label="Close">✕</button>
+    <div class="m-prog"><div class="m-fill" id="mFill"></div></div>
+    <div class="m-meta"><span id="mStep">Step 1 of 8</span><span id="mPct">5%</span></div>
+
+    <div class="fstep on" data-step="project">
+      <div class="f-eyebrow">Your project</div>
+      <div class="f-title">What are you looking to fund?</div>
+      <div class="f-sub">Pick the closest match — you can change it later.</div>
+      <div class="f-opts">
+        <button class="f-opt" onclick="fp(this,'project','Pool & Outdoor Living')"><span class="fo-ico">🏊</span>Pool &amp; Outdoor</button>
+        <button class="f-opt" onclick="fp(this,'project','Kitchen Remodel')"><span class="fo-ico">🍳</span>Kitchen Remodel</button>
+        <button class="f-opt" onclick="fp(this,'project','Room Addition')"><span class="fo-ico">🏗️</span>Room Addition</button>
+        <button class="f-opt" onclick="fp(this,'project','Bathroom Renovation')"><span class="fo-ico">🛁</span>Bathroom</button>
+        <button class="f-opt" onclick="fp(this,'project','ADU / Guest House')"><span class="fo-ico">🏡</span>ADU / Guest House</button>
+        <button class="f-opt" onclick="fp(this,'project','Other Improvement')"><span class="fo-ico">🔨</span>Something Else</button>
+      </div>
+    </div>
+
+    <div class="fstep" data-step="own">
+      <div class="f-eyebrow">Quick check</div>
+      <div class="f-title">Do you own your home?</div>
+      <div class="f-sub">Equity-based loans require home ownership.</div>
+      <div class="f-opts">
+        <button class="f-opt" onclick="fp(this,'owns','Yes')"><span class="fo-ico">🔑</span>Yes, I own</button>
+        <button class="f-opt" onclick="fp(this,'owns','No')"><span class="fo-ico">🏢</span>Not yet</button>
+      </div>
+    </div>
+
+    <div class="fstep" data-step="home_value">
+      <div class="f-eyebrow">Your home</div>
+      <div class="f-title">About how much is your home worth?</div>
+      <div class="f-sub">Your best guess is fine — we&rsquo;ll verify later.</div>
+      <div class="sl-group" style="margin-bottom:10px;">
+        <div class="sl-head"><span class="sl-label">Estimated value</span><span class="sl-val" id="fhvVal">$450,000</span></div>
+        <input type="range" id="fhv" min="100000" max="2000000" step="10000" value="450000">
+      </div>
+      <button class="f-next" onclick="fNext()">Continue →</button>
+      <button class="f-back" onclick="fBack()">← Back</button>
+    </div>
+
+    <div class="fstep" data-step="mortgage_balance">
+      <div class="f-eyebrow">Your home</div>
+      <div class="f-title">About how much do you still owe?</div>
+      <div class="f-sub">Total remaining across your mortgage(s).</div>
+      <div class="sl-group" style="margin-bottom:10px;">
+        <div class="sl-head"><span class="sl-label">Remaining balance</span><span class="sl-val" id="fmbVal">$210,000</span></div>
+        <input type="range" id="fmb" min="0" max="1500000" step="10000" value="210000">
+      </div>
+      <button class="f-next" onclick="fEquity()">See My Equity →</button>
+      <button class="f-back" onclick="fBack()">← Back</button>
+    </div>
+
+    <div class="fstep" data-step="equity">
+      <div class="equity-pop">
+        <div class="f-eyebrow" style="text-align:center;">Great news</div>
+        <div class="ep-num" id="epNum">$150,000</div>
+        <div class="ep-note">is the equity you may be able to unlock<br>based on an 80% combined loan-to-value.</div>
+      </div>
+      <button class="f-next" onclick="fNext()">Match Me With Lenders →</button>
+      <button class="f-back" onclick="fBack()">← Back</button>
+    </div>
+
+    <div class="fstep" data-step="credit">
+      <div class="f-eyebrow">Almost there</div>
+      <div class="f-title">How&rsquo;s your credit?</div>
+      <div class="f-sub">A rough guess is fine — this won&rsquo;t affect your score.</div>
+      <div class="f-opts">
+        <button class="f-opt" onclick="fp(this,'credit','Excellent (720+)')">Excellent<br><small style="font-weight:600;color:#64748B">720+</small></button>
+        <button class="f-opt" onclick="fp(this,'credit','Good (660-719)')">Good<br><small style="font-weight:600;color:#64748B">660–719</small></button>
+        <button class="f-opt" onclick="fp(this,'credit','Fair (600-659)')">Fair<br><small style="font-weight:600;color:#64748B">600–659</small></button>
+        <button class="f-opt" onclick="fp(this,'credit','Below 600')">Needs Work<br><small style="font-weight:600;color:#64748B">below 600</small></button>
+      </div>
+      <button class="f-back" onclick="fBack()">← Back</button>
+    </div>
+
+    <div class="fstep" data-step="timeline">
+      <div class="f-eyebrow">Timing</div>
+      <div class="f-title">When do you want to start your project?</div>
+      <div class="f-opts c3">
+        <button class="f-opt" onclick="fp(this,'timeline','ASAP')">🚀 ASAP</button>
+        <button class="f-opt" onclick="fp(this,'timeline','1-3 months')">📆 1–3 months</button>
+        <button class="f-opt" onclick="fp(this,'timeline','3+ months')">🗓 3+ months</button>
+      </div>
+      <button class="f-back" onclick="fBack()">← Back</button>
+    </div>
+
+    <div class="fstep" data-step="zip">
+      <div class="f-eyebrow">Location</div>
+      <div class="f-title">What&rsquo;s your property ZIP code?</div>
+      <div class="f-sub">Lending programs vary by state and county.</div>
+      <input class="f-input" id="fzip" inputmode="numeric" maxlength="5" placeholder="ZIP code" style="text-align:center;font-size:19px;font-weight:800;letter-spacing:2px;" oninput="this.value=this.value.replace(/\D/g,'')">
+      <div class="f-err" id="ezip"></div>
+      <button class="f-next" onclick="fZip()">Continue →</button>
+      <button class="f-back" onclick="fBack()">← Back</button>
+    </div>
+
+    <div class="fstep" data-step="contact">
+      <div class="f-eyebrow">Last step</div>
+      <div class="f-title">Where should we send your offers?</div>
+      <div class="f-sub">A licensed home-equity specialist will prepare your options.</div>
+      <div class="f-row" style="margin-bottom:12px;">
+        <input class="f-input" id="ffn" placeholder="First name" autocomplete="given-name">
+        <input class="f-input" id="fln" placeholder="Last name" autocomplete="family-name">
+      </div>
+      <input class="f-input" id="fem" type="email" placeholder="Email address" autocomplete="email" style="margin-bottom:12px;">
+      <input class="f-input" id="fph" type="tel" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel" maxlength="14">
+      <label class="consent" id="fgConsent">
+        <input type="checkbox" id="fgCheck">
+        <span>By checking this box and clicking "Get My Offers," I provide my express written consent for FiscalGenie and its <a href="privacy.html" target="_blank">marketing partners</a>, including participating mortgage lenders and home-equity providers, to contact me at the phone number and email provided — including via automated telephone dialing systems, artificial or pre-recorded voice, and SMS/MMS text messages, even if my number is on a Do Not Call registry — about home-equity and home-improvement financing. Consent is not a condition of purchase. Message &amp; data rates may apply; reply STOP to opt out. I am 18+ and agree to the <a href="terms.html" target="_blank">Terms</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.</span>
+      </label>
+      <div class="f-err" id="econtact"></div>
+      <button class="f-next" id="fSubmit" onclick="fSend()">Get My Offers →</button>
+      <button class="f-back" onclick="fBack()">← Back</button>
+    </div>
+
+    <div class="fstep" data-step="notowner">
+      <div class="ty-wrap">
+        <div class="f-title">Home-equity loans need home ownership</div>
+        <div class="f-sub" style="margin-top:8px;">No worries — when you&rsquo;re ready to buy, FiscalGenie can help you find a great mortgage rate too.</div>
+        <a class="f-next" href="/" style="display:block;text-decoration:none;text-align:center;">Explore Purchase Loans →</a>
+      </div>
+    </div>
+
+    <div class="fstep" data-step="thanks">
+      <div class="ty-wrap">
+        <div class="ty-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M5 13l5 5L20 7" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="f-title">You&rsquo;re all set! 🎉</div>
+        <div class="f-sub" style="margin-top:8px;">A home-equity specialist is reviewing your details now. Expect your first options within <b>24 hours</b> — keep an eye on your phone and inbox.</div>
+        <a class="f-next" href="tel:18005550199" style="display:block;text-decoration:none;text-align:center;">Or call now: (800) 555-0199</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const LEAD_ENDPOINT = 'https://fiscalgenie-lead.tom-b2e.workers.dev/lead';
+const F = {};
+const fmt = n => '$' + Math.round(n).toLocaleString();
+const eq80 = (hv, mb) => Math.max(Math.round((hv * 0.8 - mb) / 1000) * 1000, 0);
+
+/* ── Nav solid on scroll + mobile CTA ── */
+const nav = document.getElementById('nav');
+const mobCta = document.getElementById('mobCta');
+addEventListener('scroll', () => {
+  nav.classList.toggle('solid', scrollY > 40);
+  mobCta.classList.toggle('show', scrollY > 500 && !document.getElementById('modal').classList.contains('on'));
+}, { passive: true });
+
+/* ── Hero equity count-up ── */
+(function(){
+  const el = document.getElementById('heroAmt'), bar = document.getElementById('heroBar');
+  const target = 313000; let cur = 0;
+  setTimeout(() => {
+    bar.style.width = '78%';
+    const step = () => { cur += (target - cur) * 0.06 + 500; if (cur >= target) { el.textContent = fmt(target); return; } el.textContent = fmt(cur); requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }, 1100);
+})();
+
+/* ── Ticker ── */
+(function(){
+  const items = [
+    ['Sarah M. · Austin TX', '$84,000', 'kitchen remodel'],
+    ['David R. · Tampa FL', '$117,000', 'pool + outdoor kitchen'],
+    ['Priya K. · Phoenix AZ', '$62,000', 'primary bath + closet'],
+    ['James L. · Charlotte NC', '$95,000', 'room addition'],
+    ['Elena V. · San Diego CA', '$210,000', 'ADU build'],
+    ['Mike T. · Denver CO', '$38,000', 'solar + roof'],
+    ['Ashley B. · Nashville TN', '$71,000', 'whole-home refresh'],
+  ];
+  const half = items.map(i => '<span class="tick"><span class="tdot"></span>' + i[0] + ' unlocked <b>' + i[1] + '</b> for a ' + i[2] + '</span>').join('');
+  document.getElementById('tickerTrack').innerHTML = half + half;
+})();
+
+/* ── Calculator ── */
+function slider(el, out, fn){
+  const paint = () => {
+    el.style.setProperty('--p', ((el.value - el.min) / (el.max - el.min) * 100) + '%');
+    out.textContent = fmt(+el.value);
+    if (fn) fn();
+  };
+  el.addEventListener('input', paint); paint();
+}
+const hv = document.getElementById('hv'), mb = document.getElementById('mb'), eqOut = document.getElementById('eqOut');
+const calcOut = () => { eqOut.textContent = fmt(eq80(+hv.value, +mb.value)); };
+slider(hv, document.getElementById('hvVal'), calcOut);
+slider(mb, document.getElementById('mbVal'), calcOut);
+
+/* ── Scroll reveal ── */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .14 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ── Stat count-ups ── */
+const sio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; sio.unobserve(e.target);
+  const el = e.target, t = +el.dataset.count; let c = 0;
+  const step = () => { c += Math.max((t - c) * 0.08, t / 90); if (c >= t) { el.textContent = t.toLocaleString(); return; } el.textContent = Math.round(c).toLocaleString(); requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}), { threshold: .5 });
+document.querySelectorAll('[data-count]').forEach(el => sio.observe(el));
+
+/* ── Before/After ── */
+(function(){
+  const ba = document.getElementById('ba'), after = document.getElementById('baAfter'), handle = document.getElementById('baHandle');
+  let drag = false;
+  const move = x => {
+    const r = ba.getBoundingClientRect();
+    let p = ((x - r.left) / r.width) * 100; p = Math.max(4, Math.min(96, p));
+    after.style.clipPath = 'inset(0 0 0 ' + p + '%)';
+    handle.style.left = p + '%';
+  };
+  ba.addEventListener('pointerdown', e => { drag = true; ba.setPointerCapture(e.pointerId); move(e.clientX); });
+  ba.addEventListener('pointermove', e => drag && move(e.clientX));
+  ba.addEventListener('pointerup', () => drag = false);
+  ba.addEventListener('pointercancel', () => drag = false);
+})();
+
+/* ── FAQ ── */
+function faq(btn){
+  const item = btn.parentElement, a = item.querySelector('.faq-a'), open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = 0; });
+  if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+}
+
+/* ═══ FORM ═══ */
+const ORDER = ['project','own','home_value','mortgage_balance','equity','credit','timeline','zip','contact'];
+let fi = 0;
+const modal = document.getElementById('modal');
+const stepsEls = () => [...document.querySelectorAll('.fstep')];
+function showStep(id){
+  stepsEls().forEach(s => s.classList.toggle('on', s.dataset.step === id));
+  const qi = ORDER.indexOf(id);
+  if (qi >= 0) {
+    fi = qi;
+    const pct = Math.max(Math.round((qi / ORDER.length) * 100), 5);
+    document.getElementById('mFill').style.width = pct + '%';
+    document.getElementById('mStep').textContent = 'Step ' + (qi + 1) + ' of ' + ORDER.length;
+    document.getElementById('mPct').textContent = pct + '%';
+  } else {
+    document.getElementById('mFill').style.width = '100%';
+    document.getElementById('mStep').textContent = id === 'thanks' ? 'Done' : '';
+    document.getElementById('mPct').textContent = '100%';
+  }
+  modal.querySelector('.form-card').scrollIntoView({ block: 'nearest' });
+}
+window.openForm = function(project){
+  modal.classList.add('on');
+  document.body.style.overflow = 'hidden';
+  mobCta.classList.remove('show');
+  if (project) {
+    F.project = project;
+    // pre-highlight matching tile
+    document.querySelectorAll('[data-step="project"] .f-opt').forEach(b => b.classList.toggle('picked', b.textContent.trim().startsWith(project.split(' ')[0])));
+    showStep('own');
+  } else showStep(ORDER[Math.min(fi, ORDER.length - 1)]);
+  trackless('fg_open', project || '');
+};
+window.closeForm = function(){ modal.classList.remove('on'); document.body.style.overflow = ''; };
+modal.addEventListener('click', e => { if (e.target === modal) closeForm(); });
+
+window.fp = function(btn, field, value){
+  btn.parentElement.querySelectorAll('.f-opt').forEach(b => b.classList.remove('picked'));
+  btn.classList.add('picked');
+  F[field] = value;
+  if (field === 'owns' && value === 'No') { setTimeout(() => showStep('notowner'), 240); return; }
+  setTimeout(() => fNext(), 240);
+};
+window.fNext = function(){ if (fi < ORDER.length - 1) showStep(ORDER[fi + 1]); };
+window.fBack = function(){ if (fi > 0) showStep(ORDER[fi - 1]); };
+
+/* form sliders */
+const fhv = document.getElementById('fhv'), fmb = document.getElementById('fmb');
+slider(fhv, document.getElementById('fhvVal'));
+slider(fmb, document.getElementById('fmbVal'));
+
+window.fEquity = function(){
+  F.home_value = fmt(+fhv.value);
+  F.mortgage_balance = fmt(+fmb.value);
+  const eq = eq80(+fhv.value, +fmb.value);
+  F.equity_est = fmt(eq);
+  const el = document.getElementById('epNum');
+  showStep('equity');
+  let c = 0;
+  const step = () => { c += (eq - c) * 0.08 + 800; if (c >= eq) { el.textContent = fmt(eq); return; } el.textContent = fmt(c); requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+};
+window.fZip = function(){
+  const z = document.getElementById('fzip').value;
+  if (!/^\d{5}$/.test(z)) { document.getElementById('ezip').textContent = 'Please enter your 5-digit ZIP.'; return; }
+  document.getElementById('ezip').textContent = '';
+  F.zip = z; fNext();
+};
+
+/* phone mask */
+document.getElementById('fph').addEventListener('input', e => {
+  let v = e.target.value.replace(/\D/g, '').slice(0, 10), o = '';
+  if (v.length > 0) o = '(' + v.slice(0, 3);
+  if (v.length >= 4) o += ') ' + v.slice(3, 6);
+  if (v.length >= 7) o += '-' + v.slice(6);
+  e.target.value = o;
+});
+
+window.fSend = function(){
+  const fn = document.getElementById('ffn').value.trim();
+  const ln = document.getElementById('fln').value.trim();
+  const em = document.getElementById('fem').value.trim().toLowerCase();
+  const ph = document.getElementById('fph').value.replace(/\D/g, '');
+  const ck = document.getElementById('fgCheck');
+  const err = document.getElementById('econtact');
+  const consentEl = document.getElementById('fgConsent');
+  if (!fn || !ln) { err.textContent = 'Please enter your first and last name.'; return; }
+  if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)) { err.textContent = 'Please enter a valid email address.'; return; }
+  if (ph.length !== 10 || /^(\d)\1{9}$/.test(ph)) { err.textContent = 'Please enter a valid 10-digit phone number.'; return; }
+  if (!ck.checked) { consentEl.classList.add('invalid'); err.textContent = 'Please check the consent box to continue.'; return; }
+  consentEl.classList.remove('invalid'); err.textContent = '';
+  const btn = document.getElementById('fSubmit');
+  btn.disabled = true; btn.textContent = 'Matching you with lenders…';
+  const payload = {
+    _page: 'homeimprovementloans',
+    project: F.project || '', home_value: F.home_value || fmt(+fhv.value),
+    mortgage_balance: F.mortgage_balance || fmt(+fmb.value), equity_est: F.equity_est || '',
+    credit: F.credit || '', timeline: F.timeline || '', zip: F.zip || '',
+    firstName: fn, lastName: ln, email: em, phone: ph,
+    src: location.href,
+    tcpaConsent: { accepted: true, timestamp: new Date().toISOString(), text: consentEl.querySelector('span').textContent.replace(/\s+/g, ' ').trim() },
+  };
+  fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+    .then(r => r.json())
+    .then(d => {
+      if (!d.ok) throw new Error(d.error || 'submit_failed');
+      showStep('thanks'); confetti();
+    })
+    .catch(() => {
+      try { localStorage.setItem('fg_lead_' + Date.now(), JSON.stringify(payload)); } catch(e) {}
+      showStep('thanks'); confetti();
+    })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Get My Offers →'; });
+};
+
+/* confetti */
+function confetti(){
+  const colors = ['#D97706', '#fbbf24', '#0E7490', '#22d3ee', '#22c55e', '#0F2547'];
+  for (let i = 0; i < 40; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[i % colors.length];
+    c.style.animationDuration = (Math.random() * 1.4 + 1.5) + 's';
+    c.style.animationDelay = (Math.random() * .5) + 's';
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 3400);
+  }
+}
+function trackless(){/* analytics hook */}
+
+/* Esc closes modal */
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeForm(); });
+</script>
+</body>
+</html>
